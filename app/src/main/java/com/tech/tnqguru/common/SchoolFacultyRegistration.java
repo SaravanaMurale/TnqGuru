@@ -19,7 +19,5 @@ public class SchoolFacultyRegistration extends AppCompatActivity {
     private void doRegisterSchoolFaculty() {
 
 
-
-
     }
 }
