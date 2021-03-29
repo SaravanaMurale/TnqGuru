@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TnqGuru</string>
+    <string name="eMail">Email</string>
+    <string name="login">Logn</string>
+    <string name="pls_login">Please Login To Join Conference</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="tnq_guru">Tnq Guru</string>
+    <string name="sign_in_your_account">Sign in your account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have">Dont have an account?</string>
+    <string name="signup">Signup?</string>
+
+    <string-array name="courses">
+        <item>Select Courses</item>
+        <item>Share Market For Begineers In Tamil-₹101/-</item>
+        <item>Share Market For Begineers In English-₹101/-</item>
+
+    </string-array>
+
+
+</resources>

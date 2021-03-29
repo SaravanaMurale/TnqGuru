@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    tools:context=".common.SignupActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/block"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/twenty_dp"
+        android:background="@drawable/background_shadow">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:drawableRight="@drawable/user"
+            android:hint="UserName"
+            android:inputType="text" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signUpUserName"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:drawableRight="@drawable/email"
+            android:hint="Mobile Number"
+            android:inputType="phone" />
+
+        <Spinner
+            android:id="@+id/signUpCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signUpMobile"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_border"
+            android:padding="@dimen/ten_dp"
+            android:entries="@array/courses"
+            />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signUpCourse"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:drawableRight="@drawable/email"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signUpEmail"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:drawableRight="@drawable/password"
+            android:hint="Password" />
+
+
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:layout_below="@+id/signUpPassword"
+            android:background="@drawable/login_btn"
+            android:text="Submit" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

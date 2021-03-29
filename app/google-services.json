@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "823275637514",
+    "firebase_url": "https://tnqguru-ab65a.firebaseio.com",
+    "project_id": "tnqguru-ab65a",
+    "storage_bucket": "tnqguru-ab65a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823275637514:android:dfa7e8bde5e2a1df95c8f3",
+        "android_client_info": {
+          "package_name": "com.tech.tnqguru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823275637514-kbbclggbqnf3j08e5bl8clgotn69gem6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tech.tnqguru",
+            "certificate_hash": "c6b7085834d6191db55c72e2e81278ec29ec96ea"
+          }
+        },
+        {
+          "client_id": "823275637514-rkikqofed5stu0q8ng4m8cqeq4did3hi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA8bUooRUF5nYoZoezs-H_HCiQiY_xezk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823275637514-rkikqofed5stu0q8ng4m8cqeq4did3hi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
