@@ -131,8 +131,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
     }
-
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
