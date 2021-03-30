@@ -21,8 +21,6 @@ public class SelectFacultyFragment extends Fragment {
 
     private Button btn_fac_selection;
     private RadioGroup radioGroup;
-    RadioButton facSeleBtn;
-
     String facSelected=null;
 
     FragmentManager fragmentManager;
@@ -51,27 +49,12 @@ public class SelectFacultyFragment extends Fragment {
                         facSelected="SCHOOL";
                         System.out.println("RadioSchoolCheckd");
 
-                        /*Fragment schoolFacRegFragment=new SchoolFacRegFragment();
-                        FragmentManager fragmentManager=getFragmentManager();
-                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
-                        fragmentTransaction.addToBackStack("fragmentB");
-                        fragmentTransaction.commit();*/
-
                         break;
 
                     case R.id.radioCollege:
 
                         facSelected="COLLEGE";
                         System.out.println("RadioCollegeCheckd");
-
-                        /*Fragment collegeFacRegFragment=new CollegeFacRegFragment();
-                        FragmentManager fragmentManager1=getFragmentManager();
-                        FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
-                        fragmentTransaction1.replace(R.id.fragment_register_container,collegeFacRegFragment);
-                        fragmentTransaction1.addToBackStack("fragmentB");
-                        fragmentTransaction1.commit();*/
-
                         break;
 
                 }
@@ -106,47 +89,4 @@ public class SelectFacultyFragment extends Fragment {
 
     }
 
-    public void checkBtn(View view){
-
-        int selectedId = radioGroup.getCheckedRadioButtonId();
-        facSeleBtn = (RadioButton)view.findViewById(selectedId);
-        if(selectedId==-1){
-            Toast.makeText(getActivity(),"Nothing selected", Toast.LENGTH_SHORT).show();
-        }
-        else{
-
-            System.out.println("RadioBtnId"+selectedId);
-            String facStatus= facSeleBtn.getText().toString();
-
-            System.out.println("IDDDD"+facSeleBtn.getId());
-            System.out.println("TEDDDT"+facSeleBtn.getText().toString());
-
-            Toast.makeText(getActivity(),facSeleBtn.getText().toString(), Toast.LENGTH_SHORT).show();
-
-                    if(facStatus.equals("School")){
-                        Toast.makeText(getActivity(),"School Selected", Toast.LENGTH_SHORT).show();
-
-                        Fragment schoolFacRegFragment=new SchoolFacRegFragment();
-                        FragmentManager fragmentManager=getFragmentManager();
-                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
-                        //fragmentTransaction.addToBackStack("fragmentB");
-                        fragmentTransaction.commit();
-
-
-                    }else {
-                        Toast.makeText(getActivity(),"College Selected", Toast.LENGTH_SHORT).show();
-
-                        Fragment collegeFacRegFragment=new CollegeFacRegFragment();
-                        FragmentManager fragmentManager=getFragmentManager();
-                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_register_container,collegeFacRegFragment);
-                        //fragmentTransaction.addToBackStack("fragmentB");
-                        fragmentTransaction.commit();
-
-                    }
-
-        }
-
-    }
 }
