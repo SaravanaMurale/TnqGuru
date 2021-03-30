@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.tech.tnqguru.MainActivity;
 import com.tech.tnqguru.R;
@@ -22,6 +24,8 @@ public class SelectFacultyFragment extends Fragment {
     private RadioGroup radioGroup;
     RadioButton facSeleBtn;
 
+    String facSelected=null;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,31 +34,120 @@ public class SelectFacultyFragment extends Fragment {
         btn_fac_selection = (Button) view.findViewById(R.id.btn_fac_selection);
         radioGroup=(RadioGroup)view.findViewById(R.id.fac_sele_radioGroup);
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+
+                switch (i){
+
+                    case  R.id.radioSchool:
+
+                        facSelected="SCHOOL";
+                        System.out.println("RadioSchoolCheckd");
+
+                        /*Fragment schoolFacRegFragment=new SchoolFacRegFragment();
+                        FragmentManager fragmentManager=getFragmentManager();
+                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
+                        fragmentTransaction.addToBackStack("fragmentB");
+                        fragmentTransaction.commit();*/
+
+                        break;
+
+                    case R.id.radioCollege:
+
+                        facSelected="COLLEGE";
+                        System.out.println("RadioCollegeCheckd");
+
+                        /*Fragment collegeFacRegFragment=new CollegeFacRegFragment();
+                        FragmentManager fragmentManager1=getFragmentManager();
+                        FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
+                        fragmentTransaction1.replace(R.id.fragment_register_container,collegeFacRegFragment);
+                        fragmentTransaction1.addToBackStack("fragmentB");
+                        fragmentTransaction1.commit();*/
+
+                        break;
+
+                }
+
+            }
+        });
+
         btn_fac_selection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                facSeleBtn = (RadioButton)view.findViewById(selectedId);
-                if(selectedId==-1){
-                    Toast.makeText(getActivity(),"Nothing selected", Toast.LENGTH_SHORT).show();
+
+
+                if(facSelected.equals("SCHOOL")){
+                    Fragment schoolFacRegFragment=new SchoolFacRegFragment();
+                    FragmentManager fragmentManager=getFragmentManager();
+                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
+                    fragmentTransaction.addToBackStack("fragmentB");
+                    fragmentTransaction.commit();
+
+
+                }else if(facSelected.equals("COLLEGE")){
+                    Fragment collegeFacRegFragment=new CollegeFacRegFragment();
+                    FragmentManager fragmentManager1=getFragmentManager();
+                    FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
+                    fragmentTransaction1.replace(R.id.fragment_register_container,collegeFacRegFragment);
+                    fragmentTransaction1.addToBackStack("fragmentB");
+                    fragmentTransaction1.commit();
+                }else if(facSelected==null){
+                    System.out.println("Please Select");
                 }
-                else{
 
-                    String facStatus= facSeleBtn.getText().toString();
 
-                    Toast.makeText(getActivity(),facStatus, Toast.LENGTH_SHORT).show();
-
-                    if(facStatus.equals("School")){
-                        Toast.makeText(getActivity(),"School Selected", Toast.LENGTH_SHORT).show();
-                    }else {
-                        Toast.makeText(getActivity(),"College Selected", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
             }
         });
 
         return view;
+
+    }
+
+    public void checkBtn(View view){
+
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        facSeleBtn = (RadioButton)view.findViewById(selectedId);
+        if(selectedId==-1){
+            Toast.makeText(getActivity(),"Nothing selected", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+            System.out.println("RadioBtnId"+selectedId);
+            String facStatus= facSeleBtn.getText().toString();
+
+            System.out.println("IDDDD"+facSeleBtn.getId());
+            System.out.println("TEDDDT"+facSeleBtn.getText().toString());
+
+            Toast.makeText(getActivity(),facSeleBtn.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                    if(facStatus.equals("School")){
+                        Toast.makeText(getActivity(),"School Selected", Toast.LENGTH_SHORT).show();
+
+                        Fragment schoolFacRegFragment=new SchoolFacRegFragment();
+                        FragmentManager fragmentManager=getFragmentManager();
+                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
+                        //fragmentTransaction.addToBackStack("fragmentB");
+                        fragmentTransaction.commit();
+
+
+                    }else {
+                        Toast.makeText(getActivity(),"College Selected", Toast.LENGTH_SHORT).show();
+
+                        Fragment collegeFacRegFragment=new CollegeFacRegFragment();
+                        FragmentManager fragmentManager=getFragmentManager();
+                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_register_container,collegeFacRegFragment);
+                        //fragmentTransaction.addToBackStack("fragmentB");
+                        fragmentTransaction.commit();
+
+                    }
+
+        }
 
     }
 }

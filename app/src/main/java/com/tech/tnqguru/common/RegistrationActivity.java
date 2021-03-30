@@ -18,6 +18,12 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        SelectFacultyFragment selectFacultyFragment=new SelectFacultyFragment();
         fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_register_container, selectFacultyFragment);
+        fragmentTransaction.commit();
     }
+
+
 }

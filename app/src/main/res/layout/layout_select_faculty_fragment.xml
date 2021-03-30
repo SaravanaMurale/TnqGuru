@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/radioMale"
+            android:id="@+id/radioSchool"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -21,13 +21,12 @@
             android:textSize="20dp" />
 
         <RadioButton
-            android:id="@+id/radioFemale"
+            android:id="@+id/radioCollege"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:checked="false"
             android:text="College"
-
             android:textSize="20dp" />
     </RadioGroup>
 
