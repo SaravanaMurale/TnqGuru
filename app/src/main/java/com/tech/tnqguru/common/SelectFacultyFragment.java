@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.tech.tnqguru.MainActivity;
 import com.tech.tnqguru.R;
 
 public class SelectFacultyFragment extends Fragment {
@@ -26,6 +25,9 @@ public class SelectFacultyFragment extends Fragment {
 
     String facSelected=null;
 
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,6 +35,9 @@ public class SelectFacultyFragment extends Fragment {
 
         btn_fac_selection = (Button) view.findViewById(R.id.btn_fac_selection);
         radioGroup=(RadioGroup)view.findViewById(R.id.fac_sele_radioGroup);
+
+        fragmentManager=getFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -78,27 +83,21 @@ public class SelectFacultyFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                Fragment fragment=null;
 
                 if(facSelected.equals("SCHOOL")){
-                    Fragment schoolFacRegFragment=new SchoolFacRegFragment();
-                    FragmentManager fragmentManager=getFragmentManager();
-                    FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment_register_container,schoolFacRegFragment);
-                    fragmentTransaction.addToBackStack("fragmentB");
-                    fragmentTransaction.commit();
-
+                    fragment=new SchoolFacRegFragment();
 
                 }else if(facSelected.equals("COLLEGE")){
-                    Fragment collegeFacRegFragment=new CollegeFacRegFragment();
-                    FragmentManager fragmentManager1=getFragmentManager();
-                    FragmentTransaction fragmentTransaction1=fragmentManager1.beginTransaction();
-                    fragmentTransaction1.replace(R.id.fragment_register_container,collegeFacRegFragment);
-                    fragmentTransaction1.addToBackStack("fragmentB");
-                    fragmentTransaction1.commit();
+                    fragment=new CollegeFacRegFragment();
                 }else if(facSelected==null){
                     System.out.println("Please Select");
+                    return;
                 }
 
+                fragmentTransaction.replace(R.id.fragment_register_container,fragment);
+                fragmentTransaction.addToBackStack("fragmentB");
+                fragmentTransaction.commit();
 
             }
         });
