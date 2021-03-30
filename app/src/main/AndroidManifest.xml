@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".common.SchoolFacultyRegistration"></activity>
+        <activity android:name=".common.RegistrationActivity"></activity>
+        <activity android:name=".common.SchoolFacultyRegistration" />
         <activity android:name=".common.PaymentGatewayActivity" /> <!-- <activity android:name=".common.SignupActivity"></activity> -->
         <activity android:name=".common.JitsiActivity" />
         <activity android:name=".studentactivity.StudentBottomTabbedActivity" />
