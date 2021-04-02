@@ -204,10 +204,6 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 System.out.println("Exception"+t.getMessage().toString());
             }
         });
-
-
-
-
     }
 
     @Override
