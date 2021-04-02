@@ -78,7 +78,7 @@
         android:layout_below="@id/facQual"
         >
 
-    <include layout="@layout/layout_qualification_checkbox"/>
+    <!--<include layout="@layout/layout_qualification_checkbox"/>-->
 
     </RelativeLayout>
 
@@ -117,6 +117,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/modeOfClass" />
+
+    <Button
+        android:id="@+id/uploadFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:layout_below="@+id/preSubject"
+        />
 
 
 

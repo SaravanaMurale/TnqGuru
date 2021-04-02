@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -13,10 +14,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.retrofit.ApiClient;
+import com.tech.tnqguru.retrofit.ApiInterface;
+
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 
 public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     Spinner spinnerSchoLevel, spinnerCountry,spinnerTotalExp,spinnerIndusExp,spinnerModeOfClass,spinnerPreSubject;
+    Button uploadFile;
+    String mediaPath;
 
 
     @Nullable
@@ -38,6 +51,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerIndusExp);
         spinnerModeOfClass=(Spinner)view.findViewById(R.id.modeOfClass);
         spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
+
+        uploadFile=(Button)view.findViewById(R.id.uploadFile);
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,6 +83,34 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         arrayAdapterPreSubject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPreSubject.setAdapter(arrayAdapterTotalExp);
         spinnerPreSubject.setOnItemSelectedListener(this);
+
+        uploadFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                uploadFileData();
+                
+            }
+        });
+
+
+    }
+
+    private void uploadFileData() {
+
+        // Map is used to multipart the file using okhttp3.RequestBody
+        File file = new File(mediaPath);
+
+        // Parsing any Media type file
+        RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+        MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+        RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<ResponseBody> call=apiInterface.uploadFile(fileToUpload,filename);
+
+
 
 
     }
