@@ -110,9 +110,13 @@
         android:id="@+id/modeOfClass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerIndusExp"
+        android:layout_below="@+id/spinnerIndusExp" />
 
-        />
+    <Spinner
+        android:id="@+id/preSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modeOfClass" />
 
 
 

@@ -79,4 +79,12 @@
     </string-array>
 
 
+    <string-array name="pre_sub">
+        <item>Computer Science</item>
+        <item>Maths</item>
+        <item>Tmail</item>
+        <item>English</item>
+    </string-array>
+
+
 </resources>
