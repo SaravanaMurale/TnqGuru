@@ -121,6 +121,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         Intent intent = new Intent();
         intent.setType("image/*");
+        //intent.setType("*/*"); For all kind of upload
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, IMG_REQUEST);
 
