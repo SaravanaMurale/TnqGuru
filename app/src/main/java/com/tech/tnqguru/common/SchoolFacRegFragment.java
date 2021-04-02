@@ -55,12 +55,12 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         if (adapterView.getId() == R.id.spinnerSchoLevel) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("SelectedSchool" + selected);
+            System.out.println("SelectedSchool " + selected);
 
         } else if (adapterView.getId() == R.id.spinnerFacCountry) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("countrySelected" + selected);
+            System.out.println("countrySelected " + selected);
         }
 
 

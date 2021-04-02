@@ -12,28 +12,46 @@
     <string name="signup">Signup?</string>
     <string name="submit">Submit</string>
 
+
+
+    <!--Qualification-->
+    <string name="be">B.E</string>
+    <string name="me">M.E</string>
+    <string name="ms">MS</string>
+    <string name="btech">B.Tech</string>
+    <string name="mtech">M.Tech</string>
+    <string name="mphil">M.Phil</string>
+    <string name="phd">PHD</string>
+    <string name="ba">B.A</string>
+    <string name="ma">M.A</string>
+    <string name="bsc">BSS</string>
+    <string name="msc">MSC</string>
+    <string name="mca">MCA</string>
+    <string name="bcom">B.Com</string>
+    <string name="mcom">M.Com</string>
+    <string name="others">Others</string>
+
+
     <string-array name="courses">
         <item>Select Courses</item>
         <item>Share Market For Begineers In Tamil-₹101/-</item>
         <item>Share Market For Begineers In English-₹101/-</item>
-
     </string-array>
 
-
     <string-array name="select_school">
+        <item>Select School</item>
         <item>Middle/High</item>
         <item>Higher Secondary</item>
     </string-array>
 
     <string-array name="country">
+        <item>Select Country</item>
         <item>India</item>
         <item>USA</item>
         <item>UK</item>
         <item>Germany</item>
         <item>Japan</item>
     </string-array>
-
-
 
 
 </resources>
