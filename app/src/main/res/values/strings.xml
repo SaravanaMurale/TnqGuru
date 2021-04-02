@@ -53,5 +53,30 @@
         <item>Japan</item>
     </string-array>
 
+    <string-array name="total_exp">
+        <item>Total Experience</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="indus_exp">
+        <item>Industrial Experience</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="mode_class">
+        <item>Mode Of Class</item>
+        <item>Online</item>
+        <item>Ofline</item>
+        <item>Both</item>
+    </string-array>
+
 
 </resources>

@@ -16,7 +16,7 @@ import com.tech.tnqguru.R;
 
 public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerSchoLevel, spinnerCountry;
+    Spinner spinnerSchoLevel, spinnerCountry,spinnerTotalExp,spinnerIndusExp,spinnerModeOfClass;
 
 
     @Nullable
@@ -34,6 +34,9 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
         spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
+        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerTotalExp);
+        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerIndusExp);
+        spinnerModeOfClass=(Spinner)view.findViewById(R.id.modeOfClass);
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -44,6 +47,21 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         arrayAdapterCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCountry.setAdapter(arrayAdapterCountry);
         spinnerCountry.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapterTotalExp=ArrayAdapter.createFromResource(getActivity(),R.array.total_exp,android.R.layout.simple_spinner_item);
+        arrayAdapterTotalExp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTotalExp.setAdapter(arrayAdapterTotalExp);
+        spinnerTotalExp.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapterIndusExp=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
+        arrayAdapterIndusExp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerIndusExp.setAdapter(arrayAdapterTotalExp);
+        spinnerIndusExp.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapterModeOfClass=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
+        arrayAdapterModeOfClass.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerModeOfClass.setAdapter(arrayAdapterTotalExp);
+        spinnerModeOfClass.setOnItemSelectedListener(this);
 
 
     }
@@ -58,6 +76,18 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             System.out.println("SelectedSchool " + selected);
 
         } else if (adapterView.getId() == R.id.spinnerFacCountry) {
+
+            String selected = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + selected);
+        }else if (adapterView.getId() == R.id.spinnerTotalExp) {
+
+            String selected = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + selected);
+        }else if (adapterView.getId() == R.id.spinnerIndusExp) {
+
+            String selected = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + selected);
+        }else if (adapterView.getId() == R.id.modeOfClass) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + selected);

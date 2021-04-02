@@ -72,14 +72,49 @@
         />
 
     <RelativeLayout
+        android:id="@+id/qualBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/facQual"
         >
 
-   <!-- <include layout="@layout/layout_qualification_checkbox"/>-->
+    <include layout="@layout/layout_qualification_checkbox"/>
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/toalExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qualBlock"
+        android:text="Total Experience In Years"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerTotalExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toalExp"
+
+        />
+
+    <Spinner
+        android:id="@+id/spinnerIndusExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerTotalExp"
+
+        />
+
+    <Spinner
+        android:id="@+id/modeOfClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerIndusExp"
+
+        />
+
+
 
 
 </RelativeLayout>
