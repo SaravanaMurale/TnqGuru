@@ -23,8 +23,17 @@
     <string-array name="select_school">
         <item>Middle/High</item>
         <item>Higher Secondary</item>
-
     </string-array>
+
+    <string-array name="country">
+        <item>India</item>
+        <item>USA</item>
+        <item>UK</item>
+        <item>Germany</item>
+        <item>Japan</item>
+    </string-array>
+
+
 
 
 </resources>

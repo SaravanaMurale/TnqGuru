@@ -12,9 +12,48 @@
 
 
     <Spinner
-        android:id="@+id/selectSchoLevel"
+        android:id="@+id/spinnerSchoLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+     <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/scholFacNameInput"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/selectSchoLevel"
+      >
+
+      <EditText
+          android:id="@+id/scholFacName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Name"
+          />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/scholFacMobileInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scholFacNameInput"
+        >
+
+        <EditText
+            android:id="@+id/scholFacMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnerFacCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scholFacMobileInput"
+        />
 
 
 

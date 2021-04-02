@@ -16,7 +16,7 @@ import com.tech.tnqguru.R;
 
 public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerSchoLevel;
+    Spinner spinnerSchoLevel, spinnerCountry;
 
 
     @Nullable
@@ -32,12 +32,18 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private void initView(View view) {
 
-        spinnerSchoLevel=(Spinner)view.findViewById(R.id.selectSchoLevel);
-        ArrayAdapter<CharSequence> arrayAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.select_school,android.R.layout.simple_spinner_item);
+        spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
+        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
+
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSchoLevel.setAdapter(arrayAdapter);
-
         spinnerSchoLevel.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapterCountry = ArrayAdapter.createFromResource(getActivity(), R.array.country, android.R.layout.simple_spinner_item);
+        arrayAdapterCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCountry.setAdapter(arrayAdapterCountry);
+        spinnerCountry.setOnItemSelectedListener(this);
 
 
     }
@@ -45,9 +51,18 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        String selected=adapterView.getItemAtPosition(i).toString();
 
-        System.out.println("SelectedSchool"+selected);
+        if (adapterView.getId() == R.id.spinnerSchoLevel) {
+
+            String selected = adapterView.getItemAtPosition(i).toString();
+            System.out.println("SelectedSchool" + selected);
+
+        } else if (adapterView.getId() == R.id.spinnerFacCountry) {
+
+            String selected = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected" + selected);
+        }
+
 
     }
 
