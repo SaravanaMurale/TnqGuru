@@ -64,14 +64,22 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:id="@+id/facQual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Faculty Qualification"
         android:layout_below="@+id/scholFacAddrInput"
         />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/facQual"
+        >
 
+    <include layout="@layout/layout_qualification_checkbox"/>
 
+    </RelativeLayout>
 
 
 </RelativeLayout>
