@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/spinnerSelectCollege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/colgStuNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerSelectCollege">
+
+            <EditText
+                android:id="@+id/colgStuName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/colgStuMobileInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgStuNameInput">
+
+            <EditText
+                android:id="@+id/colgStuMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/colgStuEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgStuMobileInput">
+
+            <EditText
+                android:id="@+id/colgStuEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data Of Birth"
+            android:layout_below="@+id/colgStuEmailInput"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/colgStuAddrInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgStuEmailInput">
+
+            <EditText
+                android:id="@+id/colgStuAddress"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="bottom"
+                android:hint="Address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/colgStuPincodeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgStuAddrInput">
+
+            <EditText
+                android:id="@+id/colgStuPincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pincode" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/colgStuDept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/colgStuPincodeInput"
+            />
+
+        <Button
+            android:id="@+id/colgStuPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Photo"
+            android:layout_below="@+id/colgStuDept"
+            />
+
+        <Spinner
+            android:id="@+id/modeOfScholStuClass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/colgStuPhoto" />
+
+        <Button
+            android:id="@+id/colgStuSubSyllabus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Syllabus"
+            android:layout_below="@+id/modeOfScholStuClass"
+            />
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
