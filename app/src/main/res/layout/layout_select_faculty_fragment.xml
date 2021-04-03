@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Faculty Registration"
+
         />
 
     <RadioGroup
@@ -40,6 +41,33 @@
             android:checked="false"
             android:text="College"
             android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Registration"
+            android:layout_marginTop="10dp"
+            />
+
+
+        <RadioButton
+            android:id="@+id/radioStuSchool"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="School"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioStuCollege"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+            android:text="College"
+            android:textSize="20dp" />
+
     </RadioGroup>
 
     </RelativeLayout>
@@ -55,14 +83,14 @@
         >
 
 
-        <TextView
+        <!--<TextView
             android:id="@+id/t2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Student Registration"
             />
-
-        <RadioGroup
+-->
+        <!--<RadioGroup
             android:id="@+id/stu_sele_radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,7 +114,7 @@
                 android:checked="false"
                 android:text="College"
                 android:textSize="20dp" />
-        </RadioGroup>
+        </RadioGroup>-->
 
     </RelativeLayout>
 

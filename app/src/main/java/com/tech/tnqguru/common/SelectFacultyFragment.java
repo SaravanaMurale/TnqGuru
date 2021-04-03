@@ -44,14 +44,27 @@ public class SelectFacultyFragment extends Fragment {
 
                     case  R.id.radioSchool:
 
-                        facSelected="SCHOOL";
+                        facSelected="FAC_SCHOOL";
                         System.out.println("RadioSchoolCheckd");
 
                         break;
 
                     case R.id.radioCollege:
 
-                        facSelected="COLLEGE";
+                        facSelected="FAC_COLLEGE";
+                        System.out.println("RadioCollegeCheckd");
+                        break;
+
+                    case  R.id.radioStuSchool:
+
+                        facSelected="STU_SCHOOL";
+                        System.out.println("RadioSchoolCheckd");
+
+                        break;
+
+                    case R.id.radioStuCollege:
+
+                        facSelected="STU_COLLEGE";
                         System.out.println("RadioCollegeCheckd");
                         break;
 
@@ -66,11 +79,14 @@ public class SelectFacultyFragment extends Fragment {
 
                 Fragment fragment=null;
 
-                if(facSelected.equals("SCHOOL")){
+                if(facSelected.equals("FAC_SCHOOL")){
                     fragment=new SchoolFacRegFragment();
-
-                }else if(facSelected.equals("COLLEGE")){
+                }else if(facSelected.equals("FAC_COLLEGE")){
                     fragment=new CollegeFacRegFragment();
+                }else if(facSelected.equals("STU_SCHOOL")){
+                    fragment=new SchoolStuRegFragment();
+                }else if(facSelected.equals("STU_COLLEGE")){
+                    fragment=new ColgStuRegFragment();
                 }else if(facSelected==null){
                     System.out.println("Please Select");
                     return;
