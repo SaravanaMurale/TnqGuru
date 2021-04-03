@@ -158,7 +158,7 @@
 
     </androidx.cardview.widget.CardView>
 
-   <!-- <include layout="@layout/fragment_social_signup"/>-->
+    <include layout="@layout/fragment_social_signup"/>
 
 
 </RelativeLayout>
