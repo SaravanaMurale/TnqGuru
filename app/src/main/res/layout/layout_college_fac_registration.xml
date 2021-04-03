@@ -1,13 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="College"
+        android:orientation="vertical"
+        >
+
+    <Spinner
+        android:id="@+id/spinnerSelectColg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ColgFacNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerSelectColg">
+
+        <EditText
+            android:id="@+id/colgFacName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ColgFacMobileInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ColgFacNameInput">
+
+        <EditText
+            android:id="@+id/colgFacMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnerColgFacCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ColgFacMobileInput" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/colgFacAddrInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerColgFacCountry">
+
+        <EditText
+            android:id="@+id/colgFacAddress"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="bottom"
+            android:hint="Address" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ColgFacPincodeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colgFacAddrInput">
+
+        <EditText
+            android:id="@+id/colgFacPincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pincode" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnerColgFacDept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ColgFacPincodeInput" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ColgFacEmailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerColgFacDept">
+
+        <EditText
+            android:id="@+id/colgFacEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/ColgUploadImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Photo"
+        android:layout_below="@+id/ColgFacEmailInput"
         />
 
-</RelativeLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ColgFacAboutInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ColgUploadImage">
+
+        <EditText
+            android:id="@+id/colgFacAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="About" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/qualBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ColgFacAboutInput"
+        >
+
+        <include layout="@layout/layout_qualification_checkbox"/>
+
+    </RelativeLayout>
+
+
+        <Spinner
+            android:id="@+id/spinnerColgTeachExp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toalExp"
+
+            />
+
+        <Spinner
+            android:id="@+id/spinnerColgIndusExp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerColgTeachExp"
+
+            />
+
+        <Spinner
+            android:id="@+id/modeOfColgClass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerColgIndusExp" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preferable 3 Familiar Subject To Handle"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ColgFacSub1Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text1">
+
+            <EditText
+                android:id="@+id/colgFacSub1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Subject 1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ColgFacSub2Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ColgFacSub1Input">
+
+            <EditText
+                android:id="@+id/colgFacSub2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Subject 2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ColgFacSub3Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ColgFacSub2Input">
+
+            <EditText
+                android:id="@+id/colgFacSub3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Subject 3" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/colgIdProof"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Id Proof"
+            android:layout_below="@id/ColgFacSub3Input"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ColgFacIdProofNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ColgFacSub2Input">
+
+            <EditText
+                android:id="@+id/colgFacIdProofNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Id Proof Number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/colgFacBioData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bio Data"
+            android:layout_below="@id/ColgFacIdProofNumber"
+            />
+
+        <Button
+            android:id="@+id/colgFacBankDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bank Details"
+            android:layout_below="@id/colgFacBioData"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>
