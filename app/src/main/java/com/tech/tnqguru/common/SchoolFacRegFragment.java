@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ import com.tech.tnqguru.retrofit.ApiInterface;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -46,6 +48,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     Bitmap bitmap;
 
     CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
+    ArrayList<String> cbList;
 
 
     @Nullable
@@ -60,43 +63,14 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     }
 
 
-    private void setView(View view) {
 
-        spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
-        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
-        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerTotalExp);
-        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerIndusExp);
-        spinnerModeOfClass=(Spinner)view.findViewById(R.id.modeOfClass);
-        spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
-
-        uploadFile=(Button)view.findViewById(R.id.uploadFile);
-        uploadImage=(Button)view.findViewById(R.id.uploadImage);
-
-        cbBE=(CheckBox)view.findViewById(R.id.be);
-        cbME=(CheckBox)view.findViewById(R.id.me);
-        cbMS=(CheckBox)view.findViewById(R.id.ms);
-        cbBtech=(CheckBox)view.findViewById(R.id.btech);
-        cbMtech=(CheckBox)view.findViewById(R.id.mtech);
-
-        cbMphil=(CheckBox)view.findViewById(R.id.mphil);
-        cbPhd=(CheckBox)view.findViewById(R.id.phd);
-        cbBA=(CheckBox)view.findViewById(R.id.ba);
-        cbMA=(CheckBox)view.findViewById(R.id.ma);
-        cbBSC=(CheckBox)view.findViewById(R.id.bsc);
-
-        cbMSC=(CheckBox)view.findViewById(R.id.msc);
-        cbMCA=(CheckBox)view.findViewById(R.id.mca);
-        cbBcom=(CheckBox)view.findViewById(R.id.bcom);
-        cbMcom=(CheckBox)view.findViewById(R.id.mcom);
-        cbOthers=(CheckBox)view.findViewById(R.id.others);
-
-
-
-    }
 
     private void initView(View view) {
 
         setView(view);
+
+        cbList=new ArrayList<>();
+
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -128,6 +102,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerPreSubject.setAdapter(arrayAdapterTotalExp);
         spinnerPreSubject.setOnItemSelectedListener(this);
 
+
+
         uploadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,8 +122,6 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
 
     }
-
-
 
     private void uploadImageToServer() {
 
@@ -270,6 +244,79 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    private void setView(View view) {
+
+        spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
+        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
+        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerTotalExp);
+        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerIndusExp);
+        spinnerModeOfClass=(Spinner)view.findViewById(R.id.modeOfClass);
+        spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
+
+        uploadFile=(Button)view.findViewById(R.id.uploadFile);
+        uploadImage=(Button)view.findViewById(R.id.uploadImage);
+
+        cbBE=(CheckBox)view.findViewById(R.id.be);
+        cbME=(CheckBox)view.findViewById(R.id.me);
+        cbMS=(CheckBox)view.findViewById(R.id.ms);
+        cbBtech=(CheckBox)view.findViewById(R.id.btech);
+        cbMtech=(CheckBox)view.findViewById(R.id.mtech);
+
+        cbMphil=(CheckBox)view.findViewById(R.id.mphil);
+        cbPhd=(CheckBox)view.findViewById(R.id.phd);
+        cbBA=(CheckBox)view.findViewById(R.id.ba);
+        cbMA=(CheckBox)view.findViewById(R.id.ma);
+        cbBSC=(CheckBox)view.findViewById(R.id.bsc);
+
+        cbMSC=(CheckBox)view.findViewById(R.id.msc);
+        cbMCA=(CheckBox)view.findViewById(R.id.mca);
+        cbBcom=(CheckBox)view.findViewById(R.id.bcom);
+        cbMcom=(CheckBox)view.findViewById(R.id.mcom);
+        cbOthers=(CheckBox)view.findViewById(R.id.others);
+
+
+        cbBE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+
+                if(cbBE.isChecked()){
+                    cbList.add("B.E");
+                    System.out.println("BEAdded");
+
+                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+
+                }else {
+                    cbList.remove("B.E");
+                    System.out.println("BERemoved");
+                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        cbME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+
+                if(cbME.isChecked()){
+                    cbList.add("M.E");
+                    System.out.println("MEAdded");
+                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+                }else {
+                    cbList.remove("M.E");
+                    System.out.println("MERemoved");
+                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
 
     }
 }
