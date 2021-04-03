@@ -84,7 +84,7 @@
         android:layout_below="@id/facQual"
         >
 
-    <!--<include layout="@layout/layout_qualification_checkbox"/>-->
+    <include layout="@layout/layout_qualification_checkbox"/>
 
     </RelativeLayout>
 

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     String mediaPath;
     Bitmap bitmap;
 
+    CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
+
 
     @Nullable
     @Override
@@ -56,7 +59,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         return view;
     }
 
-    private void initView(View view) {
+
+    private void setView(View view) {
 
         spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
         spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
@@ -67,6 +71,32 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         uploadFile=(Button)view.findViewById(R.id.uploadFile);
         uploadImage=(Button)view.findViewById(R.id.uploadImage);
+
+        cbBE=(CheckBox)view.findViewById(R.id.be);
+        cbME=(CheckBox)view.findViewById(R.id.me);
+        cbMS=(CheckBox)view.findViewById(R.id.ms);
+        cbBtech=(CheckBox)view.findViewById(R.id.btech);
+        cbMtech=(CheckBox)view.findViewById(R.id.mtech);
+
+        cbMphil=(CheckBox)view.findViewById(R.id.mphil);
+        cbPhd=(CheckBox)view.findViewById(R.id.phd);
+        cbBA=(CheckBox)view.findViewById(R.id.ba);
+        cbMA=(CheckBox)view.findViewById(R.id.ma);
+        cbBSC=(CheckBox)view.findViewById(R.id.bsc);
+
+        cbMSC=(CheckBox)view.findViewById(R.id.msc);
+        cbMCA=(CheckBox)view.findViewById(R.id.mca);
+        cbBcom=(CheckBox)view.findViewById(R.id.bcom);
+        cbMcom=(CheckBox)view.findViewById(R.id.mcom);
+        cbOthers=(CheckBox)view.findViewById(R.id.others);
+
+
+
+    }
+
+    private void initView(View view) {
+
+        setView(view);
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -116,6 +146,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
 
     }
+
+
 
     private void uploadImageToServer() {
 
