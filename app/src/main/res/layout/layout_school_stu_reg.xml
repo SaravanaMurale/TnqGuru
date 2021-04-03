@@ -110,6 +110,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/stuPhoto" />
 
+        <Button
+            android:id="@+id/subSyllabus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Syllabus"
+            android:layout_below="@+id/modeOfScholStuClass"
+            />
+
 
 
     </RelativeLayout>
