@@ -71,6 +71,56 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         cbList=new ArrayList<>();
 
+        cbBE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBE.isChecked()){
+                    cbList.add("B.E");
+
+                }else {
+                    cbList.remove("B.E");
+
+                }
+            }
+        });
+
+        cbME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbME.isChecked()){
+                    cbList.add("M.E");
+                }else {
+                    cbList.remove("M.E");
+                }
+            }
+        });
+
+        cbMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMS.isChecked()){
+                    cbList.add("M.S");
+                }else {
+                    cbList.remove("M.S");
+                }
+            }
+        });
+
+        cbBtech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBtech.isChecked()){
+                    cbList.add("B.Tech");
+                }else {
+                    cbList.remove("M.E");
+                }
+            }
+        });
+
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -278,43 +328,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         cbOthers=(CheckBox)view.findViewById(R.id.others);
 
 
-        cbBE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-
-                if(cbBE.isChecked()){
-                    cbList.add("B.E");
-                    System.out.println("BEAdded");
-
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-
-                }else {
-                    cbList.remove("B.E");
-                    System.out.println("BERemoved");
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        cbME.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-
-                if(cbME.isChecked()){
-                    cbList.add("M.E");
-                    System.out.println("MEAdded");
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-                }else {
-                    cbList.remove("M.E");
-                    System.out.println("MERemoved");
-                    Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
 
 
 
