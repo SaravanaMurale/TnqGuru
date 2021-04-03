@@ -116,7 +116,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 if(cbBtech.isChecked()){
                     cbList.add("B.Tech");
                 }else {
-                    cbList.remove("M.E");
+                    cbList.remove("B.Tech");
                 }
             }
         });
