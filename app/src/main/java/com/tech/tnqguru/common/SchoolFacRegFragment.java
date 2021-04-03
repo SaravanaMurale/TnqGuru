@@ -121,6 +121,138 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             }
         });
 
+        cbMtech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMtech.isChecked()){
+                    cbList.add("M.Tech");
+                }else {
+                    cbList.remove("M.Tech");
+                }
+            }
+        });
+
+        cbMphil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMphil.isChecked()){
+                    cbList.add("MPhil");
+                }else {
+                    cbList.remove("MPhil");
+                }
+            }
+        });
+
+        cbPhd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbPhd.isChecked()){
+                    cbList.add("Phd");
+                }else {
+                    cbList.remove("Phd");
+                }
+            }
+        });
+
+        cbBA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBA.isChecked()){
+                    cbList.add("BA");
+                }else {
+                    cbList.remove("BA");
+                }
+            }
+        });
+
+        cbMA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMA.isChecked()){
+                    cbList.add("MA");
+                }else {
+                    cbList.remove("BA");
+                }
+            }
+        });
+
+        cbBSC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBSC.isChecked()){
+                    cbList.add("BSC");
+                }else {
+                    cbList.remove("BSC");
+                }
+            }
+        });
+
+        cbMSC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMSC.isChecked()){
+                    cbList.add("MSC");
+                }else {
+                    cbList.remove("MSC");
+                }
+            }
+        });
+
+        cbMCA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMCA.isChecked()){
+                    cbList.add("MCA");
+                }else {
+                    cbList.remove("MCA");
+                }
+            }
+        });
+
+        cbBcom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBcom.isChecked()){
+                    cbList.add("B.Com");
+                }else {
+                    cbList.remove("B.Com");
+                }
+            }
+        });
+
+        cbMcom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMcom.isChecked()){
+                    cbList.add("M.Com");
+                }else {
+                    cbList.remove("M.Com");
+                }
+            }
+        });
+
+        cbOthers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbOthers.isChecked()){
+                    cbList.add("Others");
+                }else {
+                    cbList.remove("Others");
+                }
+            }
+        });
+
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
