@@ -3,13 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/facRegBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faculty Registration"
+        />
 
     <RadioGroup
         android:id="@+id/fac_sele_radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t1"
+        >
 
         <RadioButton
             android:id="@+id/radioSchool"
@@ -30,12 +42,60 @@
             android:textSize="20dp" />
     </RadioGroup>
 
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/stuRegBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/facRegBlock"
+        android:layout_marginTop="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Registration"
+            />
+
+        <RadioGroup
+            android:id="@+id/stu_sele_radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/t2"
+            >
+
+            <RadioButton
+                android:id="@+id/radioStuSchool"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:checked="false"
+                android:text="School"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/radioStuCollege"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:checked="false"
+                android:text="College"
+                android:textSize="20dp" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/btn_fac_selection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
-        android:layout_below="@id/fac_sele_radioGroup"
+        android:layout_below="@id/stuRegBlock"
         android:layout_centerHorizontal="true"
 
         />
