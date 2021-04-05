@@ -459,10 +459,5 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         cbMcom=(CheckBox)view.findViewById(R.id.mcom);
         cbOthers=(CheckBox)view.findViewById(R.id.others);
 
-
-
-
-
-
     }
 }

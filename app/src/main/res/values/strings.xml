@@ -12,8 +12,6 @@
     <string name="signup">Signup?</string>
     <string name="submit">Submit</string>
 
-
-
     <!--Qualification-->
     <string name="be">B.E</string>
     <string name="me">M.E</string>
@@ -78,7 +76,6 @@
         <item>Both</item>
     </string-array>
 
-
     <string-array name="pre_sub">
         <item>Computer Science</item>
         <item>Maths</item>
@@ -86,7 +83,6 @@
         <item>English</item>
     </string-array>
 
-    
     <string-array name="colg_type">
         <item>UG</item>
         <item>PG</item>

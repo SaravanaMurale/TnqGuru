@@ -30,4 +30,6 @@
     <color name="colorBlueTransparent">#8043DFE1</color>
     <color name="colorTextIcons">#FFFFFF</color>
 
+    <color name="dar_blue">#563d7c</color>
+
 </resources>

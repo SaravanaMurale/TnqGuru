@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(LoginActivity.this,RegistrationActivity.class);
-//                Intent intent=new Intent(LoginActivity.this,CollegeFacRegFragment.class);
                 startActivity(intent);
             }
         });

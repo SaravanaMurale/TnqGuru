@@ -5,5 +5,7 @@
         android:radius="2dp"/>
     <solid android:color="@color/text_bg" />
     <stroke android:color="@color/gray"
-        android:width="@dimen/one_dp"/>
+        android:width="@dimen/one_dp"
+
+        />
 </shape>
