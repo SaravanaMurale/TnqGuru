@@ -3,23 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/fifteen_dp">
-
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="College Faculty Registration"
-            android:textSize="@dimen/twenty_five_sp"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/twenty_five_sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="College Faculty Registration"
+        android:textSize="18dp"
+        android:textColor="@color/gray_black"
+        android:fontFamily="@font/ubuntu_regular"
+        android:background="@color/shimmer_bg"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/twenty_dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/twenty_dp">
 
     <Spinner
         android:id="@+id/spinnerSelectColg"
@@ -291,13 +297,19 @@
             android:id="@+id/ColgFacIdProofNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty_dp"
             android:layout_below="@id/ColgFacSub2Input">
 
             <EditText
                 android:id="@+id/colgFacIdProofNumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ID Proof Number" />
+                android:layout_height="55dp"
+                android:hint="ID Proof Number"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/bg_text"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/twenty_dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -323,10 +335,10 @@
             android:textSize="@dimen/fifteen_dp"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_marginBottom="@dimen/ten_dp"
             android:layout_below="@id/colgFacBioData"/>
 
-
-
+    </LinearLayout>
 
     </LinearLayout>
 
