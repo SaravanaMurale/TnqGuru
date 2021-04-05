@@ -43,7 +43,27 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         spinnerColgFacCountry.setAdapter(countryAdapter);
         spinnerColgFacCountry.setOnItemSelectedListener(this);
 
+        ArrayAdapter<CharSequence> colgDeptAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.colg_dept,android.R.layout.simple_spinner_item);
+        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerColgFacDept.setAdapter(colgDeptAdapter);
+        spinnerColgFacDept.setOnItemSelectedListener(this);
 
+        ArrayAdapter<CharSequence> teachExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.total_exp,android.R.layout.simple_spinner_item);
+        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerColgTeachExp.setAdapter(teachExpAdapter);
+        spinnerColgTeachExp.setOnItemSelectedListener(this);
+
+
+        ArrayAdapter<CharSequence> indusExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
+        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerColgIndusExp.setAdapter(indusExpAdapter);
+        spinnerColgIndusExp.setOnItemSelectedListener(this);
+
+
+        ArrayAdapter<CharSequence> modeOfClassExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
+        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        modeOfColgClass.setAdapter(modeOfClassExpAdapter);
+        modeOfColgClass.setOnItemSelectedListener(this);
 
 
     }

@@ -7,10 +7,12 @@
     android:layout_margin="@dimen/fifteen_dp">
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
 
         <TextView
             android:layout_width="match_parent"
@@ -26,7 +28,7 @@
         android:id="@+id/spinnerSelectColg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginTop="@dimen/fifteen_dp"
         />
 
 
@@ -40,7 +42,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
         <EditText
@@ -53,13 +55,13 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
     <Spinner
         android:id="@+id/spinnerColgFacCountry"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_below="@+id/colgFacMobile"
         android:layout_marginTop="@dimen/ten_dp"
         />
@@ -78,7 +80,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
         <EditText
@@ -91,7 +93,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
     <Spinner
@@ -114,20 +116,36 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ColgFacEmailInput"
+            >
 
     <Button
         android:id="@+id/ColgUploadImage"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload Photo"
+        android:text="Choose Photo"
         android:background="@drawable/text_bg_btn"
         android:fontFamily="@font/ubuntu_regular"
         android:textSize="@dimen/fifteen_dp"
         android:textColor="@color/white"
-        android:layout_below="@+id/ColgFacEmailInput"
-        android:layout_marginTop="@dimen/twenty_dp"/>
+        android:layout_marginTop="@dimen/ten_dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Photo"
+            android:layout_toRightOf="@id/ColgUploadImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ten_dp"
+
+            />
+
+        </RelativeLayout>
 
 
 
@@ -141,7 +159,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
 
@@ -150,7 +168,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/colgFacAbout"
-        android:layout_marginTop="@dimen/twenty_dp">
+        android:layout_marginTop="@dimen/ten_dp">
 
         <include layout="@layout/layout_qualification_checkbox"/>
 
@@ -184,7 +202,7 @@
             android:layout_height="wrap_content"
             android:text="Preferable 3 Familiar Subject To Handle"
             android:fontFamily="@font/ubuntu_regular"
-            android:layout_marginTop="@dimen/twenty_five_sp"/>
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
 
 
@@ -198,7 +216,7 @@
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/twenty_dp"/>
+                android:layout_marginTop="@dimen/ten_dp"/>
 
 
 
@@ -214,7 +232,7 @@
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/twenty_dp"/>
+                android:layout_marginTop="@dimen/ten_dp"/>
 
 
 
@@ -230,7 +248,7 @@
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/twenty_dp"/>
+                android:layout_marginTop="@dimen/ten_dp"/>
 
 
         <Button
@@ -242,7 +260,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:textSize="@dimen/fifteen_dp"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
             android:layout_below="@id/colgFacSub3"/>
 
 
@@ -252,8 +270,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID Proof Number"
+                android:layout_marginTop="@dimen/ten_dp"
                 android:layout_below="@id/colgIdProof"
-                android:background="@drawable/rounded_border"
                 />
 
 
@@ -266,7 +284,7 @@
             android:fontFamily="@font/ubuntu_regular"
             android:textSize="@dimen/fifteen_dp"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
             android:layout_below="@id/colgFacIdProofNumber"/>
 
         <Button
@@ -278,13 +296,13 @@
             android:fontFamily="@font/ubuntu_regular"
             android:textSize="@dimen/fifteen_dp"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_marginTop="@dimen/ten_dp"
             android:layout_below="@id/colgFacBioData"/>
 
 
 
-
     </LinearLayout>
+
 
 
 </ScrollView>
