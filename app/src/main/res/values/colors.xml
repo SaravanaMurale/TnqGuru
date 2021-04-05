@@ -24,6 +24,7 @@
     <color name="sun_atlantic_color">#003734</color>
     <color name="menu_bg">#3a3a3c</color>
     <color name="dark_gray">#a8a8a8</color>
+    <color name="text_bg">#f0f0f0</color>
 
     <color name="colorBlue">#43DFE1</color>
     <color name="colorBlueTransparent">#8043DFE1</color>

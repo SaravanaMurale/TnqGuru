@@ -15,21 +15,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/be" />
+            android:text="@string/be"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/me"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/me" />
+            android:text="@string/me"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/ms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/ms" />
+            android:text="@string/ms"
+            android:fontFamily="@font/ubuntu_regular"/>
 
     </LinearLayout>
 
@@ -47,21 +50,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/btech" />
+            android:text="@string/btech"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/mtech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mtech" />
+            android:text="@string/mtech"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/mphil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mphil" />
+            android:text="@string/mphil"
+            android:fontFamily="@font/ubuntu_regular"/>
 
     </LinearLayout>
 
@@ -79,21 +85,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/phd" />
+            android:text="@string/phd"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/ba"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/ba" />
+            android:text="@string/ba"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/ma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/ma" />
+            android:text="@string/ma"
+            android:fontFamily="@font/ubuntu_regular"/>
 
     </LinearLayout>
 
@@ -111,21 +120,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/bsc" />
+            android:text="@string/bsc"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/msc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/msc" />
+            android:text="@string/msc"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/mca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mca" />
+            android:text="@string/mca"
+            android:fontFamily="@font/ubuntu_regular"/>
 
     </LinearLayout>
 
@@ -143,21 +155,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/bcom" />
+            android:text="@string/bcom"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/mcom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mcom" />
+            android:text="@string/mcom"
+            android:fontFamily="@font/ubuntu_regular"/>
 
         <CheckBox
             android:id="@+id/others"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/others" />
+            android:text="@string/others"
+            android:fontFamily="@font/ubuntu_regular"/>
 
     </LinearLayout>
 

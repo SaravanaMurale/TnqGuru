@@ -4,31 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    >
+    android:layout_margin="@dimen/fifteen_dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="College Faculty Registration"
+            android:textSize="@dimen/twenty_five_sp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/twenty_five_sp"/>
 
     <Spinner
         android:id="@+id/spinnerSelectColg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty_dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ColgFacNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerSelectColg">
+        android:layout_below="@id/spinnerSelectColg"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Name"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,13 +51,19 @@
         android:id="@+id/ColgFacMobileInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ColgFacNameInput">
+        android:layout_below="@id/ColgFacNameInput"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacMobile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mobile" />
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Mobile"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,14 +77,21 @@
         android:id="@+id/colgFacAddrInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerColgFacCountry">
+        android:layout_below="@id/spinnerColgFacCountry"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacAddress"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:paddingBottom="@dimen/twenty_dp"
             android:gravity="bottom"
-            android:hint="Address" />
+            android:hint="Address"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,13 +99,19 @@
         android:id="@+id/ColgFacPincodeInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/colgFacAddrInput">
+        android:layout_below="@id/colgFacAddrInput"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacPincode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pincode" />
+            android:layout_height="55dp"
+            android:hint="Pincode"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,13 +125,19 @@
         android:id="@+id/ColgFacEmailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerColgFacDept">
+        android:layout_below="@id/spinnerColgFacDept"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:layout_height="55dp"
+            android:hint="Email"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,20 +146,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Upload Photo"
+        android:background="@drawable/text_bg_btn"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textSize="@dimen/fifteen_dp"
+        android:textColor="@color/white"
         android:layout_below="@+id/ColgFacEmailInput"
-        />
+        android:layout_marginTop="@dimen/twenty_dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ColgFacAboutInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ColgUploadImage">
+        android:layout_below="@id/ColgUploadImage"
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <EditText
             android:id="@+id/colgFacAbout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="About" />
+            android:layout_height="55dp"
+            android:hint="About"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/bg_text"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +178,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ColgFacAboutInput"
-        >
+        android:layout_marginTop="@dimen/twenty_dp">
 
         <include layout="@layout/layout_qualification_checkbox"/>
 
@@ -140,41 +190,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toalExp"
-
-            />
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
         <Spinner
             android:id="@+id/spinnerColgIndusExp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/spinnerColgTeachExp"
-
-            />
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
         <Spinner
             android:id="@+id/modeOfColgClass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinnerColgIndusExp" />
+            android:layout_below="@+id/spinnerColgIndusExp"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
         <TextView
             android:id="@+id/text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Preferable 3 Familiar Subject To Handle"
-            />
+            android:fontFamily="@font/ubuntu_regular"
+            android:layout_marginTop="@dimen/twenty_five_sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ColgFacSub1Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text1">
+            android:layout_below="@id/text1"
+            android:layout_marginTop="@dimen/twenty_dp">
 
             <EditText
                 android:id="@+id/colgFacSub1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Subject 1" />
+                android:layout_height="55dp"
+                android:hint="Subject 1"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/bg_text"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/twenty_dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -182,13 +238,19 @@
             android:id="@+id/ColgFacSub2Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ColgFacSub1Input">
+            android:layout_below="@id/ColgFacSub1Input"
+            android:layout_marginTop="@dimen/twenty_dp">
 
             <EditText
                 android:id="@+id/colgFacSub2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Subject 2" />
+                android:layout_height="55dp"
+                android:hint="Subject 2"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/bg_text"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/twenty_dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,13 +259,19 @@
             android:id="@+id/ColgFacSub3Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ColgFacSub2Input">
+            android:layout_below="@id/ColgFacSub2Input"
+            android:layout_marginTop="@dimen/twenty_dp">
 
             <EditText
                 android:id="@+id/colgFacSub3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Subject 3" />
+                android:layout_height="55dp"
+                android:hint="Subject 3"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/bg_text"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/twenty_dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -212,8 +280,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Id Proof"
-            android:layout_below="@id/ColgFacSub3Input"
-            />
+            android:background="@drawable/text_bg_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textSize="@dimen/fifteen_dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/ColgFacSub3Input"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ColgFacIdProofNumber"
@@ -225,7 +297,7 @@
                 android:id="@+id/colgFacIdProofNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Id Proof Number" />
+                android:hint="ID Proof Number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -234,16 +306,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bio Data"
-            android:layout_below="@id/ColgFacIdProofNumber"
-            />
+            android:background="@drawable/text_bg_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textSize="@dimen/fifteen_dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/ColgFacIdProofNumber"/>
 
         <Button
             android:id="@+id/colgFacBankDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bank Details"
-            android:layout_below="@id/colgFacBioData"
-            />
+            android:background="@drawable/text_bg_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textSize="@dimen/fifteen_dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/colgFacBioData"/>
 
 
 
