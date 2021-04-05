@@ -133,12 +133,13 @@
         android:fontFamily="@font/ubuntu_regular"
         android:textSize="@dimen/fifteen_dp"
         android:textColor="@color/white"
+        android:padding="@dimen/five_dp"
         android:layout_marginTop="@dimen/ten_dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose Photo"
+            android:text="Choose Photo..."
             android:layout_toRightOf="@id/ColgUploadImage"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/ten_dp"
@@ -251,9 +252,15 @@
                 android:layout_marginTop="@dimen/ten_dp"/>
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgFacSub3"
+            >
+
         <Button
             android:id="@+id/colgIdProof"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Id Proof"
             android:background="@drawable/text_bg_btn"
@@ -261,7 +268,18 @@
             android:textSize="@dimen/fifteen_dp"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/ten_dp"
-            android:layout_below="@id/colgFacSub3"/>
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ChoosePhoto..."
+                android:layout_toRightOf="@+id/colgIdProof"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/five_dp"
+                />
+
+    </RelativeLayout>
 
 
 
@@ -270,34 +288,81 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="ID Proof Number"
-                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginTop="@dimen/twenty_dp"
                 android:layout_below="@id/colgIdProof"
                 />
 
 
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/colgFacIdProofNumber"
+           >
+
         <Button
             android:id="@+id/colgFacBioData"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bio Data"
             android:background="@drawable/text_bg_btn"
             android:fontFamily="@font/ubuntu_regular"
             android:textSize="@dimen/fifteen_dp"
+            android:padding="@dimen/five_dp"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/ten_dp"
-            android:layout_below="@id/colgFacIdProofNumber"/>
+           />
 
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Choose Photo..."
+               android:layout_toRightOf="@+id/colgFacBioData"
+               android:layout_marginLeft="@dimen/five_dp"
+               android:layout_centerVertical="true"
+               />
+
+       </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/colgFacBioData"
+            >
         <Button
             android:id="@+id/colgFacBankDetails"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bank Details"
             android:background="@drawable/text_bg_btn"
             android:fontFamily="@font/ubuntu_regular"
             android:textSize="@dimen/fifteen_dp"
+            android:padding="@dimen/five_dp"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/ten_dp"
-            android:layout_below="@id/colgFacBioData"/>
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Photo..."
+                android:layout_toRightOf="@+id/colgFacBankDetails"
+                android:layout_marginLeft="@dimen/five_dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            />
+
+
 
 
 
