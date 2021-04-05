@@ -126,7 +126,7 @@
 
     <Button
         android:id="@+id/ColgUploadImage"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Choose Photo"
         android:background="@drawable/text_bg_btn"
@@ -142,7 +142,7 @@
             android:text="Choose Photo..."
             android:layout_toRightOf="@id/ColgUploadImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_marginLeft="@dimen/thirty_dp"
 
             />
 
@@ -260,7 +260,7 @@
 
         <Button
             android:id="@+id/colgIdProof"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Id Proof"
             android:background="@drawable/text_bg_btn"
@@ -276,7 +276,7 @@
                 android:text="ChoosePhoto..."
                 android:layout_toRightOf="@+id/colgIdProof"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/five_dp"
+                android:layout_marginLeft="@dimen/thirty_dp"
                 />
 
     </RelativeLayout>
@@ -301,7 +301,7 @@
 
         <Button
             android:id="@+id/colgFacBioData"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Bio Data"
             android:background="@drawable/text_bg_btn"
@@ -317,7 +317,7 @@
                android:layout_height="wrap_content"
                android:text="Choose Photo..."
                android:layout_toRightOf="@+id/colgFacBioData"
-               android:layout_marginLeft="@dimen/five_dp"
+               android:layout_marginLeft="@dimen/thirty_dp"
                android:layout_centerVertical="true"
                />
 
@@ -330,7 +330,7 @@
             >
         <Button
             android:id="@+id/colgFacBankDetails"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Bank Details"
             android:background="@drawable/text_bg_btn"
@@ -346,7 +346,7 @@
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
                 android:layout_toRightOf="@+id/colgFacBankDetails"
-                android:layout_marginLeft="@dimen/five_dp"
+                android:layout_marginLeft="@dimen/thirty_dp"
                 android:layout_centerVertical="true"
                 />
 

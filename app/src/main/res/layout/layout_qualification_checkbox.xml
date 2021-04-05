@@ -111,9 +111,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3"
-        android:layout_below="@+id/qual3"
         android:layout_marginTop="@dimen/ten_dp"
-        >
+        android:layout_below="@+id/qual3">
 
         <CheckBox
             android:id="@+id/bsc"
