@@ -66,7 +66,7 @@
     <Spinner
         android:id="@+id/spinnerColgFacCountry"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/forty_dp"
         android:layout_below="@+id/colgFacMobile"
         android:layout_marginTop="@dimen/ten_dp"
         />
@@ -206,23 +206,23 @@
         <Spinner
             android:id="@+id/spinnerColgTeachExp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/forty_dp"
             android:layout_below="@+id/toalExp"
             android:layout_marginTop="@dimen/twenty_dp"/>
 
         <Spinner
             android:id="@+id/spinnerColgIndusExp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/forty_dp"
             android:layout_below="@+id/spinnerColgTeachExp"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
         <Spinner
             android:id="@+id/modeOfColgClass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/forty_dp"
             android:layout_below="@+id/spinnerColgIndusExp"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
         <TextView
             android:id="@+id/text1"
@@ -230,7 +230,7 @@
             android:layout_height="wrap_content"
             android:text="Preferable 3 Familiar Subject To Handle"
             android:fontFamily="@font/ubuntu_regular"
-            android:layout_marginTop="@dimen/twenty_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"/>
 
 
 
