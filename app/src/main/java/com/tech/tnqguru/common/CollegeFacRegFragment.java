@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    EditText colgFacNameEdit,colgFacMobileEdit,colgFacAddressEdit,colgFacPincodeEdit,colgFacEmailEdit,colgFacAboutEdit,colgFacSub1Edit,colgFacSub2Edit,colgFacSub3Edit,colgFacIdProofNumberEdit;
+    EditText colgFacNameEdit,colgFacMobileEdit,colgFacAddressEdit,colgFacPincodeEdit,colgFacEmailEdit,colgFacAboutEdit,colgFacSub1Edit,colgFacSub2Edit,colgFacSub3Edit,colgFacIdProofNumberEdit,colgFacPasswordEdit;
 
     Spinner spinnerSelectColgInput,spinnerColgFacCountryInput,spinnerColgFacDeptInput,spinnerColgTeachExpInput,spinnerColgIndusExpInput,modeOfColgClassInput;
     Button btnColFacReg;
@@ -98,7 +98,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
 
 
-    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
+    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
@@ -123,7 +123,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 colgFacIdProofNumber,
                 "Fac Bank Details",
                 colgFacEmail,
-                "aaaaaaaaaa");
+                colgFacPassword);
 
         call.enqueue(new Callback<BaseResponseDTO>() {
             @Override
@@ -199,6 +199,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         colgFacSub2Edit=(EditText)view.findViewById(R.id.colgFacSub2);
         colgFacSub3Edit=(EditText)view.findViewById(R.id.colgFacSub3);
         colgFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
+        colgFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);
 
         spinnerSelectColgInput = (Spinner) view.findViewById(R.id.spinnerSelectColg);
         spinnerColgFacCountryInput = (Spinner) view.findViewById(R.id.spinnerColgFacCountry);
@@ -213,13 +214,14 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     private void getAllColgFacEnteredDetails() {
 
-        String colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber;
+        String colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber;
 
         colgFacName=colgFacNameEdit.getText().toString();
         colgFacMobile=colgFacMobileEdit.getText().toString();
         colgFacAddress=colgFacAddressEdit.getText().toString();
         colgFacPincode=colgFacPincodeEdit.getText().toString();
         colgFacEmail=colgFacEmailEdit.getText().toString();
+        colgFacPassword=colgFacPasswordEdit.getText().toString();
         colgFacAbout=colgFacAboutEdit.getText().toString();
         colgFacSub1=colgFacSub1Edit.getText().toString();
         colgFacSub2=colgFacSub2Edit.getText().toString();
@@ -228,7 +230,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
-        doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
+        doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
 
 
     }
