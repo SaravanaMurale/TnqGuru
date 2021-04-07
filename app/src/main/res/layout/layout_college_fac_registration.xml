@@ -42,6 +42,8 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:inputType="text"
+            android:imeOptions="actionNext"
             android:layout_marginTop="@dimen/ten_dp"/>
 
 
@@ -51,6 +53,9 @@
             android:layout_height="55dp"
             android:paddingLeft="@dimen/twenty_dp"
             android:hint="Mobile"
+            android:inputType="number"
+            android:maxLength="10"
+            android:imeOptions="actionNext"
             android:layout_below="@id/ColgFacNameInput"
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
@@ -80,6 +85,8 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:inputType="textPostalAddress"
+            android:imeOptions="actionNext"
             android:layout_marginTop="@dimen/ten_dp"/>
 
 
@@ -93,6 +100,9 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:inputType="number"
+            android:maxLines="6"
+            android:imeOptions="actionNext"
             android:layout_marginTop="@dimen/ten_dp"/>
 
 
@@ -116,12 +126,27 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="@dimen/ten_dp"/>
+
+        <EditText
+            android:id="@+id/colgFacPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Password"
+            android:inputType="textWebPassword"
+            android:imeOptions="actionNext"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:layout_below="@+id/colgFacEmail"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/ten_dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ColgFacEmailInput"
+            android:layout_below="@+id/colgFacPassword"
             >
 
     <Button
@@ -142,7 +167,7 @@
             android:text="Choose Photo..."
             android:layout_toRightOf="@id/ColgUploadImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/thirty_dp"
+            android:layout_marginLeft="@dimen/ten_dp"
 
             />
 
@@ -160,6 +185,8 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:inputType="text"
+            android:imeOptions="actionNext"
             android:layout_marginTop="@dimen/ten_dp"/>
 
 
@@ -211,8 +238,10 @@
                 android:id="@+id/colgFacSub1"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:hint="Subject 1"
+                android:hint="Sub ject 1"
                 android:paddingLeft="@dimen/twenty_dp"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_below="@id/text1"
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
@@ -229,6 +258,8 @@
                 android:layout_height="55dp"
                 android:hint="Subject 2"
                 android:paddingLeft="@dimen/twenty_dp"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_below="@id/colgFacSub1"
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
@@ -245,6 +276,8 @@
                 android:layout_height="55dp"
                 android:hint="Subject 3"
                 android:paddingLeft="@dimen/twenty_dp"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_below="@id/colgFacSub2"
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
@@ -276,7 +309,7 @@
                 android:text="ChoosePhoto..."
                 android:layout_toRightOf="@+id/colgIdProof"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/thirty_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
                 />
 
     </RelativeLayout>
@@ -289,6 +322,7 @@
                 android:layout_height="wrap_content"
                 android:hint="ID Proof Number"
                 android:layout_marginTop="@dimen/twenty_dp"
+                android:imeOptions="actionDone"
                 android:layout_below="@id/colgIdProof"
                 />
 
@@ -317,7 +351,7 @@
                android:layout_height="wrap_content"
                android:text="Choose Photo..."
                android:layout_toRightOf="@+id/colgFacBioData"
-               android:layout_marginLeft="@dimen/thirty_dp"
+               android:layout_marginLeft="@dimen/ten_dp"
                android:layout_centerVertical="true"
                />
 
@@ -346,7 +380,7 @@
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
                 android:layout_toRightOf="@+id/colgFacBankDetails"
-                android:layout_marginLeft="@dimen/thirty_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
                 android:layout_centerVertical="true"
                 />
 
@@ -354,11 +388,11 @@
 
         <Button
             android:id="@+id/btnColFacReg"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/submit"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_margin="@dimen/ten_dp"
             android:background="@drawable/text_bg_btn"
             android:textColor="@color/white"
             />
