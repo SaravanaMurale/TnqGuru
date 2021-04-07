@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,8 +43,14 @@ import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 
 public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerSchoLevel, spinnerCountry,spinnerTotalExp,spinnerIndusExp,spinnerModeOfClass,spinnerPreSubject;
-    Button uploadFile,uploadImage;
+
+    EditText scholFacNameEdit,scholFacMobileEdit,scholFacAddressEdit,scholFacPincodeEdit,scholFacEmailEdit,scholFacAboutEdit,scholFacIdProofNumberEdit,scholFacPasswordEdit;
+
+    Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerPreSubjectInput;
+
+    String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacSelectDept,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
+
+    Button uploadFile,uploadImage,btnScholFacReg;
     String mediaPath;
     Bitmap bitmap;
 
@@ -61,9 +68,6 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         return view;
     }
-
-
-
 
     private void initView(View view) {
 
@@ -256,33 +260,33 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.select_school, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSchoLevel.setAdapter(arrayAdapter);
-        spinnerSchoLevel.setOnItemSelectedListener(this);
+        spinnerSchoLevelInput.setAdapter(arrayAdapter);
+        spinnerSchoLevelInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterCountry = ArrayAdapter.createFromResource(getActivity(), R.array.country, android.R.layout.simple_spinner_item);
         arrayAdapterCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCountry.setAdapter(arrayAdapterCountry);
-        spinnerCountry.setOnItemSelectedListener(this);
+        spinnerCountryInput.setAdapter(arrayAdapterCountry);
+        spinnerCountryInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterTotalExp=ArrayAdapter.createFromResource(getActivity(),R.array.total_exp,android.R.layout.simple_spinner_item);
         arrayAdapterTotalExp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTotalExp.setAdapter(arrayAdapterTotalExp);
-        spinnerTotalExp.setOnItemSelectedListener(this);
+        spinnerTotalExpInput.setAdapter(arrayAdapterTotalExp);
+        spinnerTotalExpInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterIndusExp=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
         arrayAdapterIndusExp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerIndusExp.setAdapter(arrayAdapterTotalExp);
-        spinnerIndusExp.setOnItemSelectedListener(this);
+        spinnerIndusExpInput.setAdapter(arrayAdapterTotalExp);
+        spinnerIndusExpInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterModeOfClass=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
         arrayAdapterModeOfClass.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerModeOfClass.setAdapter(arrayAdapterTotalExp);
-        spinnerModeOfClass.setOnItemSelectedListener(this);
+        spinnerModeOfClassInput.setAdapter(arrayAdapterTotalExp);
+        spinnerModeOfClassInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterPreSubject=ArrayAdapter.createFromResource(getActivity(),R.array.pre_sub,android.R.layout.simple_spinner_item);
         arrayAdapterPreSubject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPreSubject.setAdapter(arrayAdapterTotalExp);
-        spinnerPreSubject.setOnItemSelectedListener(this);
+        spinnerPreSubjectInput.setAdapter(arrayAdapterTotalExp);
+        spinnerPreSubjectInput.setOnItemSelectedListener(this);
 
 
 
@@ -431,11 +435,11 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private void setView(View view) {
 
-        spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
-        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerScholFacCountry);
-        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerScholTotalExp);
-        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerScholIndusExp);
-        spinnerModeOfClass=(Spinner)view.findViewById(R.id.spinnerScholmodeOfClass);
+        spinnerSchoLevelInput = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
+        spinnerCountryInput = (Spinner) view.findViewById(R.id.spinnerScholFacCountry);
+        spinnerTotalExpInput=(Spinner)view.findViewById(R.id.spinnerScholTotalExp);
+        spinnerIndusExpInput=(Spinner)view.findViewById(R.id.spinnerScholIndusExp);
+        spinnerModeOfClassInput=(Spinner)view.findViewById(R.id.spinnerScholmodeOfClass);
         //spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
 
         /*uploadFile=(Button)view.findViewById(R.id.uploadFile);
@@ -458,6 +462,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         cbBcom=(CheckBox)view.findViewById(R.id.bcom);
         cbMcom=(CheckBox)view.findViewById(R.id.mcom);
         cbOthers=(CheckBox)view.findViewById(R.id.others);
+
+        btnScholFacReg=(Button)view.findViewById(R.id.btnScholFacReg);
 
     }
 }

@@ -209,7 +209,7 @@
     <Spinner
         android:id="@+id/spinnerScholmodeOfClass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/forty_dp"
         android:layout_below="@+id/spinnerScholIndusExp" />
 
         <RelativeLayout
@@ -234,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ChoosePhoto..."
-                android:layout_toRightOf="@+id/colgIdProof"
+                android:layout_toRightOf="@+id/scholIdProof"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
                 />
@@ -250,10 +250,6 @@
             android:imeOptions="actionDone"
             android:layout_below="@id/scholIdProof"
             />
-
-
-
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -313,6 +309,16 @@
                 />
 
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnScholFacReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/ten_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
