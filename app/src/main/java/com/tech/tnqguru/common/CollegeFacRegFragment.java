@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,8 @@ import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +36,10 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     Button btnColFacReg;
     String spnColgFacSelectColg,spnColgFacSelectCountry,spnColgFacSelectDept,spnColgFacTechExp,spnColgFacIndusExp,spnColgFacModeOfClass;
 
+    private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
+
+    private ArrayList<String> cbList;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,7 +52,191 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     }
 
     private void initView(View view) {
+
+
         setView(view);
+
+        cbBE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBE.isChecked()){
+                    cbList.add("B.E");
+
+                }else {
+                    cbList.remove("B.E");
+
+                }
+            }
+        });
+
+        cbME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbME.isChecked()){
+                    cbList.add("M.E");
+                }else {
+                    cbList.remove("M.E");
+                }
+            }
+        });
+
+        cbMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMS.isChecked()){
+                    cbList.add("M.S");
+                }else {
+                    cbList.remove("M.S");
+                }
+            }
+        });
+
+        cbBtech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBtech.isChecked()){
+                    cbList.add("B.Tech");
+                }else {
+                    cbList.remove("B.Tech");
+                }
+            }
+        });
+
+        cbMtech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMtech.isChecked()){
+                    cbList.add("M.Tech");
+                }else {
+                    cbList.remove("M.Tech");
+                }
+            }
+        });
+
+        cbMphil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMphil.isChecked()){
+                    cbList.add("MPhil");
+                }else {
+                    cbList.remove("MPhil");
+                }
+            }
+        });
+
+        cbPhd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbPhd.isChecked()){
+                    cbList.add("Phd");
+                }else {
+                    cbList.remove("Phd");
+                }
+            }
+        });
+
+        cbBA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBA.isChecked()){
+                    cbList.add("BA");
+                }else {
+                    cbList.remove("BA");
+                }
+            }
+        });
+
+        cbMA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMA.isChecked()){
+                    cbList.add("MA");
+                }else {
+                    cbList.remove("BA");
+                }
+            }
+        });
+
+        cbBSC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBSC.isChecked()){
+                    cbList.add("BSC");
+                }else {
+                    cbList.remove("BSC");
+                }
+            }
+        });
+
+        cbMSC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMSC.isChecked()){
+                    cbList.add("MSC");
+                }else {
+                    cbList.remove("MSC");
+                }
+            }
+        });
+
+        cbMCA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMCA.isChecked()){
+                    cbList.add("MCA");
+                }else {
+                    cbList.remove("MCA");
+                }
+            }
+        });
+
+        cbBcom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbBcom.isChecked()){
+                    cbList.add("B.Com");
+                }else {
+                    cbList.remove("B.Com");
+                }
+            }
+        });
+
+        cbMcom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbMcom.isChecked()){
+                    cbList.add("M.Com");
+                }else {
+                    cbList.remove("M.Com");
+                }
+            }
+        });
+
+        cbOthers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(cbOthers.isChecked()){
+                    cbList.add("Others");
+                }else {
+                    cbList.remove("Others");
+                }
+            }
+        });
 
 
 
@@ -84,8 +276,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         btnColFacReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-               // doRegisterCollegeFaculty();
 
                 getAllColgFacEnteredDetails();
 
@@ -130,14 +320,23 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
 
                 BaseResponseDTO baseResponseDTO=response.body();
-
                 System.out.println("RegistrationResponse"+baseResponseDTO.getResponseMessage()+" "+baseResponseDTO.getResponseCode());
+
+                if(baseResponseDTO.getResponseCode()==200){
+                    Toast.makeText(getActivity(),"Registered Successfully",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getActivity(),"Not Registered",Toast.LENGTH_LONG).show();
+                }
+
+
 
 
             }
 
             @Override
             public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
+
+                System.out.println("Exception"+t.getMessage().toString());
 
             }
         });
@@ -207,6 +406,26 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         spinnerColgTeachExpInput=(Spinner)view.findViewById(R.id.spinnerColgTeachExp);
         spinnerColgIndusExpInput=(Spinner)view.findViewById(R.id.spinnerColgIndusExp);
         modeOfColgClassInput=(Spinner)view.findViewById(R.id.modeOfColgClass);
+
+        cbBE=(CheckBox)view.findViewById(R.id.be);
+        cbME=(CheckBox)view.findViewById(R.id.me);
+        cbMS=(CheckBox)view.findViewById(R.id.ms);
+        cbBtech=(CheckBox)view.findViewById(R.id.btech);
+        cbMtech=(CheckBox)view.findViewById(R.id.mtech);
+
+        cbMphil=(CheckBox)view.findViewById(R.id.mphil);
+        cbPhd=(CheckBox)view.findViewById(R.id.phd);
+        cbBA=(CheckBox)view.findViewById(R.id.ba);
+        cbMA=(CheckBox)view.findViewById(R.id.ma);
+        cbBSC=(CheckBox)view.findViewById(R.id.bsc);
+
+        cbMSC=(CheckBox)view.findViewById(R.id.msc);
+        cbMCA=(CheckBox)view.findViewById(R.id.mca);
+        cbBcom=(CheckBox)view.findViewById(R.id.bcom);
+        cbMcom=(CheckBox)view.findViewById(R.id.mcom);
+        cbOthers=(CheckBox)view.findViewById(R.id.others);
+
+        cbList=new ArrayList<>();
 
         btnColFacReg=(Button)view.findViewById(R.id.btnColFacReg);
 

@@ -47,8 +47,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     String mediaPath;
     Bitmap bitmap;
 
-    CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
-    ArrayList<String> cbList;
+    private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
+    private ArrayList<String> cbList;
 
 
     @Nullable
