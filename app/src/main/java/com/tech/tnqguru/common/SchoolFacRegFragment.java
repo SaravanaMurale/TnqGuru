@@ -403,19 +403,19 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("SelectedSchool " + selected);
 
-        } else if (adapterView.getId() == R.id.spinnerFacCountry) {
+        } else if (adapterView.getId() == R.id.spinnerScholFacCountry) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + selected);
-        }else if (adapterView.getId() == R.id.spinnerTotalExp) {
+        }else if (adapterView.getId() == R.id.spinnerScholTotalExp) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + selected);
-        }else if (adapterView.getId() == R.id.spinnerIndusExp) {
+        }else if (adapterView.getId() == R.id.spinnerScholIndusExp) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + selected);
-        }else if (adapterView.getId() == R.id.modeOfClass) {
+        }else if (adapterView.getId() == R.id.spinnerScholmodeOfClass) {
 
             String selected = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + selected);
@@ -432,14 +432,14 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     private void setView(View view) {
 
         spinnerSchoLevel = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
-        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerFacCountry);
-        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerTotalExp);
-        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerIndusExp);
-        spinnerModeOfClass=(Spinner)view.findViewById(R.id.modeOfClass);
-        spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
+        spinnerCountry = (Spinner) view.findViewById(R.id.spinnerScholFacCountry);
+        spinnerTotalExp=(Spinner)view.findViewById(R.id.spinnerScholTotalExp);
+        spinnerIndusExp=(Spinner)view.findViewById(R.id.spinnerScholIndusExp);
+        spinnerModeOfClass=(Spinner)view.findViewById(R.id.spinnerScholmodeOfClass);
+        //spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
 
-        uploadFile=(Button)view.findViewById(R.id.uploadFile);
-        uploadImage=(Button)view.findViewById(R.id.uploadImage);
+        /*uploadFile=(Button)view.findViewById(R.id.uploadFile);
+        uploadImage=(Button)view.findViewById(R.id.uploadImage);*/
 
         cbBE=(CheckBox)view.findViewById(R.id.be);
         cbME=(CheckBox)view.findViewById(R.id.me);
