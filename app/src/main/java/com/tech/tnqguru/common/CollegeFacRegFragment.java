@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -13,11 +14,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.modelresponse.BaseResponseDTO;
+import com.tech.tnqguru.modelresponse.LoginResponseDTO;
+import com.tech.tnqguru.retrofit.ApiClient;
+import com.tech.tnqguru.retrofit.ApiInterface;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
 
     Spinner spinnerSelectColg,spinnerColgFacCountry,spinnerColgFacDept,spinnerColgTeachExp,spinnerColgIndusExp,modeOfColgClass;
+    Button btnColFacReg;
 
     @Nullable
     @Override
@@ -65,6 +75,63 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         modeOfColgClass.setAdapter(modeOfClassExpAdapter);
         modeOfColgClass.setOnItemSelectedListener(this);
 
+        btnColFacReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                doRegisterCollegeFaculty();
+
+            }
+        });
+
+
+    }
+
+    private void doRegisterCollegeFaculty() {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<BaseResponseDTO> call=apiInterface.doCollegeFacRegistration(
+                "Murali",
+                "murali@gmail.com",
+                "9999999999",
+                "photo.jpg",
+                "India",
+                "address",
+                "600055",
+                "B.Tech",
+                "5",
+                "online",
+                "bioData",
+                "Fac Subject",
+                "5",
+                "About Factulty",
+                "B.Tech",
+                "Computer Science",
+                "Faculty Id Proof",
+                "1111111111",
+                "Fac Bank Details",
+                "murali@gmail.com",
+                "aaaaaaaaaa");
+
+        call.enqueue(new Callback<BaseResponseDTO>() {
+            @Override
+            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
+
+                BaseResponseDTO baseResponseDTO=response.body();
+
+                System.out.println("RegistrationResponse"+baseResponseDTO.getResponseMessage()+" "+baseResponseDTO.getResponseCode());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
+
+            }
+        });
+
+
 
     }
 
@@ -76,6 +143,8 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         spinnerColgTeachExp=(Spinner)view.findViewById(R.id.spinnerColgTeachExp);
         spinnerColgIndusExp=(Spinner)view.findViewById(R.id.spinnerColgIndusExp);
         modeOfColgClass=(Spinner)view.findViewById(R.id.modeOfColgClass);
+
+        btnColFacReg=(Button)view.findViewById(R.id.btnColFacReg);
 
 
 
