@@ -48,7 +48,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerPreSubjectInput;
 
-    String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacSelectDept,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
+    String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
 
     Button uploadFile,uploadImage,btnScholFacReg;
     String mediaPath;
@@ -404,25 +404,25 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         if (adapterView.getId() == R.id.spinnerSchoLevel) {
 
-            String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("SelectedSchool " + selected);
+            spnScholFacSelectColg = adapterView.getItemAtPosition(i).toString();
+            System.out.println("SelectedSchool " + spnScholFacSelectColg);
 
         } else if (adapterView.getId() == R.id.spinnerScholFacCountry) {
 
-            String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("countrySelected " + selected);
+            spnScholFacSelectCountry = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + spnScholFacSelectCountry);
         }else if (adapterView.getId() == R.id.spinnerScholTotalExp) {
 
-            String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("countrySelected " + selected);
+            spnScholFacTechExp = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + spnScholFacTechExp);
         }else if (adapterView.getId() == R.id.spinnerScholIndusExp) {
 
-            String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("countrySelected " + selected);
+            spnScholFacIndusExp = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + spnScholFacIndusExp);
         }else if (adapterView.getId() == R.id.spinnerScholmodeOfClass) {
 
-            String selected = adapterView.getItemAtPosition(i).toString();
-            System.out.println("countrySelected " + selected);
+            spnScholFacModeOfClass = adapterView.getItemAtPosition(i).toString();
+            System.out.println("countrySelected " + spnScholFacModeOfClass);
         }
 
 
@@ -434,6 +434,16 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     }
 
     private void setView(View view) {
+
+        /*colgFacNameEdit=(EditText)view.findViewById(R.id.scholFacName);
+        colgFacMobileEdit=(EditText)view.findViewById(R.id.scholFacMobile);
+        colgFacAddressEdit=(EditText)view.findViewById(R.id.scholFacAddress);
+        colgFacPincodeEdit=(EditText)view.findViewById(R.id.colgFacPincode);
+        colgFacEmailEdit=(EditText)view.findViewById(R.id.colgFacEmail);
+        colgFacAboutEdit=(EditText)view.findViewById(R.id.colgFacAbout);
+        colgFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
+        colgFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);*/
+
 
         spinnerSchoLevelInput = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
         spinnerCountryInput = (Spinner) view.findViewById(R.id.spinnerScholFacCountry);
