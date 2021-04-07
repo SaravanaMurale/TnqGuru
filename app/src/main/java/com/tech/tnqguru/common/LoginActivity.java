@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +21,13 @@ import com.google.android.gms.auth.api.credentials.HintRequest;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 import com.tech.tnqguru.R;
-import com.tech.tnqguru.facultyactivity.FacultyBottomTabbedActivity;
-import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.modelresponse.LoginResponseDTO;
+import com.tech.tnqguru.retrofit.ApiClient;
+import com.tech.tnqguru.retrofit.ApiInterface;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.tech.tnqguru.utils.AppConstant.RESOLVE_HINT;
 import static com.tech.tnqguru.utils.MathUtil.validateEmail;
@@ -78,7 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                 String password = loginPassword.getText().toString();
 
 
-                if (userName.equals("student@gmail.com") && password.equals("student")) {
+                doLoginInServer(userName,password);
+
+
+                /*if (userName.equals("student@gmail.com") && password.equals("student")) {
 
                     Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
                     startActivity(intent);
@@ -91,10 +98,37 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Entered Username or Password is wrong", Toast.LENGTH_LONG).show();
                 }
-
+*/
 
             }
         });
+
+    }
+
+    private void doLoginInServer(String userName, String password) {
+
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<LoginResponseDTO> call=apiInterface.doLogin(userName,password);
+
+        call.enqueue(new Callback<LoginResponseDTO>() {
+            @Override
+            public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
+
+                LoginResponseDTO loginResponseDTO=response.body();
+
+                System.out.println("ResponseDetails"+loginResponseDTO.getSessionId()+" "+loginResponseDTO.getLoginMessage());
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
+
+            }
+        });
+
+
 
     }
 
