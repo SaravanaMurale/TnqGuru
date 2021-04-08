@@ -84,12 +84,13 @@
     </string-array>
 
     <string-array name="colg_type">
+        <item>Select Degree</item>
         <item>UG</item>
         <item>PG</item>
     </string-array>
 
     <string-array name="colg_dept">
-
+        <item>Select Department</item>
         <item>Arts</item>
         <item>Science</item>
         <item>Engineering</item>

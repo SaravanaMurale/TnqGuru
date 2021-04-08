@@ -7,118 +7,131 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/twenty_dp">
 
+        <TextView
+            android:id="@+id/csr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="School Student Registration"
+            android:textSize="@dimen/twenty_five_sp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:textColor="@color/dar_blue"
+            android:layout_marginTop="@dimen/twenty_five_sp"/>
 
         <Spinner
             android:id="@+id/spinnerSelectSchool"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholStuNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerSelectSchool">
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/csr"/>
 
             <EditText
                 android:id="@+id/scholStuName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholStuMobileInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/scholStuNameInput">
+                android:layout_height="55dp"
+                android:hint="Name"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/rounded_border"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:layout_below="@+id/spinnerSelectSchool"/>
 
             <EditText
                 android:id="@+id/scholStuMobile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholStuEmailInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/scholStuMobileInput">
+                android:layout_height="55dp"
+                android:hint="Mobile"
+                android:fontFamily="@font/ubuntu_regular"
+                android:inputType="phone"
+                android:background="@drawable/rounded_border"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:layout_below="@+id/scholStuName"/>
 
             <EditText
                 android:id="@+id/scholStuEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholStuAddrInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/scholStuEmailInput">
+                android:layout_height="55dp"
+                android:hint="Email"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/rounded_border"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:layout_below="@+id/scholStuMobile"/>
 
             <EditText
                 android:id="@+id/scholStuAddress"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:gravity="bottom"
-                android:hint="Address" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/scholStuPincodeInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/scholStuAddrInput">
+                android:hint="Address"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/rounded_border"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:paddingBottom="@dimen/ten_dp"
+                android:layout_below="@+id/scholStuEmail"/>
 
             <EditText
                 android:id="@+id/colgFacPincode"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Pincode" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="55dp"
+                android:hint="Pincode"
+                android:fontFamily="@font/ubuntu_regular"
+                android:background="@drawable/rounded_border"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:inputType="number"
+                android:layout_below="@+id/scholStuAddress"/>
 
         <Button
             android:id="@+id/stuDateOfBirth"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Data of Birth"
-            android:layout_below="@+id/scholStuPincodeInput"
-            />
-
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/colgFacPincode"/>
 
         <Button
             android:id="@+id/stuPhoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Student Photo"
-            android:layout_below="@+id/stuDateOfBirth"
-            />
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/stuDateOfBirth"/>
 
         <Spinner
             android:id="@+id/modeOfScholStuClass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
             android:layout_below="@+id/stuPhoto" />
 
         <Button
             android:id="@+id/subSyllabus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Subject Syllabus"
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/twenty_dp"
             android:layout_below="@+id/modeOfScholStuClass"
-            />
-
-
+            android:layout_marginBottom="10dp"/>
 
     </RelativeLayout>
 

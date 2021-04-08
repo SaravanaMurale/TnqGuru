@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/ten_dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        >
+        android:padding="@dimen/twenty_dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="School Faculty Registration"
+            android:textSize="@dimen/twenty_five_sp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:textColor="@color/dar_blue"
+            android:layout_marginTop="@dimen/twenty_five_sp"/>
 
     <Spinner
         android:id="@+id/spinnerSchoLevel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"/>
 
 
     <Spinner
         android:id="@+id/spinnerFacCountry"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"
         android:layout_below="@+id/scholFacMobileInput" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="School" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/scholFacMobileInput"
+        android:id="@+id/schoolTit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scholFacNameInput">
-
-        <EditText
-            android:id="@+id/scholFacMobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mobile" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/scholFacNameInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerSchoLevel">
+        android:text="School"
+        android:fontFamily="@font/ubuntu_regular"
+        android:layout_marginTop="@dimen/twenty_dp"/>
 
         <EditText
             android:id="@+id/scholFacName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:layout_height="55dp"
+            android:hint="Name"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/fifteen_dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/scholFacMobile"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Mobile"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/scholFacAddrInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerFacCountry">
 
         <EditText
             android:id="@+id/scholFacAddress"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="bottom"
-            android:hint="Address" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Address"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:paddingBottom="@dimen/ten_dp"
+            android:layout_marginTop="@dimen/twenty_dp"/>
 
     <TextView
         android:id="@+id/facQual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Faculty Qualification"
-        android:layout_below="@+id/scholFacAddrInput"
-        />
+        android:fontFamily="@font/ubuntu_regular"
+        android:layout_marginTop="@dimen/twenty_dp"/>
 
     <RelativeLayout
         android:id="@+id/qualBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/facQual"
-        >
+        android:layout_marginTop="@dimen/fifteen_dp">
 
     <include layout="@layout/layout_qualification_checkbox"/>
 
@@ -94,51 +104,65 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/qualBlock"
         android:text="Total Experience In Years"
-        />
+        android:fontFamily="@font/ubuntu_regular"
+        android:layout_marginTop="@dimen/twenty_dp"/>
 
     <Spinner
         android:id="@+id/spinnerTotalExp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toalExp"
-
-        />
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"
+        android:layout_below="@+id/toalExp"/>
 
     <Spinner
         android:id="@+id/spinnerIndusExp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerTotalExp"
-
-        />
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"
+        android:layout_below="@+id/spinnerTotalExp"/>
 
     <Spinner
         android:id="@+id/modeOfClass"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"
         android:layout_below="@+id/spinnerIndusExp" />
 
     <Spinner
         android:id="@+id/preSubject"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:background="@drawable/rounded_border"
         android:layout_below="@+id/modeOfClass" />
 
     <Button
         android:id="@+id/uploadFile"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="Upload File"
-        android:layout_below="@+id/preSubject"
-        />
+        android:textSize="17sp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:background="@drawable/text_bg_btn"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_below="@+id/preSubject"/>
 
     <Button
         android:id="@+id/uploadImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="Upload All"
-        android:layout_below="@+id/uploadFile"
-        />
+        android:textSize="17sp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:background="@drawable/text_bg_btn"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:layout_marginBottom="@dimen/ten_dp"
+        android:layout_below="@+id/uploadFile" />
 
     </LinearLayout>
 

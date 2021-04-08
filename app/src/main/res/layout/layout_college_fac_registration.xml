@@ -27,9 +27,9 @@
     <Spinner
         android:id="@+id/spinnerSelectColg"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="55dp"
         android:layout_marginTop="@dimen/fifteen_dp"
-        />
+        android:background="@drawable/rounded_border"/>
 
 
 
@@ -359,8 +359,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/ten_dp"
             android:background="@drawable/text_bg_btn"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white"/>
 
 
 

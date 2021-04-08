@@ -4,125 +4,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:layout_margin="@dimen/fifteen_dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/csr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="College Student Registration"
+            android:textSize="@dimen/twenty_five_sp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:textColor="@color/dar_blue"
+            android:layout_marginTop="@dimen/twenty_five_sp"/>
+
         <Spinner
             android:id="@+id/spinnerSelectCollege"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/csr"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/colgStuNameInput"
+        <EditText
+            android:id="@+id/colgStuName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerSelectCollege">
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Name"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/spinnerSelectCollege"/>
 
-            <EditText
-                android:id="@+id/colgStuName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/colgStuMobileInput"
+        <EditText
+            android:id="@+id/colgStuMobile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/colgStuNameInput">
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Mobile"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@id/colgStuName"/>
 
-            <EditText
-                android:id="@+id/colgStuMobile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Mobile" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/colgStuEmailInput"
+        <EditText
+            android:id="@+id/colgStuEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/colgStuMobileInput">
-
-            <EditText
-                android:id="@+id/colgStuEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Email"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/colgStuMobile"/>
 
         <Button
+            android:id="@+id/colgStuDob"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Data Of Birth"
-            android:layout_below="@+id/colgStuEmailInput"
-            />
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_below="@+id/colgStuEmail" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/colgStuAddrInput"
+
+        <EditText
+            android:id="@+id/colgStuAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/colgStuEmailInput">
+            android:layout_height="100dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:paddingBottom="@dimen/ten_dp"
+            android:gravity="bottom"
+            android:hint="Address"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/colgStuDob"/>
 
-            <EditText
-                android:id="@+id/colgStuAddress"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="bottom"
-                android:hint="Address" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/colgStuPincodeInput"
+        <EditText
+            android:id="@+id/colgStuPincode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/colgStuAddrInput">
-
-            <EditText
-                android:id="@+id/colgStuPincode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Pincode" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="55dp"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:hint="Pincode"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/colgStuAddress"/>
 
         <Spinner
             android:id="@+id/colgStuDept"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/colgStuPincodeInput"
-            />
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_below="@+id/colgStuPincode"/>
 
         <Button
             android:id="@+id/colgStuPhoto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Student Photo"
-            android:layout_below="@+id/colgStuDept"
-            />
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_below="@+id/colgStuDept"/>
 
         <Spinner
             android:id="@+id/modeOfScholStuClass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_border"
+            android:layout_marginTop="@dimen/twenty_dp"
             android:layout_below="@+id/colgStuPhoto" />
 
         <Button
             android:id="@+id/colgStuSubSyllabus"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:text="Subject Syllabus"
-            android:layout_below="@+id/modeOfScholStuClass"
-            />
-
-
+            android:textSize="17sp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_below="@+id/modeOfScholStuClass"/>
 
     </RelativeLayout>
 
