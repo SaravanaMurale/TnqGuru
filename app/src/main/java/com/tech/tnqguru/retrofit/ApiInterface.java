@@ -73,7 +73,33 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("/")
-    Call<BaseResponseDTO> doSchoolFacRegistration();
+    Call<BaseResponseDTO> doSchoolFacRegistration(
+
+            @Field("school_level")  String schoolLeve,
+            @Field("faculty_name") String facName,
+            @Field("faculty_email") String facEmail,
+            @Field("faculty_phone") String facphone,
+
+            @Field("faculty_photo") String facPhoto,
+            @Field("faculty_country") String facCountry,
+            @Field("faculty_address") String facAddress,
+
+            @Field("faculty_pincode") String facPinCode,
+            @Field("faculty_qualification") String facQualification,
+            @Field("teaching_experience") String facTeachExp,
+
+            @Field("mode_of_class") String facModeOfClass,
+            @Field("bio_data_document") String facBioData,
+            @Field("industrial_experience") String facIndusExp,
+
+            @Field("about_faculty") String facAbtFac,
+            @Field("id_proof_document") String facIdProofDoucment,
+            @Field("id_proof_document_number") String facDocNum,
+
+            @Field("bank_details") String facBankDetails,
+            @Field("username") String facUserName,
+            @Field("password") String facPassword
+            );
 
 
 

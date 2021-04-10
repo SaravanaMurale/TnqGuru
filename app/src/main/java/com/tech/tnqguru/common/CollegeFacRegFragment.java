@@ -303,15 +303,15 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 "B.Tech",
                 spnColgFacTechExp,
                 spnColgFacModeOfClass,
-                "bioData",
+                "BioData",
                 "Fac Subject",
                 spnColgFacIndusExp,
                 colgFacAbout,
                 "B.Tech",
                 "Computer Science",
-                "Faculty Id Proof",
+                "FacultyIdProof.jpeg",
                 colgFacIdProofNumber,
-                "Fac Bank Details",
+                "FacBankDetails.jpeg",
                 colgFacEmail,
                 colgFacPassword);
 

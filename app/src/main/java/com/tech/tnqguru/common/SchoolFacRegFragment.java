@@ -338,7 +338,34 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     private void doRegisterCollegeFaculty(String scholFacName, String scholFacMobile, String scholFacAddress, String scholFacPincode, String scholFacEmail, String scholFacPassword, String scholFacAbout, String scholFacIdProofNumber) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-        apiInterface.doSchoolFacRegistration();
+        apiInterface.doSchoolFacRegistration(
+                spnScholFacSelectColg,
+                scholFacName,
+                scholFacEmail,
+                scholFacMobile,
+                "photo.jpg",
+                spnScholFacSelectCountry,
+                scholFacAddress,
+                scholFacPincode,
+                "B.Tech",
+                spnScholFacTechExp,
+                spnScholFacModeOfClass,
+                "BioData",
+                spnScholFacIndusExp,
+                scholFacAbout,
+                "FacultyIdProof.jpeg",
+                scholFacIdProofNumber,
+                "FacBankDetails.jpeg",
+                scholFacEmail,
+                scholFacPassword);
+
+
+
+
+
+
+
+        );
 
 
     }
