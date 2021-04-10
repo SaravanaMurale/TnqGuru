@@ -290,22 +290,22 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
 
 
-        uploadFile.setOnClickListener(new View.OnClickListener() {
+        /*uploadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 uploadFileData();
                 
             }
-        });
+        });*/
 
-        uploadImage.setOnClickListener(new View.OnClickListener() {
+        /*uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 uploadImageToServer();
             }
         });
-
+*/
         btnScholFacReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

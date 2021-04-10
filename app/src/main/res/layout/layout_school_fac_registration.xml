@@ -188,13 +188,12 @@
         </RelativeLayout>
 
 
-
-
     <Spinner
         android:id="@+id/spinnerScholTotalExp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/forty_dp"
         android:layout_below="@+id/scholQualBlock"
+        android:layout_marginTop="@dimen/twenty_dp"
 
         />
 
@@ -203,6 +202,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/forty_dp"
         android:layout_below="@+id/spinnerScholTotalExp"
+        android:layout_marginTop="@dimen/twenty_dp"
 
         />
 
@@ -210,7 +210,9 @@
         android:id="@+id/spinnerScholmodeOfClass"
         android:layout_width="match_parent"
         android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/spinnerScholIndusExp" />
+        android:layout_below="@+id/spinnerScholIndusExp"
+        android:layout_marginTop="@dimen/twenty_dp"
+        />
 
         <RelativeLayout
             android:layout_width="match_parent"
