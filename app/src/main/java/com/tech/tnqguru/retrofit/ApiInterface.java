@@ -71,6 +71,10 @@ public interface ApiInterface {
             );
 
 
+    @FormUrlEncoded
+    @POST("/")
+    Call<BaseResponseDTO> doSchoolFacRegistration();
+
 
 
 

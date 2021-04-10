@@ -283,10 +283,10 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerModeOfClassInput.setAdapter(arrayAdapterTotalExp);
         spinnerModeOfClassInput.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> arrayAdapterPreSubject=ArrayAdapter.createFromResource(getActivity(),R.array.pre_sub,android.R.layout.simple_spinner_item);
+        /*ArrayAdapter<CharSequence> arrayAdapterPreSubject=ArrayAdapter.createFromResource(getActivity(),R.array.pre_sub,android.R.layout.simple_spinner_item);
         arrayAdapterPreSubject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPreSubjectInput.setAdapter(arrayAdapterTotalExp);
-        spinnerPreSubjectInput.setOnItemSelectedListener(this);
+        spinnerPreSubjectInput.setOnItemSelectedListener(this);*/
 
 
 
@@ -305,6 +305,40 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 uploadImageToServer();
             }
         });
+
+        btnScholFacReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAllScholFacEnteredDetails();
+            }
+        });
+
+
+    }
+
+    private void getAllScholFacEnteredDetails() {
+
+        String scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacSub1,scholFacSub2,scholFacSub3,scholFacIdProofNumber;
+
+        scholFacName=scholFacNameEdit.getText().toString();
+        scholFacMobile=scholFacMobileEdit.getText().toString();
+        scholFacAddress=scholFacAddressEdit.getText().toString();
+        scholFacPincode=scholFacPincodeEdit.getText().toString();
+        scholFacEmail=scholFacEmailEdit.getText().toString();
+        scholFacPassword=scholFacPasswordEdit.getText().toString();
+        scholFacAbout=scholFacAboutEdit.getText().toString();
+        scholFacIdProofNumber=scholFacIdProofNumberEdit.getText().toString();
+
+        System.out.println("EnteredData"+scholFacName+" "+scholFacMobile+" "+scholFacAddress+" "+scholFacPincode+" "+scholFacEmail+" "+scholFacAbout+" "+scholFacIdProofNumber);
+
+       // doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+
+    }
+
+    private void doRegisterCollegeFaculty(String scholFacName, String scholFacMobile, String scholFacAddress, String scholFacPincode, String scholFacEmail, String scholFacPassword, String scholFacAbout, String scholFacIdProofNumber) {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+        apiInterface.doSchoolFacRegistration();
 
 
     }
@@ -435,14 +469,14 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private void setView(View view) {
 
-        /*colgFacNameEdit=(EditText)view.findViewById(R.id.scholFacName);
-        colgFacMobileEdit=(EditText)view.findViewById(R.id.scholFacMobile);
-        colgFacAddressEdit=(EditText)view.findViewById(R.id.scholFacAddress);
-        colgFacPincodeEdit=(EditText)view.findViewById(R.id.colgFacPincode);
-        colgFacEmailEdit=(EditText)view.findViewById(R.id.colgFacEmail);
-        colgFacAboutEdit=(EditText)view.findViewById(R.id.colgFacAbout);
-        colgFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
-        colgFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);*/
+        scholFacNameEdit=(EditText)view.findViewById(R.id.scholFacName);
+        scholFacMobileEdit=(EditText)view.findViewById(R.id.scholFacMobile);
+        scholFacAddressEdit=(EditText)view.findViewById(R.id.scholFacAddress);
+        scholFacPincodeEdit=(EditText)view.findViewById(R.id.colgFacPincode);
+        scholFacEmailEdit=(EditText)view.findViewById(R.id.colgFacEmail);
+        scholFacAboutEdit=(EditText)view.findViewById(R.id.colgFacAbout);
+        scholFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
+        scholFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);
 
 
         spinnerSchoLevelInput = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
