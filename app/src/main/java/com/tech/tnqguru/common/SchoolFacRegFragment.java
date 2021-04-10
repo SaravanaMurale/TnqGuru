@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 
@@ -318,7 +319,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private void getAllScholFacEnteredDetails() {
 
-        String scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacSub1,scholFacSub2,scholFacSub3,scholFacIdProofNumber;
+        String scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber;
 
         scholFacName=scholFacNameEdit.getText().toString();
         scholFacMobile=scholFacMobileEdit.getText().toString();
@@ -331,14 +332,14 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         System.out.println("EnteredData"+scholFacName+" "+scholFacMobile+" "+scholFacAddress+" "+scholFacPincode+" "+scholFacEmail+" "+scholFacAbout+" "+scholFacIdProofNumber);
 
-       // doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+       doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
     }
 
     private void doRegisterCollegeFaculty(String scholFacName, String scholFacMobile, String scholFacAddress, String scholFacPincode, String scholFacEmail, String scholFacPassword, String scholFacAbout, String scholFacIdProofNumber) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-        apiInterface.doSchoolFacRegistration(
+        Call<BaseResponseDTO> call= apiInterface.doSchoolFacRegistration(
                 spnScholFacSelectColg,
                 scholFacName,
                 scholFacEmail,
@@ -360,12 +361,17 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 scholFacPassword);
 
 
+        call.enqueue(new Callback<BaseResponseDTO>() {
+            @Override
+            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
 
+            }
 
+            @Override
+            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
 
-
-
-        );
+            }
+        });
 
 
     }
@@ -499,11 +505,11 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         scholFacNameEdit=(EditText)view.findViewById(R.id.scholFacName);
         scholFacMobileEdit=(EditText)view.findViewById(R.id.scholFacMobile);
         scholFacAddressEdit=(EditText)view.findViewById(R.id.scholFacAddress);
-        scholFacPincodeEdit=(EditText)view.findViewById(R.id.colgFacPincode);
-        scholFacEmailEdit=(EditText)view.findViewById(R.id.colgFacEmail);
-        scholFacAboutEdit=(EditText)view.findViewById(R.id.colgFacAbout);
-        scholFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
-        scholFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);
+        scholFacPincodeEdit=(EditText)view.findViewById(R.id.scholFacPincode);
+        scholFacEmailEdit=(EditText)view.findViewById(R.id.scholFacEmail);
+        scholFacAboutEdit=(EditText)view.findViewById(R.id.scholFacAbout);
+        scholFacIdProofNumberEdit=(EditText)view.findViewById(R.id.scholFacIdProofNumber);
+        scholFacPasswordEdit=(EditText)view.findViewById(R.id.scholFacPassword);
 
 
         spinnerSchoLevelInput = (Spinner) view.findViewById(R.id.spinnerSchoLevel);
