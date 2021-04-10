@@ -247,29 +247,29 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         spinnerSelectColgInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> countryAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.country,android.R.layout.simple_spinner_item);
-        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgFacCountryInput.setAdapter(countryAdapter);
         spinnerColgFacCountryInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> colgDeptAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.colg_dept,android.R.layout.simple_spinner_item);
-        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        colgDeptAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgFacDeptInput.setAdapter(colgDeptAdapter);
         spinnerColgFacDeptInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> teachExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.total_exp,android.R.layout.simple_spinner_item);
-        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        teachExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgTeachExpInput.setAdapter(teachExpAdapter);
         spinnerColgTeachExpInput.setOnItemSelectedListener(this);
 
 
         ArrayAdapter<CharSequence> indusExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
-        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        indusExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgIndusExpInput.setAdapter(indusExpAdapter);
         spinnerColgIndusExpInput.setOnItemSelectedListener(this);
 
 
         ArrayAdapter<CharSequence> modeOfClassExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
-        selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        modeOfClassExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modeOfColgClassInput.setAdapter(modeOfClassExpAdapter);
         modeOfColgClassInput.setOnItemSelectedListener(this);
 
