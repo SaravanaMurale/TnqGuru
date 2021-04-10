@@ -54,7 +54,32 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         spinnerColgStuCountry.setAdapter(countryAdapter);
         spinnerColgStuCountry.setOnItemSelectedListener(this);
 
+        btnColStuReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAllColgStuEnteredDetails();
+            }
+        });
 
+
+    }
+
+    private void getAllColgStuEnteredDetails() {
+
+        String colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword,colgStuAbout,colgFacIdProofNumber;
+
+        colgStuName=colgStuNameEdit.getText().toString();
+        colgStuMobile=colgStuMobileEdit.getText().toString();
+        colgStuAddress=colgStuAddressEdit.getText().toString();
+        colgStuPincode=colgStuPincodeEdit.getText().toString();
+        colgStuEmail=colgStuEmailEdit.getText().toString();
+        colgStuPassword=colgStuPasswordEdit.getText().toString();
+        
+        doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
+
+    }
+
+    private void doRegisterCollegeStudent(String colgStuName, String colgStuMobile, String colgStuAddress, String colgStuPincode, String colgStuEmail, String colgStuPassword) {
     }
 
     private void setView(View view) {
@@ -69,6 +94,7 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         colgStuAddressEdit=(EditText)view.findViewById(R.id.colgStuAddress);
         colgStuPincodeEdit=(EditText)view.findViewById(R.id.colgStuPincodeInput);
         colgStuEmailEdit=(EditText)view.findViewById(R.id.colgStuEmail);
+        colgStuPasswordEdit= (EditText)view.findViewById(R.id.colgStuPassword);
         colgStuIdProofNumberEdit=(EditText)view.findViewById(R.id.colgStuPassword);
     }
 
