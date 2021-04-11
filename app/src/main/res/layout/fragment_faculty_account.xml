@@ -10,4 +10,12 @@
         android:layout_centerInParent="true"
         android:text="Faculty Account Fragment" />
 
+    <Button
+        android:id="@+id/facLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Logout"
+        />
+
 </RelativeLayout>

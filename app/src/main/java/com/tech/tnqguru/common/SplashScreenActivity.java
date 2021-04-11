@@ -61,11 +61,13 @@ public class SplashScreenActivity extends AppCompatActivity {
                     Intent callJitsiActivity = new Intent(SplashScreenActivity.this, JitsiActivity.class);
                     callJitsiActivity.putExtra("ROOM", data.getPath());
                     startActivity(callJitsiActivity);
+                    finish();
 
 
                 } else {
                     Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
                     startActivity(callJitsiActivity);
+                    finish();
                 }
 
 
@@ -78,6 +80,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     public void run() {
                         Intent callJitsiActivity = new Intent(SplashScreenActivity.this, LoginActivity.class);
                         startActivity(callJitsiActivity);
+                        finish();
                     }
                 }, 2000);
 
