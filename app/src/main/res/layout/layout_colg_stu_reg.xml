@@ -142,8 +142,16 @@
             android:layout_marginTop="@dimen/ten_dp"
             />
 
-
-
+        <Button
+            android:id="@+id/btnColStuReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/ten_dp"
+            android:background="@drawable/text_bg_btn"
+            android:textColor="@color/white"
+            android:layout_below="@+id/colgStuModeOfClass"/>
 
 
 

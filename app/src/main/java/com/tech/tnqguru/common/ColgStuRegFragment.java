@@ -96,6 +96,8 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         colgStuEmailEdit=(EditText)view.findViewById(R.id.colgStuEmail);
         colgStuPasswordEdit= (EditText)view.findViewById(R.id.colgStuPassword);
         colgStuIdProofNumberEdit=(EditText)view.findViewById(R.id.colgStuPassword);
+
+        btnColStuReg=(Button)view.findViewById(R.id.btnColStuReg);
     }
 
     @Override

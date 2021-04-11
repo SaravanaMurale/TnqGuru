@@ -79,7 +79,9 @@ public class SchoolStuRegFragment  extends Fragment {
         scholStuPincodeEdit=(EditText)view.findViewById(R.id.scholStuPincode);
         scholStuEmailEdit=(EditText)view.findViewById(R.id.scholStuEmail);
         scholStuPasswordEdit= (EditText)view.findViewById(R.id.scholStuPassword);
-        scholStuIdProofNumberEdit=(EditText)view.findViewById(R.id.colgStuPassword);
+        //scholStuIdProofNumberEdit=(EditText)view.findViewById(R.id.colgStuPassword);
+
+        btnScholStuReg=(Button) view.findViewById(R.id.btnScholStuReg);
 
     }
 }
