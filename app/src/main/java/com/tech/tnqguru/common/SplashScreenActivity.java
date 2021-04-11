@@ -62,6 +62,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     callJitsiActivity.putExtra("ROOM", data.getPath());
                     startActivity(callJitsiActivity);
 
+
                 } else {
                     Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
                     startActivity(callJitsiActivity);

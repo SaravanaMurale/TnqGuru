@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +22,11 @@ import com.google.android.gms.auth.api.credentials.HintRequest;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.facultyactivity.FacultyBottomTabbedActivity;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -82,10 +85,10 @@ public class LoginActivity extends AppCompatActivity {
                 String password = loginPassword.getText().toString();
 
 
-                doLoginInServer(userName,password);
+                //doLoginInServer(userName,password);
 
 
-                /*if (userName.equals("student@gmail.com") && password.equals("student")) {
+                if (userName.equals("student@gmail.com") && password.equals("student")) {
 
                     Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
                     startActivity(intent);
@@ -98,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Entered Username or Password is wrong", Toast.LENGTH_LONG).show();
                 }
-*/
 
             }
         });

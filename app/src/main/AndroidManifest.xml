@@ -21,10 +21,11 @@
         <activity android:name=".common.PaymentGatewayActivity" /> <!-- <activity android:name=".common.SignupActivity"></activity> -->
         <activity android:name=".common.JitsiActivity" />
         <activity android:name=".studentactivity.StudentBottomTabbedActivity" />
-        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" /> <!-- <activity android:name=".common.LoginActivity"></activity> -->
+        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" />
+         <activity android:name=".common.LoginActivity"></activity>
 
 
-        <activity android:name=".common.LoginActivity">
+        <!--<activity android:name=".common.LoginActivity">
 
             <intent-filter>
 
@@ -36,12 +37,12 @@
 
 
         </activity>
+-->
 
-
-        <!--<activity android:name=".common.SignupActivity">
+        <activity android:name=".common.SplashScreenActivity">
             <intent-filter>
 
-                &lt;!&ndash;
+                <!--
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -49,7 +50,7 @@
                 <data
                     android:host="tnqguru.com"
                     android:scheme="http" />
-                &ndash;&gt;
+                -->
 
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,7 +66,7 @@
                     android:host="tnqguru.com"
                     android:scheme="http" />
             </intent-filter>
-        </activity>-->
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
