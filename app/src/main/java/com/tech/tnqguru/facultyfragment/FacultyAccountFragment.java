@@ -24,6 +24,8 @@ public class FacultyAccountFragment extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_faculty_account, container, false);
 
+        facLogout=(Button)view.findViewById(R.id.facLogout);
+
 
         facLogout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.facultyactivity.FacultyBottomTabbedActivity;
+import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.utils.PreferenceUtil;
 import com.tech.tnqguru.utils.ToastUtils;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        userId = "user1";
+        userId = PreferenceUtil.getValueString(SplashScreenActivity.this,PreferenceUtil.USER_ID);
 
 
         new SplashDownCountDown(3000, 1000).start();
@@ -64,10 +66,19 @@ public class SplashScreenActivity extends AppCompatActivity {
                     finish();
 
 
-                } else {
-                    Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
-                    startActivity(callJitsiActivity);
-                    finish();
+                } else if(data==null) {
+
+                    if(userId.equals("STU")){
+                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, StudentBottomTabbedActivity.class);
+                        startActivity(callJitsiActivity);
+                        finish();
+                    }else if(userId.equals("FAC")){
+                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
+                        startActivity(callJitsiActivity);
+                        finish();
+                    }
+
+
                 }
 
 

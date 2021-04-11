@@ -27,6 +27,7 @@ import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.utils.PreferenceUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -90,11 +91,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (userName.equals("student@gmail.com") && password.equals("student")) {
 
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,"STU");
+
                     Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
                     startActivity(intent);
 
 
                 } else if (userName.equals("faculty@gmail.com") && password.equals("faculty")) {
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,"FAC");
                     Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
                     startActivity(intent);
 
