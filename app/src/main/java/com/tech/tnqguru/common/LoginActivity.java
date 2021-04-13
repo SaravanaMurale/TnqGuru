@@ -95,12 +95,14 @@ public class LoginActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
                     startActivity(intent);
+                    finish();
 
 
                 } else if (userName.equals("faculty@gmail.com") && password.equals("faculty")) {
                     PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,"FAC");
                     Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
                     startActivity(intent);
+                    finish();
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Entered Username or Password is wrong", Toast.LENGTH_LONG).show();

@@ -13,7 +13,12 @@
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/shimmer_bg"
+        android:fontFamily="@font/ubuntu_regular"
+        android:padding="@dimen/fifteen_dp"
         android:text="Faculty Registration"
+        android:textSize="@dimen/twenty_sp"
 
         />
 
@@ -26,7 +31,7 @@
 
         <RadioButton
             android:id="@+id/radioSchool"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:checked="false"
@@ -35,7 +40,7 @@
 
         <RadioButton
             android:id="@+id/radioCollege"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:checked="false"
@@ -43,16 +48,21 @@
             android:textSize="20dp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/stu_reg"
+            android:layout_width="424dp"
             android:layout_height="wrap_content"
-            android:text="Student Registration"
+            android:layout_below="@+id/fac_sele_radioGroup"
             android:layout_marginTop="10dp"
-            />
+            android:background="@color/shimmer_bg"
+            android:fontFamily="@font/ubuntu_regular"
+            android:padding="@dimen/fifteen_dp"
+            android:text="Student Registration"
+            android:textSize="@dimen/twenty_sp" />
 
 
         <RadioButton
             android:id="@+id/radioStuSchool"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:checked="false"
@@ -61,7 +71,7 @@
 
         <RadioButton
             android:id="@+id/radioStuCollege"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:checked="false"

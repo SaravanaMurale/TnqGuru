@@ -71,4 +71,12 @@ public class StudentBottomTabbedActivity extends AppCompatActivity {
 
 
     };
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+
+    }
 }

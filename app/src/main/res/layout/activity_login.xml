@@ -159,7 +159,14 @@
 
     </androidx.cardview.widget.CardView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        >
     <include layout="@layout/fragment_social_signup"/>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
