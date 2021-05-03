@@ -52,7 +52,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
 
-    private Button uploadFile,uploadImage,btnScholFacReg,btnUploadCheck;
+    private Button uploadFile,uploadImage,btnScholFacReg;
 
     private Button scholFacUploadImage,scholFacIdProof,scholFacBankDetails;
     List<String> addImageInString;
@@ -281,12 +281,12 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         ArrayAdapter<CharSequence> arrayAdapterIndusExp=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
         arrayAdapterIndusExp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerIndusExpInput.setAdapter(arrayAdapterTotalExp);
+        spinnerIndusExpInput.setAdapter(arrayAdapterIndusExp);
         spinnerIndusExpInput.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> arrayAdapterModeOfClass=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
         arrayAdapterModeOfClass.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerModeOfClassInput.setAdapter(arrayAdapterTotalExp);
+        spinnerModeOfClassInput.setAdapter(arrayAdapterModeOfClass);
         spinnerModeOfClassInput.setOnItemSelectedListener(this);
 
         /*ArrayAdapter<CharSequence> arrayAdapterPreSubject=ArrayAdapter.createFromResource(getActivity(),R.array.pre_sub,android.R.layout.simple_spinner_item);
@@ -558,7 +558,6 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         /*uploadFile=(Button)view.findViewById(R.id.uploadFile);*/
         uploadImage=(Button)view.findViewById(R.id.scholFacBankDetails);
-        btnUploadCheck=(Button)view.findViewById(R.id.btnUploadCheck);
         scholFacUploadImage=(Button)view.findViewById(R.id.scholUploadImage);
         scholFacIdProof=(Button)view.findViewById(R.id.scholIdProof);
         scholFacBankDetails=(Button)view.findViewById(R.id.scholFacBankDetails);
