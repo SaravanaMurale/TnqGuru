@@ -15,6 +15,11 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    //Image Upload To Server
+    //https://www.youtube.com/watch?v=5fTN9INBGR8
+
+
     EditText editText;
     Button btn;
 

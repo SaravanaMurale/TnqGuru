@@ -302,12 +302,21 @@
                 />
 
             <TextView
+                android:id="@+id/textSchoolFac"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
                 android:layout_toRightOf="@+id/scholFacBankDetails"
                 android:layout_marginLeft="@dimen/ten_dp"
                 android:layout_centerVertical="true"
+                />
+
+            <Button
+                android:id="@+id/btnUploadCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:layout_toRightOf="@+id/textSchoolFac"
+                android:text="Upload"
                 />
 
         </RelativeLayout>

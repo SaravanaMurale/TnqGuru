@@ -30,6 +30,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -45,13 +46,17 @@ import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
 
-    EditText scholFacNameEdit,scholFacMobileEdit,scholFacAddressEdit,scholFacPincodeEdit,scholFacEmailEdit,scholFacAboutEdit,scholFacIdProofNumberEdit,scholFacPasswordEdit;
+    private EditText scholFacNameEdit,scholFacMobileEdit,scholFacAddressEdit,scholFacPincodeEdit,scholFacEmailEdit,scholFacAboutEdit,scholFacIdProofNumberEdit,scholFacPasswordEdit;
 
-    Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerPreSubjectInput;
+    private Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerPreSubjectInput;
 
-    String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
+    private String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
 
-    Button uploadFile,uploadImage,btnScholFacReg;
+    private Button uploadFile,uploadImage,btnScholFacReg,btnUploadCheck;
+
+    private Button scholFacUploadImage,scholFacIdProof,scholFacBankDetails;
+    List<String> addImageInString;
+
     String mediaPath;
     Bitmap bitmap;
 
@@ -300,13 +305,28 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             }
         });*/
 
-        /*uploadImage.setOnClickListener(new View.OnClickListener() {
+        scholFacUploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadImageToServer();
+                uploadImageToServer(1);
             }
         });
-*/
+
+        scholFacIdProof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImageToServer(2);
+            }
+        });
+
+        scholFacBankDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImageToServer(3);
+            }
+        });
+
+
         btnScholFacReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -344,7 +364,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 scholFacName,
                 scholFacEmail,
                 scholFacMobile,
-                "photo.jpg",
+                addImageInString.get(0),
                 spnScholFacSelectCountry,
                 scholFacAddress,
                 scholFacPincode,
@@ -354,9 +374,9 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 "BioData",
                 spnScholFacIndusExp,
                 scholFacAbout,
-                "FacultyIdProof.jpeg",
+                addImageInString.get(1),
                 scholFacIdProofNumber,
-                "FacBankDetails.jpeg",
+                addImageInString.get(2),
                 scholFacEmail,
                 scholFacPassword);
 
@@ -376,12 +396,13 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     }
 
-    private void uploadImageToServer() {
+    private void uploadImageToServer(int i) {
 
         Intent intent = new Intent();
-        intent.setType("image/*");
-        //intent.setType("*/*"); For all kind of upload
+        //intent.setType("image/*");
+        intent.setType("*/*");  // For all kind of upload
         intent.setAction(Intent.ACTION_GET_CONTENT);
+        IMG_REQUEST=i;
         startActivityForResult(intent, IMG_REQUEST);
 
     }
@@ -397,7 +418,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),path);
                 //imageView.setImageBitmap(bitmap);
-                startUploadToServer();
+                startUploadToServer(requestCode);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -405,12 +426,26 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         }
     }
 
-    private void startUploadToServer() {
+    private void startUploadToServer(int imgRequest) {
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,75, byteArrayOutputStream);
         byte[] imageInByte = byteArrayOutputStream.toByteArray();
         String encodedImage =  Base64.encodeToString(imageInByte, Base64.DEFAULT);
+
+        System.out.println("ImageInStringFormet"+encodedImage);
+
+        if(imgRequest==1){
+            //Faculty Photo
+            addImageInString.add(0,encodedImage);
+        }else if(imgRequest==2){
+            //Faculty ID Proof
+            addImageInString.add(1,encodedImage);
+        } else if(imgRequest==3){
+            //Faculty Bank Details
+            addImageInString.add(2,encodedImage);
+        }
+
 
         /*Call<ResponsePOJO> call = RetroClient.getInstance().getApi().uploadImage(encodedImage);
         call.enqueue(new Callback<ResponsePOJO>() {
@@ -502,6 +537,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private void setView(View view) {
 
+        addImageInString=new ArrayList<>();
+
         scholFacNameEdit=(EditText)view.findViewById(R.id.scholFacName);
         scholFacMobileEdit=(EditText)view.findViewById(R.id.scholFacMobile);
         scholFacAddressEdit=(EditText)view.findViewById(R.id.scholFacAddress);
@@ -519,8 +556,12 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerModeOfClassInput=(Spinner)view.findViewById(R.id.spinnerScholmodeOfClass);
         //spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
 
-        /*uploadFile=(Button)view.findViewById(R.id.uploadFile);
-        uploadImage=(Button)view.findViewById(R.id.uploadImage);*/
+        /*uploadFile=(Button)view.findViewById(R.id.uploadFile);*/
+        uploadImage=(Button)view.findViewById(R.id.scholFacBankDetails);
+        btnUploadCheck=(Button)view.findViewById(R.id.btnUploadCheck);
+        scholFacUploadImage=(Button)view.findViewById(R.id.scholUploadImage);
+        scholFacIdProof=(Button)view.findViewById(R.id.scholIdProof);
+        scholFacBankDetails=(Button)view.findViewById(R.id.scholFacBankDetails);
 
         cbBE=(CheckBox)view.findViewById(R.id.be);
         cbME=(CheckBox)view.findViewById(R.id.me);
