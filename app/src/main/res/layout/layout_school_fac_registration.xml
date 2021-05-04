@@ -76,7 +76,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:paddingLeft="@dimen/twenty_dp"
-            android:layout_gravity="center"
             android:hint="Address"
             android:layout_below="@id/spinnerScholFacCountry"
             android:fontFamily="@font/ubuntu_regular"
@@ -149,6 +148,7 @@
                 android:layout_margin="@dimen/five_dp"/>
 
             <TextView
+                android:id="@+id/schoolFacPhotoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
@@ -231,6 +231,7 @@
                 />
 
             <TextView
+                android:id="@+id/scholFacIdProofText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ChoosePhoto..."
@@ -271,6 +272,7 @@
                 />
 
             <TextView
+                android:id="@+id/scholFacBioDataText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
@@ -300,7 +302,7 @@
                 />
 
             <TextView
-                android:id="@+id/textSchoolFac"
+                android:id="@+id/scholFactBankDetailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."

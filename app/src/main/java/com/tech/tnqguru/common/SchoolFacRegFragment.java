@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,6 +60,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     String mediaPath;
     Bitmap bitmap;
+
+    TextView schoolFacPhotoText,scholFacIdProofText,scholFacBioDataText,scholFactBankDetailText;
 
     private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
     private ArrayList<String> cbList;
@@ -414,6 +417,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
 
             Uri path = data.getData();
+            System.out.println("ImagePath"+path.getPath());
+
 
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),path);
@@ -437,12 +442,15 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         if(imgRequest==1){
             //Faculty Photo
+            schoolFacPhotoText.setText("photo.jpeg");
             addImageInString.add(0,encodedImage);
         }else if(imgRequest==2){
             //Faculty ID Proof
+            scholFacIdProofText.setText("idproof.jpeg");
             addImageInString.add(1,encodedImage);
         } else if(imgRequest==3){
             //Faculty Bank Details
+            scholFactBankDetailText.setText("bankdetails.jpg");
             addImageInString.add(2,encodedImage);
         }
 
@@ -579,6 +587,11 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         cbBcom=(CheckBox)view.findViewById(R.id.bcom);
         cbMcom=(CheckBox)view.findViewById(R.id.mcom);
         cbOthers=(CheckBox)view.findViewById(R.id.others);
+
+        schoolFacPhotoText=(TextView)view.findViewById(R.id.schoolFacPhotoText);
+        scholFacIdProofText=(TextView)view.findViewById(R.id.scholFacIdProofText);
+        scholFacBioDataText=(TextView)view.findViewById(R.id.scholFacBioDataText);
+        scholFactBankDetailText=(TextView)view.findViewById(R.id.scholFactBankDetailText);
 
         btnScholFacReg=(Button)view.findViewById(R.id.btnScholFacReg);
 
