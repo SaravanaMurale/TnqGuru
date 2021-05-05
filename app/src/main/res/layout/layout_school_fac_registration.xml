@@ -212,6 +212,14 @@
         android:layout_marginTop="@dimen/twenty_dp"
         />
 
+        <Spinner
+            android:id="@+id/spinnerScholPreSub"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty_dp"
+            android:layout_below="@+id/spinnerScholIndusExp"
+            android:layout_marginTop="@dimen/twenty_dp"
+            />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

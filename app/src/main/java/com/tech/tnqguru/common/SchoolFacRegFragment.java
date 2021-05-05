@@ -23,9 +23,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.modelrequest.SpinAdapter;
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.utils.AppConstant;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,12 +46,12 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_OK;
 import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 
-public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, MyAdapter.SpinnerCheckBoxSelectedListener {
 
 
     private EditText scholFacNameEdit,scholFacMobileEdit,scholFacAddressEdit,scholFacPincodeEdit,scholFacEmailEdit,scholFacAboutEdit,scholFacIdProofNumberEdit,scholFacPasswordEdit;
 
-    private Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerPreSubjectInput;
+    private Spinner spinnerSchoLevelInput, spinnerCountryInput,spinnerTotalExpInput,spinnerIndusExpInput,spinnerModeOfClassInput,spinnerScholPreSub;
 
     private String spnScholFacSelectColg,spnScholFacSelectCountry,spnScholFacTechExp,spnScholFacIndusExp,spnScholFacModeOfClass;
 
@@ -65,6 +67,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
     private ArrayList<String> cbList;
+    private String preferredSubject;
 
 
     @Nullable
@@ -81,6 +84,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     private void initView(View view) {
 
         setView(view);
+
 
         cbList=new ArrayList<>();
 
@@ -292,10 +296,27 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerModeOfClassInput.setAdapter(arrayAdapterModeOfClass);
         spinnerModeOfClassInput.setOnItemSelectedListener(this);
 
-        /*ArrayAdapter<CharSequence> arrayAdapterPreSubject=ArrayAdapter.createFromResource(getActivity(),R.array.pre_sub,android.R.layout.simple_spinner_item);
-        arrayAdapterPreSubject.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPreSubjectInput.setAdapter(arrayAdapterTotalExp);
-        spinnerPreSubjectInput.setOnItemSelectedListener(this);*/
+        List<SpinAdapter> listVOs=new ArrayList<>();
+
+        List<String> getPreSubName= AppConstant.getPrferredSubject();
+
+        for (int i = 0; i < getPreSubName.size(); i++) {
+            SpinAdapter stateVO = new SpinAdapter();
+            stateVO.setTitle(getPreSubName.get(i));
+            stateVO.setSelected(false);
+            listVOs.add(stateVO);
+        }
+
+        MyAdapter myAdapter = new MyAdapter(getActivity(), 0, listVOs, SchoolFacRegFragment.this);
+        spinnerScholPreSub.setAdapter(myAdapter);
+
+        /*ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, getPreSubName);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerScholPreSub.setAdapter(adapter);
+        spinnerScholPreSub.setOnItemSelectedListener(this);*/
+
 
 
 
@@ -371,7 +392,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 spnScholFacSelectCountry,
                 scholFacAddress,
                 scholFacPincode,
-                "B.Tech",
+                preferredSubject,
                 spnScholFacTechExp,
                 spnScholFacModeOfClass,
                 "BioData",
@@ -562,7 +583,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         spinnerTotalExpInput=(Spinner)view.findViewById(R.id.spinnerScholTotalExp);
         spinnerIndusExpInput=(Spinner)view.findViewById(R.id.spinnerScholIndusExp);
         spinnerModeOfClassInput=(Spinner)view.findViewById(R.id.spinnerScholmodeOfClass);
-        //spinnerPreSubject=(Spinner)view.findViewById(R.id.preSubject);
+        spinnerScholPreSub=(Spinner)view.findViewById(R.id.spinnerScholPreSub);
 
         /*uploadFile=(Button)view.findViewById(R.id.uploadFile);*/
         uploadImage=(Button)view.findViewById(R.id.scholFacBankDetails);
@@ -594,6 +615,15 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
         scholFactBankDetailText=(TextView)view.findViewById(R.id.scholFactBankDetailText);
 
         btnScholFacReg=(Button)view.findViewById(R.id.btnScholFacReg);
+
+    }
+
+    @Override
+    public void selectSpinnerCheckBox(String item) {
+
+        preferredSubject=item;
+
+        System.out.println("SelectedPreferenceValued"+item);
 
     }
 }
