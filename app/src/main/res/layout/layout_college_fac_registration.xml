@@ -158,6 +158,7 @@
         android:layout_margin="@dimen/five_dp"/>
 
         <TextView
+            android:id="@+id/colgFacPhotoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose Photo..."
@@ -172,7 +173,7 @@
         <EditText
             android:id="@+id/colgFacAbout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="100dp"
             android:hint="About"
             android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@id/ColgUploadImage"
@@ -285,7 +286,7 @@
             >
 
         <Button
-            android:id="@+id/colgIdProof"
+            android:id="@+id/colgFacIdProof"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Id Proof"
@@ -297,10 +298,11 @@
             />
 
             <TextView
+                android:id="@+id/colgFacIdProofText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ChoosePhoto..."
-                android:layout_toRightOf="@+id/colgIdProof"
+                android:layout_toRightOf="@+id/colgFacIdProof"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
                 />
@@ -316,7 +318,7 @@
                 android:hint="ID Proof Number"
                 android:layout_margin="@dimen/five_dp"
                 android:imeOptions="actionDone"
-                android:layout_below="@id/colgIdProof"
+                android:layout_below="@id/colgFacIdProof"
                 />
 
 
@@ -369,6 +371,7 @@
             />
 
             <TextView
+                android:id="@+id/colgFactBankDetailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."

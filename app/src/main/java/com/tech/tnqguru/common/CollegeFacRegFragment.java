@@ -1,6 +1,11 @@
 package com.tech.tnqguru.common;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,11 +28,17 @@ import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.app.Activity.RESULT_OK;
+import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 
 public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -39,6 +51,12 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
 
     private ArrayList<String> cbList;
+
+    private Button ColgUploadImage,colgFacIdProof,colgFacBankDetails;
+    private TextView colgFacPhotoText,colgFacIdProofText,colgFactBankDetailText;
+    private Bitmap bitmap;
+    private List<String> addColgFacImageInString;
+
 
     @Nullable
     @Override
@@ -239,8 +257,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         });
 
 
-
-
         ArrayAdapter<CharSequence> selectColg=ArrayAdapter.createFromResource(getActivity(),R.array.colg_type,android.R.layout.simple_spinner_item);
         selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSelectColgInput.setAdapter(selectColg);
@@ -273,6 +289,31 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         modeOfColgClassInput.setAdapter(modeOfClassExpAdapter);
         modeOfColgClassInput.setOnItemSelectedListener(this);
 
+
+
+
+        ColgUploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImageToServer(1);
+            }
+        });
+
+        colgFacIdProof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImageToServer(2);
+            }
+        });
+
+        colgFacBankDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImageToServer(3);
+            }
+        });
+
+
         btnColFacReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -286,6 +327,82 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     }
 
+    private void uploadImageToServer(int i) {
+
+        Intent intent = new Intent();
+        //intent.setType("image/*");
+        intent.setType("*/*");  // For all kind of upload
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        IMG_REQUEST=i;
+        startActivityForResult(intent, IMG_REQUEST);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
+
+            Uri path = data.getData();
+            System.out.println("ImagePath"+path.getPath());
+
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),path);
+                //imageView.setImageBitmap(bitmap);
+                startUploadToServer(requestCode);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void startUploadToServer(int imgRequest) {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,75, byteArrayOutputStream);
+        byte[] imageInByte = byteArrayOutputStream.toByteArray();
+        String encodedImage =  Base64.encodeToString(imageInByte, Base64.DEFAULT);
+
+        System.out.println("ImageInStringFormet"+encodedImage);
+
+        if(imgRequest==1){
+            //Faculty Photo
+            colgFacPhotoText.setText("photo.jpeg");
+            addColgFacImageInString.add(0,encodedImage);
+        }else if(imgRequest==2){
+            //Faculty ID Proof
+            colgFacIdProofText.setText("idproof.jpeg");
+            addColgFacImageInString.add(1,encodedImage);
+        } else if(imgRequest==3){
+            //Faculty Bank Details
+            colgFactBankDetailText.setText("bankdetails.jpg");
+            addColgFacImageInString.add(2,encodedImage);
+        }
+
+
+        /*Call<ResponsePOJO> call = RetroClient.getInstance().getApi().uploadImage(encodedImage);
+        call.enqueue(new Callback<ResponsePOJO>() {
+            @Override
+            public void onResponse(Call<ResponsePOJO> call, Response<ResponsePOJO> response) {
+                Toast.makeText(MainActivity.this, response.body().getRemarks(), Toast.LENGTH_SHORT).show();
+
+                if(response.body().isStatus()){
+
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponsePOJO> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Network Failed", Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+    }
 
 
     private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
@@ -293,10 +410,12 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
         Call<BaseResponseDTO> call=apiInterface.doCollegeFacRegistration(
+                spnColgFacSelectColg,
                 colgFacName,
                 colgFacEmail,
                 colgFacMobile,
-                "photo.jpg",
+                spnColgFacSelectDept,
+                addColgFacImageInString.get(0),
                 spnColgFacSelectCountry,
                 colgFacAddress,
                 colgFacPincode,
@@ -309,9 +428,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 colgFacAbout,
                 "B.Tech",
                 "Computer Science",
-                "FacultyIdProof.jpeg",
+                addColgFacImageInString.get(0),
                 colgFacIdProofNumber,
-                "FacBankDetails.jpeg",
+                addColgFacImageInString.get(0),
                 colgFacEmail,
                 colgFacPassword);
 
@@ -387,6 +506,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     private void setView(View view) {
 
+        addColgFacImageInString=new ArrayList<>();
 
         colgFacNameEdit=(EditText)view.findViewById(R.id.ColgFacNameInput);
         colgFacMobileEdit=(EditText)view.findViewById(R.id.colgFacMobile);
@@ -426,6 +546,16 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         cbOthers=(CheckBox)view.findViewById(R.id.others);
 
         cbList=new ArrayList<>();
+
+
+        ColgUploadImage=(Button)view.findViewById(R.id.ColgUploadImage);
+        colgFacIdProof=(Button)view.findViewById(R.id.colgFacIdProof);
+        colgFacBankDetails=(Button)view.findViewById(R.id.colgFacBankDetails);
+
+        colgFacPhotoText=(TextView) view.findViewById(R.id.colgFacPhotoText);
+        colgFacIdProofText=(TextView) view.findViewById(R.id.colgFacIdProofText);
+        colgFactBankDetailText=(TextView) view.findViewById(R.id.colgFactBankDetailText);
+
 
         btnColFacReg=(Button)view.findViewById(R.id.btnColFacReg);
 

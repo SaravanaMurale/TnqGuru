@@ -5,6 +5,8 @@ import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.utils.AppConstant;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -36,11 +38,14 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("college_faculty/")
     Call<BaseResponseDTO> doCollegeFacRegistration(
+
+            @Field("")String facColg,
             @Field("faculty_name") String facName,
             @Field("faculty_email") String facEmail,
             @Field("faculty_phone") String facphone,
 
 
+            @Field("")String facDept,
             @Field("faculty_photo") String facPhoto,
             @Field("faculty_country") String facCountry,
             @Field("faculty_address") String facAddress,
@@ -85,7 +90,7 @@ public interface ApiInterface {
             @Field("faculty_address") String facAddress,
 
             @Field("faculty_pincode") String facPinCode,
-            @Field("faculty_qualification") String facQualification,
+            @Field("faculty_qualification") List<String> facQualification,
             @Field("teaching_experience") String facTeachExp,
 
             @Field("mode_of_class") String facModeOfClass,

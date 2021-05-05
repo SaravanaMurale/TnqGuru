@@ -66,7 +66,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
     private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
     private ArrayList<String> cbList;
-    private String preferredSubject;
+    private List<String> preferredSubject;
 
 
     @Nullable
@@ -86,6 +86,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
 
         cbList=new ArrayList<>();
+        preferredSubject=new ArrayList<>();
 
         cbBE.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -618,11 +619,20 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     }
 
     @Override
-    public void selectSpinnerCheckBox(String item) {
+    public void selectSpinnerCheckBox(String item,boolean status) {
 
-        preferredSubject=item;
+        if(status){
+            preferredSubject.add(item);
+        }else {
+            preferredSubject.remove(item);
+        }
 
-        System.out.println("SelectedPreferenceValued"+item);
+        for (int i = 0; i <preferredSubject.size() ; i++) {
+            System.out.println("ListPreferredSub"+preferredSubject.get(i));
+
+        }
+
+        //System.out.println("SelectedPreferenceValued"+item);
 
     }
 }

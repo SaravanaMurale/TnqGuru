@@ -28,7 +28,7 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
     SpinnerCheckBoxSelectedListener spinnerCheckBoxSelectedListener;
 
     public interface SpinnerCheckBoxSelectedListener{
-        public void selectSpinnerCheckBox(String item);
+        public void selectSpinnerCheckBox(String item,boolean status);
     }
 
 
@@ -95,7 +95,9 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
                     listState.get(position).setSelected(isChecked);
                     if(listState.get(position).isSelected()){
                         Toast.makeText(getContext(),"Selected value " + listState.get(position).getTitle(), Toast.LENGTH_LONG).show();
-                        spinnerCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle());
+                        spinnerCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),true);
+                    }else {
+                        spinnerCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),false);
                     }
 
 
