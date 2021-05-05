@@ -49,23 +49,19 @@ public interface ApiInterface {
             @Field("faculty_photo") String facPhoto,
             @Field("faculty_country") String facCountry,
             @Field("faculty_address") String facAddress,
-
+            @Field("about_faculty") String facAbtFac,
 
             @Field("faculty_pincode") String facPinCode,
-            @Field("faculty_qualification") String facQualification,
-            @Field("teaching_experience") String facTeachExp,
-
-
-            @Field("mode_of_class") String facModeOfClass,
-            @Field("bio_data_document") String facBioData,
-            @Field("subject") String facSubject,
-
+            @Field("faculty_qualification") List<String> facQualification,
             @Field("industrial_experience") String facIndusExp,
-            @Field("about_faculty") String facAbtFac,
-            @Field("kind_of_degree") String facDegree,
+            @Field("teaching_experience") String facTeachExp,
+            @Field("mode_of_class") String facModeOfClass,
 
+            @Field("bio_data_document") String facBioData,
+            @Field("subject") String facSubject1,
+            @Field("subject") String facSubject2,
+            @Field("subject") String facSubject3,
 
-            @Field("course_name") String facCourseName,
             @Field("id_proof_document") String facIdProofDoucment,
             @Field("id_proof_document_number") String facDocNum,
 
@@ -90,6 +86,7 @@ public interface ApiInterface {
             @Field("faculty_address") String facAddress,
 
             @Field("faculty_pincode") String facPinCode,
+            @Field("")List<String> facPreferredSub,
             @Field("faculty_qualification") List<String> facQualification,
             @Field("teaching_experience") String facTeachExp,
 

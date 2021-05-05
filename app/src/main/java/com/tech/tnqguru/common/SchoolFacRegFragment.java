@@ -393,6 +393,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 scholFacAddress,
                 scholFacPincode,
                 preferredSubject,
+                cbList,
                 spnScholFacTechExp,
                 spnScholFacModeOfClass,
                 "BioData",
