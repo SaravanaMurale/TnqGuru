@@ -58,12 +58,11 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
     private Button uploadFile,uploadImage,btnScholFacReg;
 
     private Button scholFacUploadImage,scholFacIdProof,scholFacBankDetails;
-    List<String> addImageInString;
+    private List<String> addImageInString;
 
-    String mediaPath;
-    Bitmap bitmap;
+    private Bitmap bitmap;
 
-    TextView schoolFacPhotoText,scholFacIdProofText,scholFacBioDataText,scholFactBankDetailText;
+    private TextView schoolFacPhotoText,scholFacIdProofText,scholFacBioDataText,scholFactBankDetailText;
 
     private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
     private ArrayList<String> cbList;

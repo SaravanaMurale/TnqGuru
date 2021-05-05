@@ -5,10 +5,12 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_height="40dp"
         android:text="text"
-        android:textAlignment="gravity" />
+        android:layout_marginLeft="@dimen/five_dp"
+        android:textAlignment="gravity"
+        android:textSize="16sp"
+        />
 
     <CheckBox
         android:id="@+id/checkbox"
