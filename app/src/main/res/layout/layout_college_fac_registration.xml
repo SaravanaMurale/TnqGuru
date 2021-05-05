@@ -278,11 +278,19 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/five_dp"/>
 
+        <Spinner
+            android:id="@+id/spinnerColgMaxSub"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty_dp"
+            android:layout_below="@+id/colgFacSub3"
+            android:layout_margin="@dimen/ten_dp"
+            />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/colgFacSub3"
+            android:layout_below="@id/spinnerColgMaxSub"
             >
 
         <Button

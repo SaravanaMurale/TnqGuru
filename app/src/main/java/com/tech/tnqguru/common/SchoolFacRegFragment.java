@@ -16,17 +16,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
-import com.tech.tnqguru.modelrequest.SpinAdapter;
+import com.tech.tnqguru.spinneradapter.SpinAdapter;
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.spinneradapter.MyAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 
 import java.io.ByteArrayOutputStream;

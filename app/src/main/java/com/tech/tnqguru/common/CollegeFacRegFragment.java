@@ -23,10 +23,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.spinneradapter.SpinAdapter;
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
-import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.utils.AppConstant;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     EditText colgFacNameEdit,colgFacMobileEdit,colgFacAddressEdit,colgFacPincodeEdit,colgFacEmailEdit,colgFacAboutEdit,colgFacSub1Edit,colgFacSub2Edit,colgFacSub3Edit,colgFacIdProofNumberEdit,colgFacPasswordEdit;
 
-    Spinner spinnerSelectColgInput,spinnerColgFacCountryInput,spinnerColgFacDeptInput,spinnerColgTeachExpInput,spinnerColgIndusExpInput,modeOfColgClassInput;
+    Spinner spinnerSelectColgInput,spinnerColgFacCountryInput,spinnerColgFacDeptInput,spinnerColgTeachExpInput,spinnerColgIndusExpInput,modeOfColgClassInput,spinnerColgMaxSub;
     Button btnColFacReg;
     String spnColgFacSelectColg,spnColgFacSelectCountry,spnColgFacSelectDept,spnColgFacTechExp,spnColgFacIndusExp,spnColgFacModeOfClass;
 
@@ -289,6 +290,17 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         modeOfColgClassInput.setAdapter(modeOfClassExpAdapter);
         modeOfColgClassInput.setOnItemSelectedListener(this);
 
+        List<SpinAdapter> listVOs=new ArrayList<>();
+
+        List<String> getColgMaxSub= AppConstant.getColgMaxSubject();
+
+        for (int i = 0; i < getColgMaxSub.size(); i++) {
+            SpinAdapter stateVO = new SpinAdapter();
+            stateVO.setTitle(getColgMaxSub.get(i));
+            stateVO.setSelected(false);
+            listVOs.add(stateVO);
+        }
+
 
 
 
@@ -526,6 +538,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         spinnerColgTeachExpInput=(Spinner)view.findViewById(R.id.spinnerColgTeachExp);
         spinnerColgIndusExpInput=(Spinner)view.findViewById(R.id.spinnerColgIndusExp);
         modeOfColgClassInput=(Spinner)view.findViewById(R.id.modeOfColgClass);
+        spinnerColgMaxSub=(Spinner)view.findViewById(R.id.spinnerColgMaxSub);
 
         cbBE=(CheckBox)view.findViewById(R.id.be);
         cbME=(CheckBox)view.findViewById(R.id.me);

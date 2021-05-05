@@ -1,6 +1,6 @@
-package com.tech.tnqguru.modelrequest;
+package com.tech.tnqguru.spinneradapter;
 
-public class SpinAdapter {
+public class SpinMaxDTO {
 
     private String title;
     private boolean selected;
@@ -20,7 +20,5 @@ public class SpinAdapter {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
-
-
 
 }

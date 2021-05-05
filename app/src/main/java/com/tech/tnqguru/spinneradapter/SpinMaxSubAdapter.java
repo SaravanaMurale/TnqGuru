@@ -1,7 +1,6 @@
-package com.tech.tnqguru.common;
+package com.tech.tnqguru.spinneradapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,32 +11,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tech.tnqguru.R;
-import com.tech.tnqguru.modelrequest.SpinAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyAdapter extends ArrayAdapter<SpinAdapter> {
+public class SpinMaxSubAdapter extends ArrayAdapter<SpinAdapter> {
 
     private Context mContext;
-    private ArrayList<SpinAdapter> listState;
-    private MyAdapter myAdapter;
+    private ArrayList<SpinMaxDTO> listState;
+    private SpinMaxSubAdapter spinMaxSubAdapter;
     private boolean isFromView = false;
     ArrayList selectedItems = new ArrayList();
 
-    SpinnerCheckBoxSelectedListener spinnerCheckBoxSelectedListener;
+    SpinnerMaxSubCheckBoxSelectedListener spinnerMaxSubCheckBoxSelectedListener;
 
-    public interface SpinnerCheckBoxSelectedListener{
+
+
+    public interface SpinnerMaxSubCheckBoxSelectedListener{
         public void selectSpinnerCheckBox(String item,boolean status);
     }
 
-
-    public MyAdapter(Context context, int resource, List<SpinAdapter> objects, SpinnerCheckBoxSelectedListener spinnerCheckBoxSelectedListener) {
+    public SpinMaxSubAdapter(Context context, int resource, List<SpinMaxDTO> objects, SpinnerMaxSubCheckBoxSelectedListener spinnerMaxSubCheckBoxSelectedListener) {
         super(context, resource, objects);
+
         this.mContext = context;
-        this.listState = (ArrayList<SpinAdapter>) objects;
-        this.myAdapter = this;
-        this.spinnerCheckBoxSelectedListener=spinnerCheckBoxSelectedListener;
+        this.listState = (ArrayList<SpinMaxDTO>) objects;
+        this.spinMaxSubAdapter = this;
+        this.spinnerMaxSubCheckBoxSelectedListener=spinnerMaxSubCheckBoxSelectedListener;
+
     }
 
     @Override
@@ -51,8 +52,7 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
         return getCustomView(position, convertView, parent);
     }
 
-    public View getCustomView(final int position, View convertView,
-                              ViewGroup parent) {
+    public View getCustomView(final int position, View convertView, ViewGroup parent) {
 
         final ViewHolder holder;
         if (convertView == null) {
@@ -64,7 +64,8 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
             holder.mCheckBox = (CheckBox) convertView
                     .findViewById(R.id.checkbox);
             convertView.setTag(holder);
-        } else {
+        }
+        else {
             holder = (ViewHolder) convertView.getTag();
         }
 
@@ -84,39 +85,39 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
         holder.mCheckBox.setTag(position);
 
         holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int getPosition = (Integer) buttonView.getTag();
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
 
-                Log.d("Adapter","Buttonview   " + getPosition);
+                int getPosition = (Integer) compoundButton.getTag();
 
                 if (!isFromView) {
                     listState.get(position).setSelected(isChecked);
                     if(listState.get(position).isSelected()){
                         Toast.makeText(getContext(),"Selected value " + listState.get(position).getTitle(), Toast.LENGTH_LONG).show();
-                        spinnerCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),true);
+                        spinnerMaxSubCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),true);
                     }else {
-                        spinnerCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),false);
+                        spinnerMaxSubCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),false);
                     }
-
-
-
-
                 }
-            }
 
+            }
         });
 
-
-
-
-
         return convertView;
+
     }
+
 
     private class ViewHolder {
         private TextView mTextView;
         private CheckBox mCheckBox;
     }
-}
+
+
+
+
+
+
+
+
+    }

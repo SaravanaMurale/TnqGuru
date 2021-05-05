@@ -32,5 +32,28 @@ public class AppConstant {
 
     }
 
+    public static List<String> getColgMaxSubject(){
+
+        List<String> colgMaxSubList=new ArrayList<>();
+        colgMaxSubList.add("Select Preference Subject");
+        colgMaxSubList.add("B.A");
+        colgMaxSubList.add("B.SC");
+        colgMaxSubList.add("B.COM");
+        colgMaxSubList.add("B.PHARM");
+        colgMaxSubList.add("B.L");
+        colgMaxSubList.add("B.B.A");
+        colgMaxSubList.add("B.C.A");
+        colgMaxSubList.add("M.A");
+        colgMaxSubList.add("M.SC");
+        colgMaxSubList.add("M.COM");
+        colgMaxSubList.add("B.TECH");
+        colgMaxSubList.add("M.TECH");
+        colgMaxSubList.add("M.B.A");
+        colgMaxSubList.add("M.C.A");
+
+        return colgMaxSubList;
+
+    }
+
 
 }
