@@ -18,7 +18,7 @@ import java.util.List;
 public class SpinMaxSubAdapter extends ArrayAdapter<SpinAdapter> {
 
     private Context mContext;
-    private ArrayList<SpinMaxDTO> listState;
+    private List<SpinAdapter> listState;
     private SpinMaxSubAdapter spinMaxSubAdapter;
     private boolean isFromView = false;
     ArrayList selectedItems = new ArrayList();
@@ -26,16 +26,14 @@ public class SpinMaxSubAdapter extends ArrayAdapter<SpinAdapter> {
     SpinnerMaxSubCheckBoxSelectedListener spinnerMaxSubCheckBoxSelectedListener;
 
 
-
     public interface SpinnerMaxSubCheckBoxSelectedListener{
-        public void selectSpinnerCheckBox(String item,boolean status);
+        public void selectMaxSpinnerCheckBox(String item,boolean status);
     }
 
-    public SpinMaxSubAdapter(Context context, int resource, List<SpinMaxDTO> objects, SpinnerMaxSubCheckBoxSelectedListener spinnerMaxSubCheckBoxSelectedListener) {
-        super(context, resource, objects);
-
+    public SpinMaxSubAdapter(Context context, int resource, List<SpinAdapter> objects, SpinnerMaxSubCheckBoxSelectedListener spinnerMaxSubCheckBoxSelectedListener) {
+        super(context,resource,objects);
         this.mContext = context;
-        this.listState = (ArrayList<SpinMaxDTO>) objects;
+        this.listState = (ArrayList<SpinAdapter>) objects;
         this.spinMaxSubAdapter = this;
         this.spinnerMaxSubCheckBoxSelectedListener=spinnerMaxSubCheckBoxSelectedListener;
 
@@ -94,9 +92,9 @@ public class SpinMaxSubAdapter extends ArrayAdapter<SpinAdapter> {
                     listState.get(position).setSelected(isChecked);
                     if(listState.get(position).isSelected()){
                         Toast.makeText(getContext(),"Selected value " + listState.get(position).getTitle(), Toast.LENGTH_LONG).show();
-                        spinnerMaxSubCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),true);
+                        spinnerMaxSubCheckBoxSelectedListener.selectMaxSpinnerCheckBox(listState.get(position).getTitle(),true);
                     }else {
-                        spinnerMaxSubCheckBoxSelectedListener.selectSpinnerCheckBox(listState.get(position).getTitle(),false);
+                        spinnerMaxSubCheckBoxSelectedListener.selectMaxSpinnerCheckBox(listState.get(position).getTitle(),false);
                     }
                 }
 
@@ -112,12 +110,6 @@ public class SpinMaxSubAdapter extends ArrayAdapter<SpinAdapter> {
         private TextView mTextView;
         private CheckBox mCheckBox;
     }
-
-
-
-
-
-
 
 
     }

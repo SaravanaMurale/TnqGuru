@@ -32,7 +32,7 @@ public class MyAdapter extends ArrayAdapter<SpinAdapter> {
 
 
     public MyAdapter(Context context, int resource, List<SpinAdapter> objects, SpinnerCheckBoxSelectedListener spinnerCheckBoxSelectedListener) {
-        super(context, resource, objects);
+        super(context, resource,objects);
         this.mContext = context;
         this.listState = (ArrayList<SpinAdapter>) objects;
         this.myAdapter = this;

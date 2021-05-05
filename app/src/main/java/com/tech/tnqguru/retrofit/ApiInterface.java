@@ -61,6 +61,7 @@ public interface ApiInterface {
             @Field("subject") String facSubject1,
             @Field("subject") String facSubject2,
             @Field("subject") String facSubject3,
+            @Field("")List<String> preMaxSubject,
 
             @Field("id_proof_document") String facIdProofDoucment,
             @Field("id_proof_document_number") String facDocNum,

@@ -23,10 +23,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.spinneradapter.MyAdapter;
 import com.tech.tnqguru.spinneradapter.SpinAdapter;
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.spinneradapter.SpinMaxDTO;
+import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 
 import java.io.ByteArrayOutputStream;
@@ -41,7 +44,7 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_OK;
 import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 
-public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
 
     EditText colgFacNameEdit,colgFacMobileEdit,colgFacAddressEdit,colgFacPincodeEdit,colgFacEmailEdit,colgFacAboutEdit,colgFacSub1Edit,colgFacSub2Edit,colgFacSub3Edit,colgFacIdProofNumberEdit,colgFacPasswordEdit;
 
@@ -57,6 +60,8 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     private TextView colgFacPhotoText,colgFacIdProofText,colgFactBankDetailText;
     private Bitmap bitmap;
     private List<String> addColgFacImageInString;
+
+    private List<String> preferredMaxSubject;
 
 
     @Nullable
@@ -301,6 +306,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             listVOs.add(stateVO);
         }
 
+        SpinMaxSubAdapter spinMaxSubAdapter = new SpinMaxSubAdapter(getActivity(), 0, listVOs, CollegeFacRegFragment.this);
+        spinnerColgMaxSub.setAdapter(spinMaxSubAdapter);
+
 
 
 
@@ -440,6 +448,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 colgFacSub1,
                 colgFacSub2,
                 colgFacSub3,
+                preferredMaxSubject,
                 addColgFacImageInString.get(0),
                 colgFacIdProofNumber,
                 addColgFacImageInString.get(0),
@@ -519,6 +528,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     private void setView(View view) {
 
         addColgFacImageInString=new ArrayList<>();
+        preferredMaxSubject=new ArrayList<>();
 
         colgFacNameEdit=(EditText)view.findViewById(R.id.ColgFacNameInput);
         colgFacMobileEdit=(EditText)view.findViewById(R.id.colgFacMobile);
@@ -594,6 +604,17 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
 
+
+    }
+
+    @Override
+    public void selectMaxSpinnerCheckBox(String item, boolean status) {
+
+        if(status){
+            preferredMaxSubject.add(item);
+        }else {
+            preferredMaxSubject.remove(item);
+        }
 
     }
 }
