@@ -40,7 +40,7 @@
                 android:layout_gravity="center"
                 android:inputType="text"
                 android:imeOptions="actionNext"
-                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_margin="@dimen/five_dp"
                 android:layout_below="@id/spinnerSelectSchool"
                 />
 
@@ -60,16 +60,34 @@
                 android:fontFamily="@font/ubuntu_regular"
                 android:background="@drawable/rounded_border"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_margin="@dimen/five_dp"
                 />
 
-        <Spinner
-            android:id="@+id/spinnerScholStuCountry"
+        <RelativeLayout
+            android:id="@+id/stuDOBBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scholStuMobile"
+            >
+
+        <TextView
+            android:id="@+id/scholStuDOB"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/scholStuMobile"
-            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_margin="@dimen/five_dp"
+
+
             />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/eight_dp"
+            android:src="@drawable/calender"
+            />
+
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/scholStuAddress"
@@ -77,15 +95,13 @@
             android:layout_height="100dp"
             android:paddingLeft="@dimen/twenty_dp"
             android:paddingBottom="@dimen/twenty_dp"
-            android:gravity="bottom"
             android:hint="Address"
-            android:layout_below="@id/spinnerScholStuCountry"
+            android:layout_below="@id/stuDOBBlock"
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
-            android:layout_gravity="center"
             android:inputType="textPostalAddress"
             android:imeOptions="actionNext"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:layout_margin="@dimen/five_dp"/>
 
 
 
@@ -102,7 +118,7 @@
             android:inputType="number"
             android:maxLines="6"
             android:imeOptions="actionNext"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:layout_margin="@dimen/five_dp"/>
 
 
 
@@ -117,7 +133,7 @@
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:layout_margin="@dimen/five_dp"/>
 
         <EditText
             android:id="@+id/scholStuPassword"
@@ -131,14 +147,14 @@
             android:fontFamily="@font/ubuntu_regular"
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:layout_margin="@dimen/five_dp"/>
 
         <Spinner
             android:id="@+id/modeOfScholStuClass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
             android:layout_below="@+id/scholStuPassword"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:layout_margin="@dimen/five_dp"/>
 
         <RelativeLayout
             android:id="@+id/stuPhotoUploadBlock"
@@ -157,7 +173,7 @@
                 android:textSize="@dimen/fifteen_dp"
                 android:textColor="@color/white"
                 android:padding="@dimen/five_dp"
-                android:layout_marginTop="@dimen/ten_dp"/>
+                android:layout_margin="@dimen/five_dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
