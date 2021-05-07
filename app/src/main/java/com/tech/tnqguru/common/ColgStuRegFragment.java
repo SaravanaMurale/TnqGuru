@@ -15,14 +15,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.spinneradapter.SpinAdapter;
+import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
+import com.tech.tnqguru.utils.AppConstant;
 
-public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+import java.util.ArrayList;
+import java.util.List;
 
-    Spinner spinnerColgStuReg,spinnerColgStuModeOfClass,spinnerColgStuCountry;
-    String spnSelectColgStu,spnColgStuModeOfClass;
-    Button btnColStuReg;
+public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
+
+    Spinner spinnerColgStuReg,spinnerColgStuModeOfClass,spinnerColgStuDept,spinnerColgCourseName;
+    String spnSelectColgStu,spnColgStuModeOfClass,spinColgStuDept;
+    Button colgStuUploadImage,btnColStuReg;
 
     EditText colgStuNameEdit,colgStuMobileEdit,colgStuAddressEdit,colgStuPincodeEdit,colgStuEmailEdit,colgStuIdProofNumberEdit,colgStuPasswordEdit;
+
+    private List<String> CourseName;
+
+
 
     @Nullable
     @Override
@@ -35,6 +45,8 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void initView(View view) {
+
+        CourseName =new ArrayList<>();
 
         setView(view);
 
@@ -49,10 +61,25 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         spinnerColgStuModeOfClass.setAdapter(modeOfClassExpAdapter);
         spinnerColgStuModeOfClass.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> countryAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.country,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> countryAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.colg_dept,android.R.layout.simple_spinner_item);
         countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerColgStuCountry.setAdapter(countryAdapter);
-        spinnerColgStuCountry.setOnItemSelectedListener(this);
+        spinnerColgStuDept.setAdapter(countryAdapter);
+        spinnerColgStuDept.setOnItemSelectedListener(this);
+
+
+        List<SpinAdapter> listVOs=new ArrayList<>();
+
+        List<String> getColgMaxSub= AppConstant.getColgMaxSubject();
+
+        for (int i = 0; i < getColgMaxSub.size(); i++) {
+            SpinAdapter stateVO = new SpinAdapter();
+            stateVO.setTitle(getColgMaxSub.get(i));
+            stateVO.setSelected(false);
+            listVOs.add(stateVO);
+        }
+
+        SpinMaxSubAdapter spinMaxSubAdapter = new SpinMaxSubAdapter(getActivity(), 0, listVOs, ColgStuRegFragment.this);
+        spinnerColgCourseName.setAdapter(spinMaxSubAdapter);
 
         btnColStuReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +113,8 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
 
         spinnerColgStuReg = (Spinner) view.findViewById(R.id.spinnerSelectColStu);
         spinnerColgStuModeOfClass = (Spinner) view.findViewById(R.id.colgStuModeOfClass);
-        spinnerColgStuCountry = (Spinner) view.findViewById(R.id.spinnerColgStuCountry);
+        spinnerColgStuDept = (Spinner) view.findViewById(R.id.spinnerColgStuDept);
+        spinnerColgCourseName=(Spinner)view.findViewById(R.id.colgStuCourseName);
 
 
         colgStuNameEdit=(EditText)view.findViewById(R.id.colgStuName);
@@ -97,6 +125,7 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         colgStuPasswordEdit= (EditText)view.findViewById(R.id.colgStuPassword);
         colgStuIdProofNumberEdit=(EditText)view.findViewById(R.id.colgStuPassword);
 
+        colgStuUploadImage=(Button)view.findViewById(R.id.colgStuUploadImage);
         btnColStuReg=(Button)view.findViewById(R.id.btnColStuReg);
     }
 
@@ -111,12 +140,24 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         else if (adapterView.getId() == R.id.colgStuModeOfClass) {
              spnColgStuModeOfClass = adapterView.getItemAtPosition(i).toString();
             System.out.println("ColgFacModeOfClass " + spnColgStuModeOfClass);
-        }
+        }else if (adapterView.getId() == R.id.spinnerColgStuDept) {
+             spinColgStuDept = adapterView.getItemAtPosition(i).toString();
+             System.out.println("ColgFacModeOfClass " + spnColgStuModeOfClass);
+         }
 
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void selectMaxSpinnerCheckBox(String item, boolean status) {
+        if(status){
+            CourseName.add(item);
+        }else {
+            CourseName.remove(item);
+        }
     }
 }
