@@ -628,10 +628,10 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             preferredSubject.remove(item);
         }
 
-        for (int i = 0; i <preferredSubject.size() ; i++) {
+        /*for (int i = 0; i <preferredSubject.size() ; i++) {
             System.out.println("ListPreferredSub"+preferredSubject.get(i));
 
-        }
+        }*/
 
         //System.out.println("SelectedPreferenceValued"+item);
 

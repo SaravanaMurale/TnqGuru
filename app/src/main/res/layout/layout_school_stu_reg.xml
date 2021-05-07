@@ -192,6 +192,7 @@
                 android:layout_margin="@dimen/five_dp"/>
 
             <TextView
+                android:id="@+id/scholStuText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."

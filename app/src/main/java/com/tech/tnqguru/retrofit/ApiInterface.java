@@ -104,6 +104,25 @@ public interface ApiInterface {
             @Field("password") String facPassword
             );
 
+    @FormUrlEncoded
+    @POST("/")
+    Call<BaseResponseDTO> doSchoolStudentRegistration(
+
+            @Field("school_level")  String schoolStuLevel,
+            @Field("school_level")  String schoolStuName,
+            @Field("school_level")  String schoolStuMobile,
+            @Field("school_level")  String schoolStuEmail,
+            @Field("school_level")  String schoolStuAddress,
+            @Field("school_level")  String schoolStuPincode,
+            @Field("school_level")  String schoolStuDOB,
+            @Field("school_level")  String schoolStuModeOfClass,
+            @Field("school_level")  String schoolStuImage,
+            @Field("school_level")  List<String> schoolStuMaxSubject
+
+
+    );
+
+
 
 
 
