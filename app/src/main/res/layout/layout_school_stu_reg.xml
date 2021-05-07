@@ -154,13 +154,29 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
             android:layout_below="@+id/scholStuPassword"
-            android:layout_margin="@dimen/five_dp"/>
+            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_marginLeft="@dimen/five_dp"
+            android:layout_marginRight="@dimen/five_dp"
+            />
+
+
+        <Spinner
+            android:id="@+id/scholStuCoachingSub"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty_dp"
+            android:layout_below="@+id/modeOfScholStuClass"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_marginLeft="@dimen/five_dp"
+            android:layout_marginRight="@dimen/five_dp"
+            />
+
+
 
         <RelativeLayout
             android:id="@+id/stuPhotoUploadBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/modeOfScholStuClass"
+            android:layout_below="@+id/scholStuCoachingSub"
             >
 
             <Button
@@ -187,6 +203,37 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/stuSubSyllabusBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stuPhotoUploadBlock"
+            >
+
+            <Button
+                android:id="@+id/scholStuSyllabus"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Syllabus"
+                android:background="@drawable/text_bg_btn"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/fifteen_dp"
+                android:textColor="@color/white"
+                android:padding="@dimen/five_dp"
+                android:layout_margin="@dimen/five_dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Syllabus..."
+                android:layout_toRightOf="@id/scholStuSyllabus"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/ten_dp"
+
+                />
+
+        </RelativeLayout>
+
 
         <Button
             android:id="@+id/btnScholStuReg"
@@ -197,7 +244,7 @@
             android:layout_margin="@dimen/ten_dp"
             android:background="@drawable/text_bg_btn"
             android:textColor="@color/white"
-            android:layout_below="@+id/stuPhotoUploadBlock"
+            android:layout_below="@+id/stuSubSyllabusBlock"
 
             />
 

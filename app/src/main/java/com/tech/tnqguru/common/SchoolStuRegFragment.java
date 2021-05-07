@@ -21,15 +21,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.spinneradapter.SpinAdapter;
+import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
+import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.MathUtil;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
-public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnItemSelectedListener {
+public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
 
 
-    Spinner spinnerScholStuReg,spinnerScholStuModeOfClass,spinnerScholStuCountry;
+    Spinner spinnerScholStuReg,spinnerScholStuModeOfClass,scholStuCoachingSub;
     String spnScholStuSelectSchol,spnScholStuSelectModeOfClass;
     Button btnScholStuReg;
 
@@ -95,6 +100,22 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
         spinnerScholStuModeOfClass.setAdapter(selectSchoolModeOfClass);
         spinnerScholStuModeOfClass.setOnItemSelectedListener(this);
 
+        List<SpinAdapter> listVOs=new ArrayList<>();
+
+        List<String> getColgMaxSub= AppConstant.getPrferredSubject();
+
+        for (int i = 0; i < getColgMaxSub.size(); i++) {
+            SpinAdapter stateVO = new SpinAdapter();
+            stateVO.setTitle(getColgMaxSub.get(i));
+            stateVO.setSelected(false);
+            listVOs.add(stateVO);
+        }
+
+        SpinMaxSubAdapter spinMaxSubAdapter = new SpinMaxSubAdapter(getActivity(), 0, listVOs, SchoolStuRegFragment.this);
+        scholStuCoachingSub.setAdapter(spinMaxSubAdapter);
+
+
+
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -133,6 +154,7 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
 
         spinnerScholStuReg = (Spinner) view.findViewById(R.id.spinnerSelectSchool);
         spinnerScholStuModeOfClass = (Spinner) view.findViewById(R.id.modeOfScholStuClass);
+        scholStuCoachingSub=(Spinner)view.findViewById(R.id.scholStuCoachingSub);
 
 
         scholStuNameEdit=(EditText)view.findViewById(R.id.scholStuName);
@@ -168,6 +190,11 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    public void selectMaxSpinnerCheckBox(String item, boolean status) {
 
     }
 }
