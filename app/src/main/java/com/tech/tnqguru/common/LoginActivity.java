@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
-                    Intent intent=new Intent(LoginActivity.this, ScholStuFeesActivity.class);
+                    Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
                     startActivity(intent);
                 }
 

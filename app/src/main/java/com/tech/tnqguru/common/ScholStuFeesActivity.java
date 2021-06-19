@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +30,16 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
     List<ScholStuFeesResponseDTO> scholStuFeesResponseDTOList;
 
     Button btnScholFeesSubmit;
+    String selectedStd;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schol_stu_fees);
+
+        Intent intent=getIntent();
+        selectedStd=intent.getStringExtra("SELECTED_STD");
 
         scholStuFeesRecyclerView = (RecyclerView) findViewById(R.id.colgStuFeesRecyclerView);
         scholStuFeesRecyclerView.setHasFixedSize(true);

@@ -33,16 +33,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="IX"
+            android:text="IX-MATRIC/STATE"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio9thcbse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="IX-CBSE"
             android:textSize="20dp" />
 
         <RadioButton
             android:id="@+id/radio10th"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="X"
+            android:text="X-MATRIC/STATE"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio10thcbse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="X-CBSE"
             android:textSize="20dp" />
 
 
@@ -52,18 +70,47 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="XI"
+            android:text="XI-MATRIC/STATE"
             android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio11thcbse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="XI-CBSE"
+            android:textSize="20dp" />
+
+
 
         <RadioButton
             android:id="@+id/radio12th"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="XII"
+            android:text="XII-MATRIC/STATE"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio12thcbse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="XII-CBSE"
             android:textSize="20dp" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnscholFeesSelcSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        />
 
 </RelativeLayout>

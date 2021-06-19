@@ -2,7 +2,10 @@ package com.tech.tnqguru.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 
 import com.tech.tnqguru.R;
@@ -11,6 +14,7 @@ public class ScholFeesStandardSelectionActivity extends AppCompatActivity {
 
     private RadioGroup radioGroup;
     private String stuSelectedStandard;
+    private Button btnscholFeesSelcSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,7 @@ public class ScholFeesStandardSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schol_fees_standard_selection);
 
         radioGroup=(RadioGroup)findViewById(R.id.schol_std_radioGroup);
+        btnscholFeesSelcSubmit=(Button)findViewById(R.id.btnscholFeesSelcSubmit);
 
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -27,28 +32,64 @@ public class ScholFeesStandardSelectionActivity extends AppCompatActivity {
 
                 switch (i){
 
-                    case  R.id.radioSchool:
+                    case  R.id.radio9th:
 
-                        stuSelectedStandard="IX";
+                        stuSelectedStandard="IX/STATE";
+                        //System.out.println("RadioSchoolCheckd");
+                        setVisibility();
+
+                        break;
+
+                    case  R.id.radio9thcbse:
+
+                        stuSelectedStandard="IX/CBSE";
+                        setVisibility();
                         //System.out.println("RadioSchoolCheckd");
                         break;
 
-                    case R.id.radioCollege:
 
-                        stuSelectedStandard="X";
-                        //System.out.println("RadioCollegeCheckd");
-                        break;
+                    case  R.id.radio10th:
 
-                    case  R.id.radioStuSchool:
-
-                        stuSelectedStandard="XI";
+                        stuSelectedStandard="X/STATE";
+                        setVisibility();
                         //System.out.println("RadioSchoolCheckd");
                         break;
 
-                    case R.id.radioStuCollege:
+                    case  R.id.radio10thcbse:
 
-                        stuSelectedStandard="XII";
-                        //System.out.println("RadioCollegeCheckd");
+                        stuSelectedStandard="X/CBSE";
+                        setVisibility();
+                        //System.out.println("RadioSchoolCheckd");
+                        break;
+
+
+                    case  R.id.radio11th:
+
+                        stuSelectedStandard="XI/STATE";
+                        setVisibility();
+                        //System.out.println("RadioSchoolCheckd");
+                        break;
+
+                    case  R.id.radio11thcbse:
+
+                        stuSelectedStandard="XI/CBSE";
+                        setVisibility();
+                        //System.out.println("RadioSchoolCheckd");
+                        break;
+
+
+                    case  R.id.radio12th:
+
+                        stuSelectedStandard="XII/STATE";
+                        setVisibility();
+                        //System.out.println("RadioSchoolCheckd");
+                        break;
+
+                    case  R.id.radio12thcbse:
+
+                        stuSelectedStandard="XII/CBSE";
+                        setVisibility();
+                        //System.out.println("RadioSchoolCheckd");
                         break;
 
                 }
@@ -56,8 +97,19 @@ public class ScholFeesStandardSelectionActivity extends AppCompatActivity {
             }
         });
 
+        btnscholFeesSelcSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ScholFeesStandardSelectionActivity.this,ScholStuFeesActivity.class);
+                intent.putExtra("SELECTED_STD",stuSelectedStandard);
+                startActivity(intent);
+            }
+        });
 
 
+    }
 
+    private void setVisibility() {
+        btnscholFeesSelcSubmit.setVisibility(View.VISIBLE);
     }
 }
