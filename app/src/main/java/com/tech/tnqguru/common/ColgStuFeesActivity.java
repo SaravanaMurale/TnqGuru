@@ -54,8 +54,8 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
     private void getColgStuFeesDetails() {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-
         Call<List<ColgStuFeesResponseDTO>> call = apiInterface.getColgStuFeesDetails();
+
         call.enqueue(new Callback<List<ColgStuFeesResponseDTO>>() {
             @Override
             public void onResponse(Call<List<ColgStuFeesResponseDTO>> call, Response<List<ColgStuFeesResponseDTO>> response) {

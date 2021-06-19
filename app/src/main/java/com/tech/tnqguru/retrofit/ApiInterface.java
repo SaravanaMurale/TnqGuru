@@ -4,6 +4,7 @@ package com.tech.tnqguru.retrofit;
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
+import com.tech.tnqguru.modelresponse.ScholStuFeesResponseDTO;
 import com.tech.tnqguru.utils.AppConstant;
 
 import java.util.List;
@@ -38,6 +39,9 @@ public interface ApiInterface {
 
     @GET("")
     Call<List<ColgStuFeesResponseDTO>> getColgStuFeesDetails();
+
+    @GET("")
+    Call<List<ScholStuFeesResponseDTO>> getScholStuFeesDetails();
 
     @FormUrlEncoded
     @POST("college_faculty/")
