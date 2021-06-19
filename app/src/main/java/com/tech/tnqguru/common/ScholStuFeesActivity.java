@@ -41,6 +41,11 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
         Intent intent=getIntent();
         selectedStd=intent.getStringExtra("SELECTED_STD");
 
+        String[] words=selectedStd.split("/");
+
+        String std=words[0];
+        String board=words[1];
+
         scholStuFeesRecyclerView = (RecyclerView) findViewById(R.id.colgStuFeesRecyclerView);
         scholStuFeesRecyclerView.setHasFixedSize(true);
         scholStuFeesRecyclerView.setLayoutManager(new LinearLayoutManager(ScholStuFeesActivity.this));
@@ -53,14 +58,14 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
 
         scholStuFeesRecyclerView.setAdapter(scholStuFeesAdapter);
 
-        getScholStuFeesDetails();
+        getScholStuFeesDetails(std,board);
         
     }
 
-    private void getScholStuFeesDetails() {
+    private void getScholStuFeesDetails(String std, String board) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-        Call<List<ScholStuFeesResponseDTO>> call = apiInterface.getScholStuFeesDetails();
+        Call<List<ScholStuFeesResponseDTO>> call = apiInterface.getScholStuFeesDetails(std,board);
         
         call.enqueue(new Callback<List<ScholStuFeesResponseDTO>>() {
             @Override

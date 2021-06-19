@@ -37,11 +37,11 @@ public interface ApiInterface {
     @GET("login/{email}/{password}")
     Call<LoginResponseDTO> doLogin(@Path("email") String email, @Path("password") String password);
 
-    @GET("")
+    @GET("college_fees/")
     Call<List<ColgStuFeesResponseDTO>> getColgStuFeesDetails();
 
-    @GET("")
-    Call<List<ScholStuFeesResponseDTO>> getScholStuFeesDetails();
+    @GET("school_fees/{std}/{board}")
+    Call<List<ScholStuFeesResponseDTO>> getScholStuFeesDetails(@Path("std") String std, @Path("board") String board);
 
     @FormUrlEncoded
     @POST("college_faculty/")
