@@ -27,6 +27,7 @@ import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.PreferenceUtil;
 
 import retrofit2.Call;
@@ -86,10 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                 String password = loginPassword.getText().toString();
 
 
-                //doLoginInServer(userName,password);
+                doLoginInServer(userName,password);
 
 
-                if (userName.equals("student@gmail.com") && password.equals("student")) {
+                /*if (userName.equals("student@gmail.com") && password.equals("student")) {
 
                     PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,"STU");
 
@@ -106,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Entered Username or Password is wrong", Toast.LENGTH_LONG).show();
-                }
+                }*/
 
             }
         });
@@ -125,6 +126,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
 
                 LoginResponseDTO loginResponseDTO=response.body();
+
+                PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getSessionId());
+
+                if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
+
+                    Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
+                    startActivity(intent);
+
+                }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
+                    Intent intent=new Intent(LoginActivity.this, ScholStuFeesActivity.class);
+                    startActivity(intent);
+                }
+
 
                 System.out.println("ResponseDetails"+loginResponseDTO.getSessionId()+" "+loginResponseDTO.getLoginMessage());
 

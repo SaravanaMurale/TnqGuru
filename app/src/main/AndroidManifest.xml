@@ -15,8 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".common.ColgStuFeesActivity"></activity>
-        <!-- <activity android:name=".common.LoginActivity"/> -->
+        <activity android:name=".common.ScholFeesStandardSelectionActivity"></activity>
+        <activity android:name=".common.ScholStuFeesActivity" />
+        <activity android:name=".common.ColgStuFeesActivity" /> <!-- <activity android:name=".common.LoginActivity"/> -->
         <activity android:name=".common.RegistrationActivity" />
         <activity android:name=".common.PaymentGatewayActivity" /> <!-- <activity android:name=".common.SignupActivity"></activity> -->
         <activity android:name=".common.JitsiActivity" />

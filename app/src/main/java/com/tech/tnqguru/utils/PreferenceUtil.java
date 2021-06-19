@@ -12,7 +12,7 @@ public class PreferenceUtil {
     public static final String FAC_USER_ID = "fac_user_id";
     public static final String STUDENT_USER_ID = "student_user_id";
 
-    public static final String USER_ID="USER_ID";
+    public static final String USER_ID="user_id";
 
     public static void setValueString(Context context, String key, String value) {
 

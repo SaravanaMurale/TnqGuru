@@ -8,6 +8,10 @@ public class AppConstant {
     public static final int RESOLVE_HINT = 1;
     public  static   int IMG_REQUEST = 21;
 
+    public static final String COLG_STUDENT="1";
+    public static final String SCHOL_STUDENT="2";
+
+
     public static final String DOMAIN="https://api.tnqguru.com/";
 
     public static List<String>   getPrferredSubject(){

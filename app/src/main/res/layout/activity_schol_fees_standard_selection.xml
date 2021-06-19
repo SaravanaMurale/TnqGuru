@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".common.ScholFeesStandardSelectionActivity">
+
+
+    <TextView
+        android:id="@+id/plsSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Select Your Standard"
+        android:textSize="@dimen/twenty_dp"
+        android:layout_margin="@dimen/ten_dp"
+
+        />
+
+    <RadioGroup
+        android:id="@+id/schol_std_radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/plsSelect"
+        android:layout_margin="@dimen/ten_dp"
+
+        >
+
+        <RadioButton
+            android:id="@+id/radio9th"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="IX"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio10th"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+            android:text="X"
+            android:textSize="20dp" />
+
+
+        <RadioButton
+            android:id="@+id/radio11th"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="XI"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radio12th"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="false"
+            android:text="XII"
+            android:textSize="20dp" />
+
+    </RadioGroup>
+
+</RelativeLayout>
