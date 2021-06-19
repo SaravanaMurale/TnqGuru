@@ -80,7 +80,9 @@ public class FacultyDrawerActivity extends AppCompatActivity implements Navigati
                 break;
         }
 
-        startActivity(intent);
+        if(intent!=null){
+            startActivity(intent);
+        }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
