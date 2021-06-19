@@ -17,6 +17,8 @@ public class LoginResponseDTO {
     @SerializedName("message")
     private String loginMessage;
 
+
+
     public LoginResponseDTO(String sessionId, String userName, String privilegeId, String userRole, int lStatus, String loginMessage) {
         this.sessionId = sessionId;
         this.userName = userName;

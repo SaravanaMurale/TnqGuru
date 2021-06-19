@@ -5,6 +5,7 @@ import com.tech.tnqguru.modelresponse.BaseResponseDTO;
 import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.modelresponse.ScholStuFeesResponseDTO;
+import com.tech.tnqguru.modelresponse.UserDetailsForPayemntDTO;
 import com.tech.tnqguru.utils.AppConstant;
 
 import java.util.List;
@@ -36,6 +37,15 @@ public interface ApiInterface {
 
     @GET("login/{email}/{password}")
     Call<LoginResponseDTO> doLogin(@Path("email") String email, @Path("password") String password);
+
+    @GET("college_student/{userid}")
+    Call<UserDetailsForPayemntDTO> getDetailsForColgStudent(@Path("userid") String userid);
+
+
+    @GET("school_student/{userid}")
+    Call<UserDetailsForPayemntDTO> getDetailsForScholStudent(@Path("userid") String userid);
+
+
 
     @GET("college_fees/")
     Call<List<ColgStuFeesResponseDTO>> getColgStuFeesDetails();

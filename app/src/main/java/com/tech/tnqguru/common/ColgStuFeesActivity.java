@@ -12,8 +12,10 @@ import android.widget.Button;
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
+import com.tech.tnqguru.modelresponse.UserDetailsForPayemntDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.utils.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
     List<ColgStuFeesResponseDTO> colgStuFeesResponseDTOList;
 
     Button btnColgFeesSubmit;
+
+    String userName,userMobile,userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +88,55 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
         btnColgFeesSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // callPaymentGatewayActivity();
+
+                getUserDetails(modeOfFees);
+
+
 
             }
         });
+
+    }
+
+    private void getUserDetails(String modeOfFees) {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForColgStudent(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID));
+
+        call.enqueue(new Callback<UserDetailsForPayemntDTO>() {
+            @Override
+            public void onResponse(Call<UserDetailsForPayemntDTO> call, Response<UserDetailsForPayemntDTO> response) {
+
+                UserDetailsForPayemntDTO userDetailsForPayemntDTO=response.body();
+                userName=userDetailsForPayemntDTO.getUserName();
+                userMobile=userDetailsForPayemntDTO.getUserMobile();
+                userEmail=userDetailsForPayemntDTO.getUserEmail();
+
+                callPaymentGatewayActivity(modeOfFees);
+            }
+
+            @Override
+            public void onFailure(Call<UserDetailsForPayemntDTO> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    private void callPaymentGatewayActivity(String modeOfFees) {
+
+
+        Intent intent = new Intent(ColgStuFeesActivity.this, PaymentGatewayActivity.class);
+        intent.putExtra("USERNAME", userName);
+        intent.putExtra("MOBILENUMBER", userMobile);
+        intent.putExtra("AMOUNT", modeOfFees);
+        intent.putExtra("EMAIL", userEmail);
+        intent.putExtra("COURSE","Android Course");
+        startActivity(intent);
+
+
 
     }
 
