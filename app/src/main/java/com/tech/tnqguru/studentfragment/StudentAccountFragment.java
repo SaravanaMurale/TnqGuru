@@ -28,8 +28,8 @@ public class StudentAccountFragment extends Fragment {
         stuLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PreferenceUtil.clear(getActivity());
 
+                PreferenceUtil.clear(getActivity());
                 Intent intent=new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
 

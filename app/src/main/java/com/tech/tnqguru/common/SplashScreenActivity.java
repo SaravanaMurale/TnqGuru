@@ -17,6 +17,7 @@ import com.tech.tnqguru.utils.ToastUtils;
 public class SplashScreenActivity extends AppCompatActivity {
 
     String userId;
+    String privilege;
 
 
     @Override
@@ -25,6 +26,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         userId = PreferenceUtil.getValueString(SplashScreenActivity.this,PreferenceUtil.USER_ID);
+        privilege = PreferenceUtil.getValueString(SplashScreenActivity.this,PreferenceUtil.PRIVILEGE);
 
 
         new SplashDownCountDown(3000, 1000).start();
@@ -68,11 +70,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 } else if(data==null) {
 
-                    if(userId.equals("STU")){
+                    if(privilege.equals("3") || privilege.equals("4")){
                         Intent callJitsiActivity = new Intent(SplashScreenActivity.this, StudentBottomTabbedActivity.class);
                         startActivity(callJitsiActivity);
                         finish();
-                    }else if(userId.equals("FAC")){
+                    }else if(privilege.equals("1") || privilege.equals("2")){
                         Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
                         startActivity(callJitsiActivity);
                         finish();

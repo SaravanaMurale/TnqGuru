@@ -133,9 +133,12 @@ public class LoginActivity extends AppCompatActivity {
                 LoginResponseDTO loginResponseDTO=response.body();
 
                 if(loginResponseDTO.getResponseCode()==200){
+
                     PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserId());
 
                     if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
+
+                        PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.PRIVILEGE,loginResponseDTO.getPrivilegeId());
 
                         if(loginResponseDTO.getPaymentStatus().equals("0")){
                             Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
@@ -151,6 +154,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
 
+                        PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.PRIVILEGE,loginResponseDTO.getPrivilegeId());
+
                         if(loginResponseDTO.getPaymentStatus().equals("0")){
                             Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
                             startActivity(intent);
@@ -163,6 +168,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     }else {
+
+                        PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.PRIVILEGE,loginResponseDTO.getPrivilegeId());
+
                         Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
                         startActivity(intent);
                         finish();

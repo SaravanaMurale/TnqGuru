@@ -22,8 +22,9 @@
         <activity android:name=".common.PaymentGatewayActivity" /> <!-- <activity android:name=".common.SignupActivity"></activity> -->
         <activity android:name=".common.JitsiActivity" />
         <activity android:name=".studentactivity.StudentBottomTabbedActivity" />
-        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" /> <!-- <activity android:name=".common.LoginActivity"></activity> -->
-        <activity android:name=".common.LoginActivity">
+        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" />
+         <activity android:name=".common.LoginActivity"></activity>
+        <activity android:name=".common.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
