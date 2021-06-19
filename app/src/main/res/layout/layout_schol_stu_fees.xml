@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/five_dp"
+        android:layout_margin="@dimen/five_dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/three_dp"
+            >
+
+            <TextView
+                android:id="@+id/scholTextStd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/degree"/>
+
+            <TextView
+                android:id="@+id/scholHeadStd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B.A"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/twenty_dp"
+                />
+
+            <TextView
+                android:id="@+id/scholTextHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_of_hours"
+                android:layout_below="@+id/scholTextStd"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/scholHeadHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 Hours"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/scholTextStd"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/scholTextOnline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/online_fees"
+                android:layout_below="@+id/scholTextHours"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/scholHeadOnlineFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/scholHeadHours"
+                android:text="5000"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/scholTextOfline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_fees"
+                android:layout_below="@+id/scholTextOnline"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+            <TextView
+                android:id="@+id/scholHeadOflineFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/scholHeadOnlineFees"
+                android:text="6000"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
