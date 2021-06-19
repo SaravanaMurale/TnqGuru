@@ -1,16 +1,22 @@
 package com.tech.tnqguru.facultyactivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.common.ColgStuFeesActivity;
+import com.tech.tnqguru.common.ScholFeesStandardSelectionActivity;
 
-public class FacultyDrawerActivity extends AppCompatActivity {
+public class FacultyDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     private DrawerLayout drawer;
@@ -24,6 +30,8 @@ public class FacultyDrawerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -31,6 +39,7 @@ public class FacultyDrawerActivity extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -42,5 +51,30 @@ public class FacultyDrawerActivity extends AppCompatActivity {
             super.onBackPressed();
         }
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+
+        Intent intent = null;
+
+        switch (menuItem.getItemId()) {
+            case R.id.nav_message:
+                intent = new Intent(FacultyDrawerActivity.this, ColgStuFeesActivity.class);
+                break;
+
+            case R.id.nav_chat:
+                intent = new Intent(FacultyDrawerActivity.this, ScholFeesStandardSelectionActivity.class);
+                break;
+
+            case R.id.nav_profile:
+                intent = new Intent(FacultyDrawerActivity.this, ColgStuFeesActivity.class);
+                break;
+        }
+
+        startActivity(intent);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
