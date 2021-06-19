@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 LoginResponseDTO loginResponseDTO=response.body();
 
-                PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getSessionId());
+                PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserId());
 
                 if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
 

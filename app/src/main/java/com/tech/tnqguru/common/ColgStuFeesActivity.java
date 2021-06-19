@@ -102,7 +102,9 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForColgStudent(Integer.parseInt(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID)));
+        int userId=Integer.parseInt(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID));
+
+        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForColgStudent(userId);
 
         call.enqueue(new Callback<UserDetailsForPayemntDTO>() {
             @Override

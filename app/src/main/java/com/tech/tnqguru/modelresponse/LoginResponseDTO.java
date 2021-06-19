@@ -16,16 +16,18 @@ public class LoginResponseDTO {
     private int lStatus;
     @SerializedName("message")
     private String loginMessage;
+    @SerializedName("userid")
+    private String userId;
 
 
-
-    public LoginResponseDTO(String sessionId, String userName, String privilegeId, String userRole, int lStatus, String loginMessage) {
+    public LoginResponseDTO(String sessionId, String userName, String privilegeId, String userRole, int lStatus, String loginMessage, String userId) {
         this.sessionId = sessionId;
         this.userName = userName;
         this.privilegeId = privilegeId;
         this.userRole = userRole;
         this.lStatus = lStatus;
         this.loginMessage = loginMessage;
+        this.userId = userId;
     }
 
     public String getSessionId() {
@@ -74,5 +76,13 @@ public class LoginResponseDTO {
 
     public void setLoginMessage(String loginMessage) {
         this.loginMessage = loginMessage;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

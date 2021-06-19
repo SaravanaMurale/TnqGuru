@@ -107,7 +107,10 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
     private void getUserDetails(String modeOfFees) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForScholStudent( Integer.parseInt( PreferenceUtil.getValueString(ScholStuFeesActivity.this,PreferenceUtil.USER_ID)));
+
+        int userId=Integer.parseInt( PreferenceUtil.getValueString(ScholStuFeesActivity.this,PreferenceUtil.USER_ID));
+
+        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForScholStudent(userId);
 
         call.enqueue(new Callback<UserDetailsForPayemntDTO>() {
             @Override
