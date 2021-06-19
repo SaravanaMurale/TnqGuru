@@ -2,6 +2,7 @@ package com.tech.tnqguru.retrofit;
 
 
 import com.tech.tnqguru.modelresponse.BaseResponseDTO;
+import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.utils.AppConstant;
 
@@ -34,6 +35,9 @@ public interface ApiInterface {
 
     @GET("login/{email}/{password}")
     Call<LoginResponseDTO> doLogin(@Path("email") String email, @Path("password") String password);
+
+    @GET("")
+    Call<List<ColgStuFeesResponseDTO>> getColgStuFeesDetails();
 
     @FormUrlEncoded
     @POST("college_faculty/")
