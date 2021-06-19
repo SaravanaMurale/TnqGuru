@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.PreferenceUtil;
+import com.tech.tnqguru.utils.ToastUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -127,20 +129,32 @@ public class LoginActivity extends AppCompatActivity {
 
                 LoginResponseDTO loginResponseDTO=response.body();
 
-                PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserId());
+                if(loginResponseDTO.getResponseCode()==200){
+                    PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.USER_ID,loginResponseDTO.getUserId());
 
-                if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
+                    if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
 
-                    Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
-                    startActivity(intent);
+                        Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
+                        startActivity(intent);
+                        finish();
 
-                }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
-                    Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
-                    startActivity(intent);
+                    }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
+                        Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                }else if(loginResponseDTO.getResponseCode()==400){
+                    ToastUtils.getInstance(LoginActivity.this).showShortToast("Your have entered wrong username or password");
                 }
 
 
-                System.out.println("ResponseDetails"+loginResponseDTO.getSessionId()+" "+loginResponseDTO.getLoginMessage());
+
+                //System.out.println("ResponseDetails"+loginResponseDTO.getSessionId()+" "+loginResponseDTO.getLoginMessage());
 
             }
 
