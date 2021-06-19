@@ -137,14 +137,31 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(loginResponseDTO.getPrivilegeId().equals(AppConstant.COLG_STUDENT)){
 
-                        Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
-                        startActivity(intent);
-                        finish();
+                        if(loginResponseDTO.getPaymentStatus().equals("0")){
+                            Intent intent=new Intent(LoginActivity.this,ColgStuFeesActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else if(loginResponseDTO.getPaymentStatus().equals("1")){
+                            Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
 
                     }else if(loginResponseDTO.getPrivilegeId().equals(AppConstant.SCHOL_STUDENT)){
-                        Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
-                        startActivity(intent);
-                        finish();
+
+                        if(loginResponseDTO.getPaymentStatus().equals("0")){
+                            Intent intent=new Intent(LoginActivity.this, ScholFeesStandardSelectionActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else if(loginResponseDTO.getPaymentStatus().equals("1")){
+                            Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
                     }else {
                         Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
                         startActivity(intent);
