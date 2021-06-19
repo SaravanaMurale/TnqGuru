@@ -1,24 +1,42 @@
 package com.tech.tnqguru.common;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
+import com.tech.tnqguru.modelresponse.ScholStuFeesResponseDTO;
 
 import java.util.List;
 
 public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapter.ScholStuViewHolder> {
 
     Context context;
-    List<ColgStuFeesResponseDTO> colgStuFeesResponseDTOList;
-    ColgStuFeesAdapter.ColgFeesClickListener colgFeesClickListener;
+    List<ScholStuFeesResponseDTO> scholStuFeesResponseDTOList;
+    ScholFeesClickListener scholFeesClickListener;
 
+    interface ScholFeesClickListener {
+        public void scholFeesClick(String modeOfFees);
+    }
+
+    public ScholStuFeesAdapter(Context context, List<ScholStuFeesResponseDTO> scholStuFeesResponseDTOList, ScholFeesClickListener scholFeesClickListener) {
+        this.context = context;
+        this.scholStuFeesResponseDTOList = scholStuFeesResponseDTOList;
+        this.scholFeesClickListener = scholFeesClickListener;
+    }
+
+    public void setData(List<ScholStuFeesResponseDTO> scholStuFeesResponseDTOList){
+        this.scholStuFeesResponseDTOList=scholStuFeesResponseDTOList;
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -31,17 +49,62 @@ public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapte
     @Override
     public void onBindViewHolder(@NonNull ScholStuViewHolder holder, int position) {
 
+        holder.scholHeadStd.setText(scholStuFeesResponseDTOList.get(position).getScholStuDegree());
+        holder.scholHeadHours.setText(scholStuFeesResponseDTOList.get(position).getScholStuHours());
+        holder.scholHeadOnlineFees.setText(scholStuFeesResponseDTOList.get(position).getScholStuOnlineFees());
+        holder.scholHeadOflineFees.setText(scholStuFeesResponseDTOList.get(position).getScholStuOflineFees());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return scholStuFeesResponseDTOList.size();
     }
 
     class ScholStuViewHolder extends RecyclerView.ViewHolder  {
 
+        TextView scholHeadStd,scholHeadHours,scholHeadOnlineFees,scholHeadOflineFees;
+
         public ScholStuViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            scholHeadStd = (TextView) itemView.findViewById(R.id.scholHeadStd);
+            scholHeadHours = (TextView) itemView.findViewById(R.id.scholHeadHours);
+            scholHeadOnlineFees = (TextView) itemView.findViewById(R.id.scholHeadOnlineFees);
+            scholHeadOflineFees = (TextView) itemView.findViewById(R.id.scholHeadOflineFees);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                    builder.setTitle("Please Select Mode Of Class");
+
+                    builder.setMessage("Do you want Online or Ofline Class?");
+
+                    builder.setPositiveButton("ONLINE", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            ScholStuFeesResponseDTO scholStuFeesResponseDTO=scholStuFeesResponseDTOList.get(getAdapterPosition());
+                            scholFeesClickListener.scholFeesClick(scholStuFeesResponseDTO.getScholStuOnlineFees());
+                        }
+                    });
+
+                    builder.setNegativeButton("OFLINE", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ScholStuFeesResponseDTO scholStuFeesResponseDTO=scholStuFeesResponseDTOList.get(getAdapterPosition());
+                            scholFeesClickListener.scholFeesClick(scholStuFeesResponseDTO.getScholStuOflineFees());
+                        }
+                    });
+
+                }
+            });
+
+
         }
     }
 }
