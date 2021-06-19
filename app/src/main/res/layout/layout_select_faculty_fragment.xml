@@ -13,8 +13,8 @@
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/shimmer_bg"
+
+        android:background="@color/colorBlue"
         android:fontFamily="@font/ubuntu_regular"
         android:padding="@dimen/fifteen_dp"
         android:text="Faculty Registration"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/fac_sele_radioGroup"
             android:layout_marginTop="10dp"
-            android:background="@color/shimmer_bg"
+            android:background="@color/colorBlue"
             android:fontFamily="@font/ubuntu_regular"
             android:padding="@dimen/fifteen_dp"
             android:text="Student Registration"
@@ -134,7 +134,9 @@
         android:layout_height="wrap_content"
         android:text="@string/submit"
         android:layout_below="@id/stuRegBlock"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_btn"
+        android:textColor="@color/black"
 
         />
 

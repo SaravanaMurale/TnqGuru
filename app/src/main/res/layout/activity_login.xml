@@ -42,7 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/ten_dp"
         android:textAllCaps="true"
-        android:textSize="@dimen/twenty_sp"
+        android:textSize="@dimen/fiften_sp"
         android:textColor="@color/red"
         android:fontFamily="@font/ubuntu_regular"
         />

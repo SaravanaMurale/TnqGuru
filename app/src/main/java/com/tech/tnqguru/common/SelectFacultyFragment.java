@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.utils.ToastUtils;
 
 public class SelectFacultyFragment extends Fragment {
 
@@ -77,7 +78,12 @@ public class SelectFacultyFragment extends Fragment {
 
                 Fragment fragment=null;
 
-                if(facSelected.equals("FAC_SCHOOL")){
+                 if(facSelected==null){
+                    System.out.println("Please Select");
+                     ToastUtils.getInstance(getActivity()).showLongToast("Please Select");
+                    return;
+                }
+                 else if(facSelected.equals("FAC_SCHOOL")){
                     fragment=new SchoolFacRegFragment();
                 }else if(facSelected.equals("FAC_COLLEGE")){
                     fragment=new CollegeFacRegFragment();
@@ -85,9 +91,6 @@ public class SelectFacultyFragment extends Fragment {
                     fragment=new SchoolStuRegFragment();
                 }else if(facSelected.equals("STU_COLLEGE")){
                     fragment=new ColgStuRegFragment();
-                }else if(facSelected==null){
-                    System.out.println("Please Select");
-                    return;
                 }
 
                 fragmentTransaction.replace(R.id.fragment_register_container,fragment);
