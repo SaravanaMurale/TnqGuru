@@ -12,6 +12,11 @@
     <string name="signup">Signup?</string>
     <string name="submit">Submit</string>
 
+    <string name="online_fees">Online Fees</string>
+    <string name="offline_fees">Offline Fees</string>
+    <string name="no_of_hours">No. of Hours</string>
+    <string name="degree">DEGREE</string>
+
     <!--Qualification-->
     <string name="be">B.E</string>
     <string name="me">M.E</string>
@@ -97,6 +102,6 @@
         <item>Engineering</item>
 
     </string-array>
-    
+
 
 </resources>

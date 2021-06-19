@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/five_dp"
+        android:layout_margin="@dimen/five_dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/three_dp"
+            >
+
+            <TextView
+                android:id="@+id/colgTextDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/degree"/>
+
+            <TextView
+                android:id="@+id/colgHeadDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="B.A"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/twenty_dp"
+                />
+
+            <TextView
+                android:id="@+id/colgTextHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_of_hours"
+                android:layout_below="@+id/colgTextDegree"
+android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/colgHeadHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 Hours"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/colgHeadDegree"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/colgTextOnline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/online_fees"
+                android:layout_below="@+id/colgTextHours"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/colgHeadOnlineFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/colgHeadHours"
+                android:text="5000"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+            <TextView
+                android:id="@+id/colgTextOfline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/offline_fees"
+                android:layout_below="@+id/colgTextOnline"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+            <TextView
+                android:id="@+id/colgHeadOflineFees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/colgHeadOnlineFees"
+                android:text="6000"
+                android:layout_marginRight="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/three_dp"
+                />
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
