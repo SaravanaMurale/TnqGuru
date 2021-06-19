@@ -1,5 +1,6 @@
 package com.tech.tnqguru.common;
 
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -29,6 +30,7 @@ import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
 import com.tech.tnqguru.utils.AppConstant;
+import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.PreferenceUtil;
 import com.tech.tnqguru.utils.ToastUtils;
 
@@ -118,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void doLoginInServer(String userName, String password) {
 
+        Dialog dialog= LoaderUtil.showProgressBar(this);
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
@@ -148,7 +151,10 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     }
 
+                    LoaderUtil.dismisProgressBar(LoginActivity.this,dialog);
+
                 }else if(loginResponseDTO.getResponseCode()==400){
+                    LoaderUtil.dismisProgressBar(LoginActivity.this,dialog);
                     ToastUtils.getInstance(LoginActivity.this).showShortToast("Your have entered wrong username or password");
                 }
 
@@ -160,7 +166,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
-
+                LoaderUtil.dismisProgressBar(LoginActivity.this,dialog);
             }
         });
 
