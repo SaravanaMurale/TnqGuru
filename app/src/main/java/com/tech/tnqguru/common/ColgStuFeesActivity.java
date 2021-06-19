@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.modelresponse.UserDetailsForPayemntDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.PreferenceUtil;
 
 import java.util.ArrayList;
@@ -57,6 +59,9 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
     private void getColgStuFeesDetails() {
 
+
+        Dialog dialog= LoaderUtil.showProgressBar(this);
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
         Call<List<ColgStuFeesResponseDTO>> call = apiInterface.getColgStuFeesDetails();
 
@@ -68,12 +73,13 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
                 colgStuFeesAdapter.setData(colgStuFeesResponseDTOList);
 
+                LoaderUtil.dismisProgressBar(ColgStuFeesActivity.this,dialog);
 
             }
 
             @Override
             public void onFailure(Call<List<ColgStuFeesResponseDTO>> call, Throwable t) {
-
+                LoaderUtil.dismisProgressBar(ColgStuFeesActivity.this,dialog);
             }
         });
 
@@ -100,6 +106,8 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
     private void getUserDetails(String modeOfFees) {
 
+        Dialog dialog= LoaderUtil.showProgressBar(this);
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
         int userId=Integer.parseInt(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID));
@@ -110,17 +118,20 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
             @Override
             public void onResponse(Call<UserDetailsForPayemntDTO> call, Response<UserDetailsForPayemntDTO> response) {
 
+
                 UserDetailsForPayemntDTO userDetailsForPayemntDTO=response.body();
                 userName=userDetailsForPayemntDTO.getUserName();
                 userMobile=userDetailsForPayemntDTO.getUserMobile();
                 userEmail=userDetailsForPayemntDTO.getUserEmail();
+
+                LoaderUtil.dismisProgressBar(ColgStuFeesActivity.this,dialog);
 
                 callPaymentGatewayActivity(modeOfFees);
             }
 
             @Override
             public void onFailure(Call<UserDetailsForPayemntDTO> call, Throwable t) {
-
+                LoaderUtil.dismisProgressBar(ColgStuFeesActivity.this,dialog);
             }
         });
 

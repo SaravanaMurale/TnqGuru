@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.tech.tnqguru.modelresponse.ScholStuFeesResponseDTO;
 import com.tech.tnqguru.modelresponse.UserDetailsForPayemntDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
+import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.PreferenceUtil;
 
 import java.util.ArrayList;
@@ -68,6 +70,8 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
 
     private void getScholStuFeesDetails(String std, String board) {
 
+        Dialog dialog= LoaderUtil.showProgressBar(this);
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
         Call<List<ScholStuFeesResponseDTO>> call = apiInterface.getScholStuFeesDetails(std,board);
         
@@ -77,11 +81,13 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
 
                 scholStuFeesResponseDTOList=response.body();
                 scholStuFeesAdapter.setData(scholStuFeesResponseDTOList);
+
+                LoaderUtil.dismisProgressBar(ScholStuFeesActivity.this,dialog);
             }
 
             @Override
             public void onFailure(Call<List<ScholStuFeesResponseDTO>> call, Throwable t) {
-
+                LoaderUtil.dismisProgressBar(ScholStuFeesActivity.this,dialog);
             }
         });
         
@@ -106,6 +112,8 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
 
     private void getUserDetails(String modeOfFees) {
 
+        Dialog dialog= LoaderUtil.showProgressBar(this);
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
         int userId=Integer.parseInt( PreferenceUtil.getValueString(ScholStuFeesActivity.this,PreferenceUtil.USER_ID));
@@ -122,12 +130,16 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
                 userMobile=userDetailsForPayemntDTO.getUserMobile();
                 userEmail=userDetailsForPayemntDTO.getUserEmail();
 
+                LoaderUtil.dismisProgressBar(ScholStuFeesActivity.this,dialog);
+
                 callPaymentGatewayActivity(modeOfFees);
 
             }
 
             @Override
             public void onFailure(Call<UserDetailsForPayemntDTO> call, Throwable t) {
+
+                LoaderUtil.dismisProgressBar(ScholStuFeesActivity.this,dialog);
 
             }
         });
