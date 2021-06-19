@@ -1,4 +1,4 @@
-package com.tech.tnqguru.facultyactivity;
+package com.tech.tnqguru.studentactivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,32 +17,32 @@ import com.tech.tnqguru.common.ColgStuFeesActivity;
 import com.tech.tnqguru.common.LoginActivity;
 import com.tech.tnqguru.common.ProfileActivity;
 import com.tech.tnqguru.common.ScholFeesStandardSelectionActivity;
-import com.tech.tnqguru.studentactivity.StudentDrawerActivity;
+import com.tech.tnqguru.facultyactivity.FacultyDrawerActivity;
 import com.tech.tnqguru.utils.PreferenceUtil;
 
-public class FacultyDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StudentDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
 
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faculty_drawer);
+        setContentView(R.layout.activity_student_drawer);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbarStudent);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
+        drawer = findViewById(R.id.drawer_layout_student);
+        NavigationView navigationView = findViewById(R.id.nav_view_student);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -58,21 +58,19 @@ public class FacultyDrawerActivity extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-
         Intent intent = null;
 
         switch (menuItem.getItemId()) {
             case R.id.nav_message:
-                intent = new Intent(FacultyDrawerActivity.this, ScholFeesStandardSelectionActivity.class);
+                intent = new Intent(StudentDrawerActivity.this, ScholFeesStandardSelectionActivity.class);
                 break;
 
             case R.id.nav_chat:
-                intent = new Intent(FacultyDrawerActivity.this, ColgStuFeesActivity.class);
+                intent = new Intent(StudentDrawerActivity.this, ColgStuFeesActivity.class);
                 break;
 
             case R.id.nav_profile:
-                intent = new Intent(FacultyDrawerActivity.this, ProfileActivity.class);
+                intent = new Intent(StudentDrawerActivity.this, ProfileActivity.class);
                 break;
 
             case R.id.nav_logout:
@@ -87,8 +85,9 @@ public class FacultyDrawerActivity extends AppCompatActivity implements Navigati
 
     private void clearAllData() {
 
-        PreferenceUtil.clear(FacultyDrawerActivity.this);
-        Intent intent=new Intent(FacultyDrawerActivity.this, LoginActivity.class);
+        PreferenceUtil.clear(StudentDrawerActivity.this);
+        Intent intent=new Intent(StudentDrawerActivity.this, LoginActivity.class);
         startActivity(intent);
+
     }
 }
