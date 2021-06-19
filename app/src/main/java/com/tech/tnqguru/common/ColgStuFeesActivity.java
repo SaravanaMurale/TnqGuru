@@ -133,7 +133,7 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
         intent.putExtra("MOBILENUMBER", userMobile);
         intent.putExtra("AMOUNT", modeOfFees);
         intent.putExtra("EMAIL", userEmail);
-        intent.putExtra("COURSE","Android Course");
+        intent.putExtra("COURSE","Colg KAndroid Course");
         startActivity(intent);
 
 
