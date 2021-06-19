@@ -105,8 +105,11 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
                         }
                     });
 
+                    builder.show();
 
                 }
+
+
             });
 
         }

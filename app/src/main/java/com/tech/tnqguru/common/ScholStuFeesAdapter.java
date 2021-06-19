@@ -101,6 +101,8 @@ public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapte
                         }
                     });
 
+                    builder.show();
+
                 }
             });
 

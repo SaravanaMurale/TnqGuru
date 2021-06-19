@@ -46,7 +46,7 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
         String std=words[0];
         String board=words[1];
 
-        scholStuFeesRecyclerView = (RecyclerView) findViewById(R.id.colgStuFeesRecyclerView);
+        scholStuFeesRecyclerView = (RecyclerView) findViewById(R.id.scholStuFeesRecyclerView);
         scholStuFeesRecyclerView.setHasFixedSize(true);
         scholStuFeesRecyclerView.setLayoutManager(new LinearLayoutManager(ScholStuFeesActivity.this));
         scholStuFeesResponseDTOList = new ArrayList<>();
