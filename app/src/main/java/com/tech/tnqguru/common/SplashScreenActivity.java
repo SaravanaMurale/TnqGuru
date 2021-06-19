@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.facultyactivity.FacultyBottomTabbedActivity;
+import com.tech.tnqguru.facultyactivity.FacultyDrawerActivity;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.studentactivity.StudentDrawerActivity;
 import com.tech.tnqguru.utils.PreferenceUtil;
 import com.tech.tnqguru.utils.ToastUtils;
 
@@ -71,11 +73,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                 } else if(data==null) {
 
                     if(privilege.equals("3") || privilege.equals("4")){
-                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, StudentBottomTabbedActivity.class);
+                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, StudentDrawerActivity.class);
                         startActivity(callJitsiActivity);
                         finish();
                     }else if(privilege.equals("1") || privilege.equals("2")){
-                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyBottomTabbedActivity.class);
+                        Intent callJitsiActivity = new Intent(SplashScreenActivity.this, FacultyDrawerActivity.class);
                         startActivity(callJitsiActivity);
                         finish();
                     }

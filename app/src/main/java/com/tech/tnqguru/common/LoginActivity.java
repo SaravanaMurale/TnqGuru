@@ -25,10 +25,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.facultyactivity.FacultyBottomTabbedActivity;
+import com.tech.tnqguru.facultyactivity.FacultyDrawerActivity;
 import com.tech.tnqguru.modelresponse.LoginResponseDTO;
 import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.studentactivity.StudentBottomTabbedActivity;
+import com.tech.tnqguru.studentactivity.StudentDrawerActivity;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.PreferenceUtil;
@@ -145,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else if(loginResponseDTO.getPaymentStatus().equals("1")){
-                            Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, StudentDrawerActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -161,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else if(loginResponseDTO.getPaymentStatus().equals("1")){
-                            Intent intent = new Intent(LoginActivity.this, StudentBottomTabbedActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, StudentDrawerActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -171,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         PreferenceUtil.setValueString(LoginActivity.this,PreferenceUtil.PRIVILEGE,loginResponseDTO.getPrivilegeId());
 
-                        Intent intent = new Intent(LoginActivity.this, FacultyBottomTabbedActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, FacultyDrawerActivity.class);
                         startActivity(intent);
                         finish();
                     }
