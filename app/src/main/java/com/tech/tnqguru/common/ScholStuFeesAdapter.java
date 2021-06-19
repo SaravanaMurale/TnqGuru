@@ -9,17 +9,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.modelresponse.ColgStuFeesResponseDTO;
+
+import java.util.List;
 
 public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapter.ScholStuViewHolder> {
 
     Context context;
+    List<ColgStuFeesResponseDTO> colgStuFeesResponseDTOList;
+    ColgStuFeesAdapter.ColgFeesClickListener colgFeesClickListener;
 
 
     @NonNull
     @Override
     public ScholStuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.layout_colg_stu_fees, parent, false);
+        View view = layoutInflater.inflate(R.layout.layout_schol_stu_fees, parent, false);
         return new ScholStuViewHolder(view);
     }
 
