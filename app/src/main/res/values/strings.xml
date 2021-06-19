@@ -34,6 +34,9 @@
     <string name="mcom">M.Com</string>
     <string name="others">Others</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 
     <string-array name="courses">
         <item>Select Courses</item>
