@@ -39,11 +39,11 @@ public interface ApiInterface {
     Call<LoginResponseDTO> doLogin(@Path("email") String email, @Path("password") String password);
 
     @GET("college_student/{userid}")
-    Call<UserDetailsForPayemntDTO> getDetailsForColgStudent(@Path("userid") String userid);
+    Call<UserDetailsForPayemntDTO> getDetailsForColgStudent(@Path("userid") int userid);
 
 
     @GET("school_student/{userid}")
-    Call<UserDetailsForPayemntDTO> getDetailsForScholStudent(@Path("userid") String userid);
+    Call<UserDetailsForPayemntDTO> getDetailsForScholStudent(@Path("userid") int userid);
 
 
 

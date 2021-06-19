@@ -102,7 +102,7 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForColgStudent(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID));
+        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForColgStudent(Integer.parseInt(PreferenceUtil.getValueString(ColgStuFeesActivity.this,PreferenceUtil.USER_ID)));
 
         call.enqueue(new Callback<UserDetailsForPayemntDTO>() {
             @Override
@@ -127,13 +127,14 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
 
     private void callPaymentGatewayActivity(String modeOfFees) {
 
+        int courseFees=Integer.parseInt(modeOfFees);
 
         Intent intent = new Intent(ColgStuFeesActivity.this, PaymentGatewayActivity.class);
         intent.putExtra("USERNAME", userName);
         intent.putExtra("MOBILENUMBER", userMobile);
-        intent.putExtra("AMOUNT", modeOfFees);
+        intent.putExtra("AMOUNT", courseFees);
         intent.putExtra("EMAIL", userEmail);
-        intent.putExtra("COURSE","Colg KAndroid Course");
+        intent.putExtra("COURSE","Colg Android Course");
         startActivity(intent);
 
 

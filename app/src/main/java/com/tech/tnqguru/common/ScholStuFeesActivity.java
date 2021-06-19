@@ -107,8 +107,7 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
     private void getUserDetails(String modeOfFees) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-
-        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForScholStudent(PreferenceUtil.getValueString(ScholStuFeesActivity.this,PreferenceUtil.USER_ID));
+        Call<UserDetailsForPayemntDTO> call=apiInterface.getDetailsForScholStudent( Integer.parseInt( PreferenceUtil.getValueString(ScholStuFeesActivity.this,PreferenceUtil.USER_ID)));
 
         call.enqueue(new Callback<UserDetailsForPayemntDTO>() {
             @Override
@@ -134,10 +133,13 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
 
     private void callPaymentGatewayActivity(String modeOfFees) {
 
+
+        int courseFees=Integer.parseInt(modeOfFees);
+
         Intent intent = new Intent(ScholStuFeesActivity.this, PaymentGatewayActivity.class);
         intent.putExtra("USERNAME", userName);
         intent.putExtra("MOBILENUMBER", userMobile);
-        intent.putExtra("AMOUNT", modeOfFees);
+        intent.putExtra("AMOUNT", courseFees);
         intent.putExtra("EMAIL", userEmail);
         intent.putExtra("COURSE","Schol Android Course");
         startActivity(intent);
