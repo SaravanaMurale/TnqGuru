@@ -141,6 +141,11 @@ public interface ApiInterface {
     );
 
 
+    @Multipart
+    @POST("upload")
+    Call<RequestBody> uploadImage(@Part MultipartBody.Part part, @Part("somedata") RequestBody requestBody);
+
+
 
 
 

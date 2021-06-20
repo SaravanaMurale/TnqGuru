@@ -15,25 +15,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".studentactivity.StudentDrawerActivity"></activity>
+        <!--<activity android:name=".FileUploadActivity"></activity>-->
+        <activity android:name=".studentactivity.StudentDrawerActivity" />
         <activity android:name=".common.ProfileActivity" />
-         <activity android:name=".facultyactivity.FacultyDrawerActivity"></activity>
+        <activity android:name=".facultyactivity.FacultyDrawerActivity" />
         <activity android:name=".common.ScholFeesStandardSelectionActivity" />
         <activity android:name=".common.ScholStuFeesActivity" />
         <activity android:name=".common.ColgStuFeesActivity" /> <!-- <activity android:name=".common.LoginActivity"/> -->
         <activity android:name=".common.RegistrationActivity" />
         <activity android:name=".common.PaymentGatewayActivity" /> <!-- <activity android:name=".common.SignupActivity"></activity> -->
         <activity android:name=".common.JitsiActivity" />
-        <!--<activity android:name=".studentactivity.StudentBottomTabbedActivity" />
-        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" />-->
-        <activity android:name=".common.LoginActivity" />
-        <activity android:name=".common.SplashScreenActivity">
+        <!--
+<activity android:name=".studentactivity.StudentBottomTabbedActivity" />
+        <activity android:name=".facultyactivity.FacultyBottomTabbedActivity" />
+        -->
+       <!-- <activity android:name=".common.LoginActivity" />-->
+       <!-- <activity android:name=".common.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -44,9 +46,18 @@
                     android:host="tnqguru.com"
                     android:scheme="http" />
             </intent-filter>
+        </activity>-->
 
 
+        <activity android:name=".common.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

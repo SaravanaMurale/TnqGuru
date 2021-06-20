@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -101,6 +102,43 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         colgStuPincode=colgStuPincodeEdit.getText().toString();
         colgStuEmail=colgStuEmailEdit.getText().toString();
         colgStuPassword=colgStuPasswordEdit.getText().toString();
+
+
+        if (colgStuName.isEmpty() || colgStuName.equals("") || colgStuName.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgStuMobile.isEmpty() || colgStuMobile.equals("") || colgStuMobile.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgStuAddress.isEmpty() || colgStuAddress.equals("") || colgStuAddress.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgStuPincode.isEmpty() || colgStuPincode.equals("") || colgStuPincode.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgStuEmail.isEmpty() || colgStuEmail.equals("") || colgStuEmail.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgStuPassword.isEmpty() || colgStuPassword.equals("") || colgStuPassword.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            return;
+
+        }
         
         doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
 

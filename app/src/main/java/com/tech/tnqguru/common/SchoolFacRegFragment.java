@@ -16,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -376,7 +377,58 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         System.out.println("EnteredData"+scholFacName+" "+scholFacMobile+" "+scholFacAddress+" "+scholFacPincode+" "+scholFacEmail+" "+scholFacAbout+" "+scholFacIdProofNumber);
 
-       doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+        if (scholFacName.isEmpty() || scholFacName.equals("") || scholFacName.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholFacMobile.isEmpty() || scholFacMobile.equals("") || scholFacMobile.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholFacAddress.isEmpty() || scholFacAddress.equals("") || scholFacAddress.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholFacPincode.isEmpty() || scholFacPincode.equals("") || scholFacPincode.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (scholFacEmail.isEmpty() || scholFacEmail.equals("") || scholFacEmail.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholFacPassword.isEmpty() || scholFacPassword.equals("") || scholFacPassword.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (scholFacAbout.isEmpty() || scholFacAbout.equals("") || scholFacAbout.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter About Details", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholFacIdProofNumber.isEmpty() || scholFacIdProofNumber.equals("") || scholFacIdProofNumber.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter IdProof Number", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
     }
 

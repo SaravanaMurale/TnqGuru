@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -99,6 +100,45 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
         scholStuPincode=scholStuPincodeEdit.getText().toString();
         scholStuEmail=scholStuEmailEdit.getText().toString();
         scholStuPassword=scholStuPasswordEdit.getText().toString();
+
+
+        if (scholStuName.isEmpty() || scholStuName.equals("") || scholStuName.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholStuMobile.isEmpty() || scholStuMobile.equals("") || scholStuMobile.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholStuAddress.isEmpty() || scholStuAddress.equals("") || scholStuAddress.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (scholStuPincode.isEmpty() || scholStuPincode.equals("") || scholStuPincode.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (scholStuEmail.isEmpty() || scholStuEmail.equals("") || scholStuEmail.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (scholStuPassword.isEmpty() || scholStuPassword.equals("") || scholStuPassword.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            return;
+
+        }
 
         doRegisterCollegeStudent(scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword);
 

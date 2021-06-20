@@ -20,7 +20,7 @@
             android:textSize="@dimen/twenty_five_sp"
             android:fontFamily="@font/ubuntu_regular"
             android:gravity="center"
-            android:textColor="@color/dar_blue"
+            android:background="@color/colorBlue"
             android:layout_marginTop="@dimen/twenty_five_sp"/>
 
     <Spinner
@@ -97,7 +97,7 @@
             android:background="@drawable/rounded_border"
             android:layout_gravity="center"
             android:inputType="number"
-            android:maxLines="6"
+            android:maxLength="6"
             android:imeOptions="actionNext"
             android:layout_margin="@dimen/five_dp"/>
 

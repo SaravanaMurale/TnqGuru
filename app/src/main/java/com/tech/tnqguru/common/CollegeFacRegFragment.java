@@ -600,7 +600,74 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         colgFacSub3=colgFacSub3Edit.getText().toString();
         colgFacIdProofNumber=colgFacIdProofNumberEdit.getText().toString();
 
-        System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
+        if (colgFacName.isEmpty() || colgFacName.equals("") || colgFacName.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacMobile.isEmpty() || colgFacMobile.equals("") || colgFacMobile.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacAddress.isEmpty() || colgFacAddress.equals("") || colgFacAddress.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Valid Address", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacPincode.isEmpty() || colgFacPincode.equals("") || colgFacPincode.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Valid Pincode", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (colgFacEmail.isEmpty() || colgFacEmail.equals("") || colgFacEmail.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (colgFacPassword.isEmpty() || colgFacPassword.equals("") || colgFacPassword.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Valid Password", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+
+        if (colgFacAbout.isEmpty() || colgFacAbout.equals("") || colgFacAbout.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter About Details", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacSub1.isEmpty() || colgFacSub1.equals("") || colgFacSub1.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Subject2", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacSub2.isEmpty() || colgFacSub2.equals("") || colgFacSub2.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Subject2", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacSub3.isEmpty() || colgFacSub3.equals("") || colgFacSub3.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Subject3", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        if (colgFacIdProofNumber.isEmpty() || colgFacIdProofNumber.equals("") || colgFacIdProofNumber.equals(null)) {
+            Toast.makeText(getActivity(), "Please Enter Id Proof Number", Toast.LENGTH_LONG).show();
+            return;
+
+        }
+
+        //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
         doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
 
