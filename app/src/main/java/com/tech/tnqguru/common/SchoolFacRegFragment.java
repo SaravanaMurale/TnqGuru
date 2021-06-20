@@ -1,9 +1,11 @@
 package com.tech.tnqguru.common;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -29,6 +31,7 @@ import com.tech.tnqguru.retrofit.ApiClient;
 import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.spinneradapter.MyAdapter;
 import com.tech.tnqguru.utils.AppConstant;
+import com.tech.tnqguru.utils.LoaderUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -427,8 +430,30 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         }
 
+        PretendLikeSaving();
 
-        doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+        //doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+
+    }
+
+    private void PretendLikeSaving() {
+
+        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                LoaderUtil.dismisProgressBar(getActivity(),dialog);
+                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+                getActivity().finishAffinity();
+
+            }
+        },10000);
+
+
 
     }
 

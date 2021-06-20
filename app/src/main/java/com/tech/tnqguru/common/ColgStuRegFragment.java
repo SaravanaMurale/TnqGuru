@@ -1,6 +1,9 @@
 package com.tech.tnqguru.common;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,7 @@ import com.tech.tnqguru.R;
 import com.tech.tnqguru.spinneradapter.SpinAdapter;
 import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
+import com.tech.tnqguru.utils.LoaderUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -139,8 +143,29 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
             return;
 
         }
+
+        PretendLikeSaving();
         
-        doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
+       // doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
+
+    }
+
+    private void PretendLikeSaving() {
+
+        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                LoaderUtil.dismisProgressBar(getActivity(),dialog);
+                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+                getActivity().finishAffinity();
+
+            }
+        },10000);
 
     }
 

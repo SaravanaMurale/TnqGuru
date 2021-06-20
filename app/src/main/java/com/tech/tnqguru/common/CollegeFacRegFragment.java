@@ -1,9 +1,11 @@
 package com.tech.tnqguru.common;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -31,6 +33,8 @@ import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.spinneradapter.SpinMaxDTO;
 import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
+import com.tech.tnqguru.utils.LoaderUtil;
+import com.tech.tnqguru.utils.ToastUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -669,7 +673,31 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
-        doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
+
+        PretendLikeSaving();
+
+       // doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
+
+
+    }
+
+    private void PretendLikeSaving() {
+
+        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                LoaderUtil.dismisProgressBar(getActivity(),dialog);
+                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
+
+                Intent intent=new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+                getActivity().finishAffinity();
+
+            }
+        },10000);
+
 
 
     }
