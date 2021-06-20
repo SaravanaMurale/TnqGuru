@@ -18,10 +18,21 @@
             android:padding="@dimen/three_dp"
             >
 
+            <ImageView
+                android:id="@+id/scholDegreeLogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/degree"
+                android:layout_marginTop="@dimen/eight_dp"
+                />
+
             <TextView
                 android:id="@+id/scholTextStd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/scholDegreeLogo"
+                android:layout_marginTop="@dimen/eight_dp"
+                android:layout_marginLeft="@dimen/eight_dp"
                 android:text="@string/degree"/>
 
             <TextView
@@ -31,6 +42,18 @@
                 android:text="B.A"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/twenty_dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="@dimen/eight_dp"
+                />
+
+
+            <ImageView
+                android:id="@+id/scholTimeLogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/time"
+                android:layout_below="@+id/scholDegreeLogo"
+                android:layout_marginTop="10dp"
                 />
 
             <TextView
@@ -39,7 +62,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/no_of_hours"
                 android:layout_below="@+id/scholTextStd"
-                android:layout_marginTop="@dimen/three_dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginLeft="@dimen/eight_dp"
+                android:layout_toRightOf="@+id/scholTimeLogo"
                 />
 
             <TextView
@@ -50,8 +76,22 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/scholTextStd"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:layout_marginTop="@dimen/three_dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="10dp"
                 />
+
+
+
+
+            <ImageView
+                android:id="@+id/scholOnlineLogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/online"
+                android:layout_below="@+id/scholTimeLogo"
+                android:layout_marginTop="@dimen/ten_dp"
+                />
+
 
             <TextView
                 android:id="@+id/scholTextOnline"
@@ -59,7 +99,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/online_fees"
                 android:layout_below="@+id/scholTextHours"
-                android:layout_marginTop="@dimen/three_dp"
+                android:layout_toRightOf="@+id/scholOnlineLogo"
+                android:layout_marginLeft="@dimen/eight_dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="@dimen/ten_dp"
                 />
 
             <TextView
@@ -70,7 +113,17 @@
                 android:layout_below="@+id/scholHeadHours"
                 android:text="5000"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:layout_marginTop="@dimen/three_dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="@dimen/ten_dp"
+                />
+
+            <ImageView
+                android:id="@+id/scholOfflineLogo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/offline"
+                android:layout_below="@+id/scholOnlineLogo"
+                android:layout_marginTop="@dimen/ten_dp"
                 />
 
             <TextView
@@ -79,7 +132,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/offline_fees"
                 android:layout_below="@+id/scholTextOnline"
-                android:layout_marginTop="@dimen/three_dp"
+                android:layout_marginLeft="@dimen/eight_dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_toRightOf="@+id/scholOfflineLogo"
                 />
             <TextView
                 android:id="@+id/scholHeadOflineFees"
@@ -89,7 +145,7 @@
                 android:layout_below="@+id/scholHeadOnlineFees"
                 android:text="6000"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:layout_marginTop="@dimen/three_dp"
+                android:layout_marginTop="@dimen/ten_dp"
                 />
 
         </RelativeLayout>
