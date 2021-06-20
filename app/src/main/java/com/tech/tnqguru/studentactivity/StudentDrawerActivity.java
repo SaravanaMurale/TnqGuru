@@ -9,7 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.tech.tnqguru.R;
@@ -24,6 +26,7 @@ public class StudentDrawerActivity extends AppCompatActivity implements Navigati
 
 
     private DrawerLayout drawer;
+    private TextView studName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,25 @@ public class StudentDrawerActivity extends AppCompatActivity implements Navigati
 
 
         drawer = findViewById(R.id.drawer_layout_student);
+        studName=(TextView)findViewById(R.id.studName);
+
+        String name= PreferenceUtil.getValueString(StudentDrawerActivity.this,PreferenceUtil.USER_NAME);
+
+        studName.setText(name);
+
         NavigationView navigationView = findViewById(R.id.nav_view_student);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+
+        drawer.openDrawer(GravityCompat.START);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        },1000);
         toggle.syncState();
 
     }

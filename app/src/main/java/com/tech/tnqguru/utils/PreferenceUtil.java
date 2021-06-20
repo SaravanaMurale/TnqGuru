@@ -15,6 +15,7 @@ public class PreferenceUtil {
 
     public static final String USER_ID="user_id";
     public static final String PRIVILEGE="privilege";
+    public static final String USER_NAME="username";
 
     public static void setValueString(Context context, String key, String value) {
 

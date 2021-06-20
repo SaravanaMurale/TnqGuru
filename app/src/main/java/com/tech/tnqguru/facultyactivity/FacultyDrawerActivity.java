@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.tech.tnqguru.R;
@@ -24,6 +25,7 @@ import com.tech.tnqguru.utils.PreferenceUtil;
 public class FacultyDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private TextView facName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,12 @@ public class FacultyDrawerActivity extends AppCompatActivity implements Navigati
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        facName=(TextView)findViewById(R.id.facName);
+
+        String name= PreferenceUtil.getValueString(FacultyDrawerActivity.this,PreferenceUtil.USER_NAME);
+        facName.setText(name);
+
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
