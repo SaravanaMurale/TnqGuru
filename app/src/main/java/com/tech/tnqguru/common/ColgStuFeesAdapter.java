@@ -1,6 +1,7 @@
 package com.tech.tnqguru.common;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -81,13 +82,36 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
                 @Override
                 public void onClick(View view) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    TextView onLine,offLine;
 
-                    builder.setTitle("Please Select Mode Of Class");
+                    Dialog builder = new Dialog(context);
 
-                    builder.setMessage("Do you want Online or Ofline Class?");
+                    //LayoutInflater inflater = context.getLayoutInflater();
 
-                    builder.setPositiveButton("ONLINE", new DialogInterface.OnClickListener() {
+                    View dialogView=LayoutInflater.from(context).inflate(R.layout.layout_online_offline_dialog, null);
+
+                    builder.setContentView(dialogView);
+
+                    onLine = (TextView) dialogView.findViewById(R.id.onlineTExt);
+                    offLine = (TextView) dialogView.findViewById(R.id.offlineTExt);
+
+                    onLine.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ColgStuFeesResponseDTO colgStuFeesResponseDTO = colgStuFeesResponseDTOList.get(getAdapterPosition());
+                            colgFeesClickListener.colgFeesClick(colgStuFeesResponseDTO.getColgStuOnlineFees());
+                        }
+                    });
+
+                    offLine.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ColgStuFeesResponseDTO colgStuFeesResponseDTO = colgStuFeesResponseDTOList.get(getAdapterPosition());
+                            colgFeesClickListener.colgFeesClick(colgStuFeesResponseDTO.getColgStuOflineFees());
+                        }
+                    });
+
+                   /* onLine.setPositiveButton("ONLINE", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ColgStuFeesResponseDTO colgStuFeesResponseDTO = colgStuFeesResponseDTOList.get(getAdapterPosition());
@@ -104,7 +128,7 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
 
                         }
                     });
-
+*/
                     builder.show();
 
                 }
