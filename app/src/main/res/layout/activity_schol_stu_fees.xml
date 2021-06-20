@@ -21,10 +21,11 @@
         android:layout_height="wrap_content"
         android:text="5000"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/ten_dp"
-        android:visibility="invisible"
-        android:background="@color/colorBlue"
+        android:visibility="visible"
+        android:background="@drawable/login_btn"
         android:textColor="@color/black"
+        android:layout_margin="@dimen/three_dp"
+        android:layout_marginBottom="@dimen/three_dp"
         />
 
 
