@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".common.PaymentGatewayActivity">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:src="@drawable/tnqguulogo"
+        android:layout_centerHorizontal="true"
+        />
+
     <Button
         android:id="@+id/btnPay"
         android:layout_width="match_parent"
@@ -33,7 +40,7 @@
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/ubuntu_regular"
             android:text="Amount you need to pay"
-            android:textSize="@dimen/thirty_dp" />
+            android:textSize="@dimen/fifteen_dp" />
 
         <TextView
 
@@ -43,7 +50,7 @@
             android:layout_marginTop="@dimen/twenty_sp"
             android:fontFamily="@font/ubuntu_regular"
             android:text="101"
-            android:textSize="@dimen/thirty_dp" />
+            android:textSize="@dimen/fifteen_dp" />
 
 
     </LinearLayout>
@@ -58,7 +65,7 @@
         android:layout_marginRight="@dimen/ten_dp"
         android:fontFamily="sans-serif-condensed"
         android:text="share market for tamil "
-        android:textSize="@dimen/twenty_sp"
+        android:textSize="@dimen/fifteen_dp"
 
         />
 
@@ -72,7 +79,7 @@
         android:layout_marginTop="@dimen/fiften_sp"
         android:text="Course Price"
         android:textColor="@color/black"
-        android:textSize="@dimen/twenty_sp"
+        android:textSize="@dimen/fifteen_dp"
         android:textStyle="bold"
 
         />
@@ -86,7 +93,7 @@
         android:layout_marginTop="@dimen/fiften_sp"
         android:layout_marginRight="@dimen/ten_dp"
         android:text="101"
-        android:textSize="@dimen/twenty_sp" />
+        android:textSize="@dimen/fifteen_dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,6 +112,7 @@
         android:textColor="@color/red"
         android:textSize="@dimen/twenty_sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         android:fontFamily="sans-serif-condensed"
         />
 
