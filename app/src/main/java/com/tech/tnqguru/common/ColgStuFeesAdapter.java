@@ -85,11 +85,7 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
                     TextView onLine,offLine;
 
                     Dialog builder = new Dialog(context);
-
-                    //LayoutInflater inflater = context.getLayoutInflater();
-
                     View dialogView=LayoutInflater.from(context).inflate(R.layout.layout_online_offline_dialog, null);
-
                     builder.setContentView(dialogView);
 
                     onLine = (TextView) dialogView.findViewById(R.id.onlineTExt);
@@ -100,6 +96,7 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
                         public void onClick(View view) {
                             ColgStuFeesResponseDTO colgStuFeesResponseDTO = colgStuFeesResponseDTOList.get(getAdapterPosition());
                             colgFeesClickListener.colgFeesClick(colgStuFeesResponseDTO.getColgStuOnlineFees());
+                            builder.dismiss();
                         }
                     });
 
@@ -108,6 +105,7 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
                         public void onClick(View view) {
                             ColgStuFeesResponseDTO colgStuFeesResponseDTO = colgStuFeesResponseDTOList.get(getAdapterPosition());
                             colgFeesClickListener.colgFeesClick(colgStuFeesResponseDTO.getColgStuOflineFees());
+                            builder.dismiss();
                         }
                     });
 

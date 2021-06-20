@@ -97,7 +97,7 @@ public class ScholStuFeesActivity extends AppCompatActivity implements ScholStuF
     @Override
     public void scholFeesClick(String modeOfFees) {
         btnScholFeesSubmit.setVisibility(View.VISIBLE);
-        btnScholFeesSubmit.setText(modeOfFees);
+        btnScholFeesSubmit.setText("PAY  "+"₹"+modeOfFees);
 
         btnScholFeesSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

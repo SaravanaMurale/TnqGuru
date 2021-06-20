@@ -89,7 +89,7 @@ public class ColgStuFeesActivity extends AppCompatActivity implements ColgStuFee
     public void colgFeesClick(String modeOfFees) {
 
         btnColgFeesSubmit.setVisibility(View.VISIBLE);
-        btnColgFeesSubmit.setText(modeOfFees);
+        btnColgFeesSubmit.setText("PAY  "+"₹"+modeOfFees);
 
         btnColgFeesSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

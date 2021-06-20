@@ -23,6 +23,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/ten_dp"
         android:visibility="invisible"
+        android:background="@color/colorBlue"
+        android:textColor="@color/black"
         />
 
 

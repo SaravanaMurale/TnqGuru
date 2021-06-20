@@ -1,6 +1,7 @@
 package com.tech.tnqguru.common;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -78,13 +79,36 @@ public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapte
                 @Override
                 public void onClick(View view) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    TextView onLineSchol,offLineSchol;
 
-                    builder.setTitle("Please Select Mode Of Class");
+                    Dialog builder = new Dialog(context);
+                    View dialogView=LayoutInflater.from(context).inflate(R.layout.layout_online_offline_dialog, null);
+                    builder.setContentView(dialogView);
 
-                    builder.setMessage("Do you want Online or Ofline Class?");
+                    onLineSchol = (TextView) dialogView.findViewById(R.id.onlineTExt);
+                    offLineSchol = (TextView) dialogView.findViewById(R.id.offlineTExt);
 
-                    builder.setPositiveButton("ONLINE", new DialogInterface.OnClickListener() {
+                    onLineSchol.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ScholStuFeesResponseDTO scholStuFeesResponseDTO=scholStuFeesResponseDTOList.get(getAdapterPosition());
+                            scholFeesClickListener.scholFeesClick(scholStuFeesResponseDTO.getScholStuOnlineFees());
+                            builder.dismiss();
+                        }
+                    });
+
+                    offLineSchol.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ScholStuFeesResponseDTO scholStuFeesResponseDTO=scholStuFeesResponseDTOList.get(getAdapterPosition());
+                            scholFeesClickListener.scholFeesClick(scholStuFeesResponseDTO.getScholStuOflineFees());
+                            builder.dismiss();
+                        }
+                    });
+
+
+
+                    /*builder.setPositiveButton("ONLINE", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -99,7 +123,7 @@ public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapte
                             ScholStuFeesResponseDTO scholStuFeesResponseDTO=scholStuFeesResponseDTOList.get(getAdapterPosition());
                             scholFeesClickListener.scholFeesClick(scholStuFeesResponseDTO.getScholStuOflineFees());
                         }
-                    });
+                    });*/
 
                     builder.show();
 
