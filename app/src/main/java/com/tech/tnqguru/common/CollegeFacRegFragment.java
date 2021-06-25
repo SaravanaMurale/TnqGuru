@@ -35,6 +35,7 @@ import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.ToastUtils;
+import com.tech.tnqguru.utils.Validation;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -472,9 +473,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                     Toast.makeText(getActivity(),"Not Registered",Toast.LENGTH_LONG).show();
                 }
 
-
-
-
             }
 
             @Override
@@ -606,76 +604,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         colgFacSub3=colgFacSub3Edit.getText().toString();
         colgFacIdProofNumber=colgFacIdProofNumberEdit.getText().toString();
 
-        courseNameList.add(colgFacSub1);
-        courseNameList.add(colgFacSub2);
-        courseNameList.add(colgFacSub3);
 
-        if (colgFacName.isEmpty() || colgFacName.equals("") || colgFacName.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
-            return;
+        colgFacvalidation(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
 
-        }
-
-        if (colgFacMobile.isEmpty() || colgFacMobile.equals("") || colgFacMobile.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacAddress.isEmpty() || colgFacAddress.equals("") || colgFacAddress.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Valid Address", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacPincode.isEmpty() || colgFacPincode.equals("") || colgFacPincode.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Valid Pincode", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-
-        if (colgFacEmail.isEmpty() || colgFacEmail.equals("") || colgFacEmail.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if (colgFacPassword.isEmpty() || colgFacPassword.equals("") || colgFacPassword.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Valid Password", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-
-        if (colgFacAbout.isEmpty() || colgFacAbout.equals("") || colgFacAbout.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter About Details", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacSub1.isEmpty() || colgFacSub1.equals("") || colgFacSub1.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Subject2", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacSub2.isEmpty() || colgFacSub2.equals("") || colgFacSub2.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Subject2", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacSub3.isEmpty() || colgFacSub3.equals("") || colgFacSub3.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Subject3", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (colgFacIdProofNumber.isEmpty() || colgFacIdProofNumber.equals("") || colgFacIdProofNumber.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Id Proof Number", Toast.LENGTH_LONG).show();
-            return;
-
-        }
 
         //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
@@ -687,26 +618,132 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-    private void PretendLikeSaving() {
+    private void colgFacvalidation(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
 
-        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
+        if(Validation.nullValidation(spnColgFacSelectColg)){
+            Toast.makeText(getActivity(), "Please Select College", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                LoaderUtil.dismisProgressBar(getActivity(),dialog);
-                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
 
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
-                getActivity().finishAffinity();
+        if(Validation.nullValidation(colgFacName)){
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-            }
-        },10000);
+        if(Validation.nullValidation(colgFacEmail)){
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
 
+        if(Validation.nullValidation(colgFacMobile)){
+            Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //photo validation
+
+        if(Validation.nullValidation(spnColgFacSelectCountry)){
+            Toast.makeText(getActivity(), "Please Select Country", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacAddress)){
+            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacPincode)){
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        if(Validation.nullValidation(colgFacPincode)){
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.listValidation(cbList)){
+            Toast.makeText(getActivity(), "Please Select Qualification", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnColgFacTechExp)){
+            Toast.makeText(getActivity(), "Please Select Technical Experience", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnColgFacModeOfClass)){
+            Toast.makeText(getActivity(), "Please Select Class Mode", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Bio Data Validation
+
+        if(Validation.listValidation(preferredMaxSubject)){
+            Toast.makeText(getActivity(), "Please Select Subject", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnColgFacIndusExp)){
+            Toast.makeText(getActivity(), "Please Select Industrical Experience", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacAbout)){
+            Toast.makeText(getActivity(), "Please Select About Yourself", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        if(Validation.nullValidation(spnColgFacSelectDept)){
+            Toast.makeText(getActivity(), "Please Select Department", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacSub1)){
+            Toast.makeText(getActivity(), "Please Enter Subect1", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacSub2)){
+            Toast.makeText(getActivity(), "Please Enter Subect2", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgFacSub3)){
+            Toast.makeText(getActivity(), "Please Enter Subect3", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //ID Proof Document
+
+        if(Validation.nullValidation(colgFacIdProofNumber)){
+            Toast.makeText(getActivity(), "Please Enter ID Proof Number", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Bank Document
+
+        if(Validation.nullValidation(colgFacPassword)) {
+            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+
+
+
+
+        courseNameList.add(colgFacSub1);
+        courseNameList.add(colgFacSub2);
+        courseNameList.add(colgFacSub3);
 
 
     }
+
+
 
     @Override
     public void selectMaxSpinnerCheckBox(String item, boolean status) {
