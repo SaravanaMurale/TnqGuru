@@ -162,8 +162,12 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
                 scholStuPincode,
                 scholStuDOBInString,
                 spnScholStuSelectModeOfClass,
-                scholStuImageInString,
-                maxSubject);
+                maxSubject,
+                "photo",
+                "SyllabusDocument",
+                scholStuEmail,
+                scholStuPassword
+                );
 
         call.enqueue(new Callback<BaseResponseDTO>() {
             @Override
