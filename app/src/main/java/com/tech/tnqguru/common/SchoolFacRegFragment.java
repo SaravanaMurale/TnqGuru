@@ -383,7 +383,7 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         scholFacValidation(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
-        //doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
+
 
     }
 
@@ -470,6 +470,8 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
             return;
         }
+
+        doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
 
 
