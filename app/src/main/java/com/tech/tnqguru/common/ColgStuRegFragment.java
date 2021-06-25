@@ -144,30 +144,11 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
 
         }
 
-        PretendLikeSaving();
         
        // doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
 
     }
 
-    private void PretendLikeSaving() {
-
-        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                LoaderUtil.dismisProgressBar(getActivity(),dialog);
-                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
-
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
-                getActivity().finishAffinity();
-
-            }
-        },10000);
-
-    }
 
     private void doRegisterCollegeStudent(String colgStuName, String colgStuMobile, String colgStuAddress, String colgStuPincode, String colgStuEmail, String colgStuPassword) {
     }

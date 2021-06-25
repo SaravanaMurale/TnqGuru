@@ -6,30 +6,41 @@
     android:orientation="vertical">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="College Student Registration"
-        android:textSize="@dimen/twenty_five_sp"
+        android:textSize="@dimen/twenty_sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/five_dp"
         android:fontFamily="@font/ubuntu_regular"
         android:gravity="center"
-        android:textColor="@color/dar_blue"
-        android:layout_marginTop="@dimen/ten_dp"/>
+        android:textAllCaps="true"/>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border"
+        android:layout_margin="@dimen/five_dp"
+        >
 
     <Spinner
         android:id="@+id/spinnerSelectColStu"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="@dimen/fifty_dp"
-        android:layout_marginLeft="@dimen/five_dp"
-        android:layout_marginRight="@dimen/five_dp"
+        android:layout_marginTop="@dimen/fifteen_dp"
+        android:layout_centerVertical="true"
         />
+
+    </RelativeLayout>
 
         <EditText
             android:id="@+id/colgStuName"
@@ -62,13 +73,53 @@
             android:layout_margin="@dimen/five_dp"
             />
 
+        <RelativeLayout
+            android:id="@+id/colgStuDOBBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/colgStuMobile"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            >
+
+            <TextView
+                android:id="@+id/colgStuDOB"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp"
+                android:text="DOB"
+                android:fontFamily="@font/ubuntu_regular"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/fifteen_dp"
+                android:layout_centerVertical="true"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/eight_dp"
+                android:src="@drawable/calender"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgStuDOBBlock"
+            >
+
         <Spinner
             android:id="@+id/spinnerColgStuDept"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/colgStuMobile"
             android:layout_margin="@dimen/five_dp"
             />
+
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/colgStuAddress"
@@ -76,7 +127,7 @@
             android:layout_height="100dp"
             android:paddingLeft="@dimen/twenty_dp"
             android:paddingBottom="@dimen/twenty_dp"
-            android:gravity="bottom"
+            android:gravity="center_vertical"
             android:hint="Address"
             android:layout_below="@id/spinnerColgStuDept"
             android:fontFamily="@font/ubuntu_regular"
@@ -101,13 +152,24 @@
             android:imeOptions="actionNext"
             android:layout_margin="@dimen/five_dp"/>
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgStuPincodeInput"
+            >
+
         <Spinner
             android:id="@+id/colgStuDept"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/colgStuPincodeInput"
+            android:layout_centerVertical="true"
             android:layout_margin="@dimen/five_dp"
             />
+
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/colgStuEmail"
@@ -136,22 +198,41 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/five_dp"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgStuPassword"
+            >
 
         <Spinner
             android:id="@+id/colgStuModeOfClass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/colgStuPassword"
+            android:layout_centerVertical="true"
             android:layout_margin="@dimen/five_dp"
             />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgStuModeOfClass"
+            >
 
         <Spinner
             android:id="@+id/colgStuCourseName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/colgStuModeOfClass"
+            android:layout_centerVertical="true"
             android:layout_margin="@dimen/five_dp"
             />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/ColgStuPhotoUploadBlock"
@@ -177,6 +258,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choose Photo..."
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_toRightOf="@id/colgStuUploadImage"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
@@ -194,13 +276,14 @@
             android:text="@string/submit"
             android:layout_gravity="center_horizontal"
             android:layout_margin="@dimen/ten_dp"
-            android:background="@drawable/text_bg_btn"
-            android:textColor="@color/white"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/login_btn"
+            android:textColor="@color/black"
             android:layout_below="@+id/ColgStuPhotoUploadBlock"/>
 
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 
