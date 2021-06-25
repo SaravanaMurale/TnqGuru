@@ -6,83 +6,97 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="School Faculty Registration"
-            android:textSize="@dimen/twenty_five_sp"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_marginTop="@dimen/five_dp"
             android:fontFamily="@font/ubuntu_regular"
             android:gravity="center"
-            android:textColor="@color/dar_blue"
-            android:layout_marginTop="@dimen/twenty_five_sp"/>
+            android:text="School Faculty Registration"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold" />
 
-    <Spinner
-        android:id="@+id/spinnerSchoLevel"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="@dimen/fifteen_dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
-
-
-            <EditText
-                android:id="@+id/scholFacName"
+            <Spinner
+                android:id="@+id/spinnerSchoLevel"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:paddingLeft="@dimen/twenty_dp"
-                android:hint="Name"
-                android:fontFamily="@font/ubuntu_regular"
-                android:background="@drawable/rounded_border"
-                android:layout_gravity="center"
-                android:inputType="text"
-                android:imeOptions="actionNext"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/fifteen_dp" />
+
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/scholFacName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Name"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingLeft="@dimen/twenty_dp" />
+
+
+        <EditText
+            android:id="@+id/scholFacMobile"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@id/scholFacName"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Mobile"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="10"
+            android:paddingLeft="@dimen/twenty_dp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scholFacMobile"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+
+            <Spinner
+                android:id="@+id/spinnerScholFacCountry"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
                 android:layout_margin="@dimen/five_dp" />
 
-
-
-            <EditText
-                android:id="@+id/scholFacMobile"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:paddingLeft="@dimen/twenty_dp"
-                android:hint="Mobile"
-                android:inputType="number"
-                android:maxLength="10"
-                android:imeOptions="actionNext"
-                android:layout_below="@id/scholFacName"
-                android:fontFamily="@font/ubuntu_regular"
-                android:background="@drawable/rounded_border"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/five_dp" />
-
-
-
-
-
-    <Spinner
-        android:id="@+id/spinnerScholFacCountry"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/scholFacMobile"
-        android:layout_margin="@dimen/five_dp"
-        />
-
+        </RelativeLayout>
 
 
         <EditText
             android:id="@+id/scholFacAddress"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:paddingLeft="@dimen/twenty_dp"
-            android:hint="Address"
             android:layout_below="@id/spinnerScholFacCountry"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
-            android:inputType="textPostalAddress"
-            android:imeOptions="actionNext"
             android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Address"
+            android:imeOptions="actionNext"
+            android:inputType="textPostalAddress"
+            android:paddingLeft="@dimen/twenty_dp"
 
             />
 
@@ -90,71 +104,71 @@
             android:id="@+id/scholFacPincode"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Pincode"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholFacAddress"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Pincode"
+            android:imeOptions="actionNext"
             android:inputType="number"
             android:maxLines="6"
-            android:imeOptions="actionNext"
-            android:layout_margin="@dimen/five_dp"/>
+            android:paddingLeft="@dimen/twenty_dp" />
 
         <EditText
             android:id="@+id/scholFacEmail"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Email"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholFacPincode"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/five_dp"/>
+            android:paddingLeft="@dimen/twenty_dp" />
 
         <EditText
             android:id="@+id/scholFacPassword"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Password"
-            android:inputType="textWebPassword"
-            android:imeOptions="actionNext"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholFacEmail"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/five_dp"/>
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Password"
+            android:imeOptions="actionNext"
+            android:inputType="textWebPassword"
+            android:paddingLeft="@dimen/twenty_dp" />
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scholFacPassword"
-            >
+            android:layout_below="@+id/scholFacPassword">
 
             <Button
                 android:id="@+id/scholUploadImage"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
-                android:textColor="@color/white"
                 android:padding="@dimen/five_dp"
-                android:layout_margin="@dimen/five_dp"/>
+                android:text="Choose Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:id="@+id/schoolFacPhotoText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo..."
-                android:layout_toRightOf="@id/scholUploadImage"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:layout_toRightOf="@id/scholUploadImage"
+                android:text="Choose Photo..."
 
                 />
 
@@ -164,89 +178,121 @@
             android:id="@+id/scholFacAbout"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:hint="About"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@id/scholUploadImage"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:inputType="text"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="About"
             android:imeOptions="actionNext"
-            android:layout_margin="@dimen/five_dp"/>
+            android:inputType="text"
+            android:paddingLeft="@dimen/twenty_dp" />
 
         <RelativeLayout
             android:id="@+id/scholQualBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/scholFacAbout"
-            android:layout_margin="@dimen/five_dp">
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
-            <include layout="@layout/layout_qualification_checkbox"/>
+            <include layout="@layout/layout_qualification_checkbox" />
 
         </RelativeLayout>
-
-
-    <Spinner
-        android:id="@+id/spinnerScholTotalExp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/scholQualBlock"
-        android:layout_marginTop="@dimen/twenty_dp"
-
-        />
-
-    <Spinner
-        android:id="@+id/spinnerScholIndusExp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/spinnerScholTotalExp"
-        android:layout_marginTop="@dimen/twenty_dp"
-
-        />
-
-    <Spinner
-        android:id="@+id/spinnerScholmodeOfClass"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/spinnerScholIndusExp"
-        android:layout_marginTop="@dimen/twenty_dp"
-        />
-
-        <Spinner
-            android:id="@+id/spinnerScholPreSub"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/spinnerScholIndusExp"
-            android:layout_marginTop="@dimen/twenty_dp"
-            />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerScholmodeOfClass"
+            android:layout_below="@+id/scholQualBlock"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+            <Spinner
+                android:id="@+id/spinnerScholTotalExp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/twenty_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerScholTotalExp"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+            <Spinner
+                android:id="@+id/spinnerScholIndusExp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/twenty_dp"
+
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerScholIndusExp"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+
             >
+
+            <Spinner
+                android:id="@+id/spinnerScholmodeOfClass"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/twenty_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerScholIndusExp"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
+
+            <Spinner
+                android:id="@+id/spinnerScholPreSub"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/twenty_dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerScholmodeOfClass">
 
             <Button
                 android:id="@+id/scholIdProof"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Id Proof"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
+                android:text="Id Proof"
                 android:textColor="@color/white"
-                android:layout_margin="@dimen/five_dp"
-                />
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:id="@+id/scholFacIdProofText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ChoosePhoto..."
-                android:layout_toRightOf="@+id/scholIdProof"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
-                />
+                android:layout_toRightOf="@+id/scholIdProof"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="ChoosePhoto..." />
 
         </RelativeLayout>
 
@@ -254,70 +300,67 @@
             android:id="@+id/scholFacIdProofNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID Proof Number"
-            android:layout_margin="@dimen/five_dp"
-            android:imeOptions="actionDone"
             android:layout_below="@id/scholIdProof"
-            />
+            android:layout_margin="@dimen/five_dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="ID Proof Number"
+            android:imeOptions="actionDone" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/scholFacIdProofNumber"
-            >
+            android:layout_below="@id/scholFacIdProofNumber">
 
             <Button
                 android:id="@+id/scholFacBioData"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Bio Data"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
                 android:padding="@dimen/five_dp"
+                android:text="Bio Data"
                 android:textColor="@color/white"
-                android:layout_margin="@dimen/five_dp"
-                />
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:id="@+id/scholFacBioDataText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo..."
-                android:layout_toRightOf="@+id/scholFacBioData"
-                android:layout_marginLeft="@dimen/ten_dp"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_toRightOf="@+id/scholFacBioData"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Choose Photo..." />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/scholFacBioData"
-            >
+            android:layout_below="@id/scholFacBioData">
+
             <Button
                 android:id="@+id/scholFacBankDetails"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Bank Details"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
                 android:padding="@dimen/five_dp"
+                android:text="Bank Details"
                 android:textColor="@color/white"
-                android:layout_margin="@dimen/five_dp"
-                />
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:id="@+id/scholFactBankDetailText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo..."
-                android:layout_toRightOf="@+id/scholFacBankDetails"
-                android:layout_marginLeft="@dimen/ten_dp"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_toRightOf="@+id/scholFacBankDetails"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Choose Photo..." />
 
         </RelativeLayout>
 
@@ -325,11 +368,13 @@
             android:id="@+id/btnScholFacReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/ten_dp"
-            android:background="@drawable/text_bg_btn"
-            android:textColor="@color/white"/>
+            android:layout_margin="@dimen/five_dp"
+
+            android:background="@drawable/login_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
