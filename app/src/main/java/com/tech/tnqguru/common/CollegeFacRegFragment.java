@@ -432,63 +432,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     }
 
 
-    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout,  List<String> courseNameList, String colgFacIdProofNumber) {
-
-        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
-
-        Call<BaseResponseDTO> call=apiInterface.doCollegeFacRegistration(
-                spnColgFacSelectColg,
-                colgFacName,
-                colgFacEmail,
-                colgFacMobile,
-                "photo",
-                spnColgFacSelectCountry,
-                colgFacAddress,
-                colgFacPincode,
-                cbList,
-                spnColgFacTechExp,
-                spnColgFacModeOfClass,
-                "BioData",
-                preferredMaxSubject,
-                spnColgFacIndusExp,
-                colgFacAbout,
-                spnColgFacSelectDept,
-                courseNameList,
-                "id_proof_document",
-                colgFacIdProofNumber,
-"bank_document",
-                colgFacEmail,
-                colgFacPassword);
-
-        call.enqueue(new Callback<BaseResponseDTO>() {
-            @Override
-            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
-
-                BaseResponseDTO baseResponseDTO=response.body();
-                System.out.println("RegistrationResponse"+baseResponseDTO.getResponseMessage()+" "+baseResponseDTO.getResponseCode());
-
-                if(baseResponseDTO.getResponseCode()==200){
-                    Toast.makeText(getActivity(),"Registered Successfully",Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getActivity(),"Not Registered",Toast.LENGTH_LONG).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
-
-                System.out.println("Exception"+t.getMessage().toString());
-
-            }
-        });
-
-
-
-    }
-
-
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -610,12 +553,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
-
-//        PretendLikeSaving();
-
-       doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,courseNameList,colgFacIdProofNumber);
-
-
     }
 
     private void colgFacvalidation(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
@@ -731,14 +668,66 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             return;
         }
 
-
-
-
-
-
         courseNameList.add(colgFacSub1);
         courseNameList.add(colgFacSub2);
         courseNameList.add(colgFacSub3);
+
+        doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,courseNameList,colgFacIdProofNumber);
+
+
+    }
+
+    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout,  List<String> courseNameList, String colgFacIdProofNumber) {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<BaseResponseDTO> call=apiInterface.doCollegeFacRegistration(
+                spnColgFacSelectColg,
+                colgFacName,
+                colgFacEmail,
+                colgFacMobile,
+                "photo",
+                spnColgFacSelectCountry,
+                colgFacAddress,
+                colgFacPincode,
+                cbList,
+                spnColgFacTechExp,
+                spnColgFacModeOfClass,
+                "BioData",
+                preferredMaxSubject,
+                spnColgFacIndusExp,
+                colgFacAbout,
+                spnColgFacSelectDept,
+                courseNameList,
+                "id_proof_document",
+                colgFacIdProofNumber,
+                "bank_document",
+                colgFacEmail,
+                colgFacPassword);
+
+        call.enqueue(new Callback<BaseResponseDTO>() {
+            @Override
+            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
+
+                BaseResponseDTO baseResponseDTO=response.body();
+                System.out.println("RegistrationResponse"+baseResponseDTO.getResponseMessage()+" "+baseResponseDTO.getResponseCode());
+
+                if(baseResponseDTO.getResponseCode()==200){
+                    Toast.makeText(getActivity(),"Registered Successfully",Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getActivity(),"Not Registered",Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
+
+                System.out.println("Exception"+t.getMessage().toString());
+
+            }
+        });
+
 
 
     }
