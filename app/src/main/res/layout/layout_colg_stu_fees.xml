@@ -33,6 +33,7 @@
                 android:layout_toRightOf="@id/colgDegreeLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:text="@string/degree"
+                android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/eight_dp"
                 />
@@ -62,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_of_hours"
+                android:textStyle="bold"
                 android:layout_toRightOf="@+id/colgTimeLogo"
                 android:layout_below="@+id/colgTextDegree"
                 android:layout_marginTop="10dp"
@@ -98,6 +100,7 @@
                 android:layout_below="@+id/colgTextHours"
                 android:layout_toRightOf="@+id/colgOnlineLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
+                android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
@@ -135,6 +138,7 @@
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
+                android:textStyle="bold"
                 />
 
             <TextView

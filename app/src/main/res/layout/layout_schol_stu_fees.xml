@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/scholDegreeLogo"
                 android:layout_marginTop="@dimen/eight_dp"
+                android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:text="@string/degree"/>
@@ -62,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_of_hours"
+                android:textStyle="bold"
                 android:layout_below="@+id/scholTextStd"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/ubuntu_regular"
@@ -102,6 +104,7 @@
                 android:layout_below="@+id/scholTextHours"
                 android:layout_toRightOf="@+id/scholOnlineLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
+                android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
@@ -132,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/offline_fees"
+                android:textStyle="bold"
                 android:layout_below="@+id/scholTextOnline"
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:fontFamily="@font/ubuntu_regular"

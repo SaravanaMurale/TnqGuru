@@ -55,8 +55,8 @@ public class ColgStuFeesAdapter extends RecyclerView.Adapter<ColgStuFeesAdapter.
 
         holder.colgHeadDegree.setText(colgStuFeesResponseDTOList.get(position).getColgStuDegree());
         holder.colgHeadHours.setText(colgStuFeesResponseDTOList.get(position).getColgStuHours());
-        holder.colgHeadOnlineFees.setText(colgStuFeesResponseDTOList.get(position).getColgStuOnlineFees());
-        holder.colgHeadOflineFees.setText(colgStuFeesResponseDTOList.get(position).getColgStuOflineFees());
+        holder.colgHeadOnlineFees.setText("₹"+colgStuFeesResponseDTOList.get(position).getColgStuOnlineFees());
+        holder.colgHeadOflineFees.setText("₹"+colgStuFeesResponseDTOList.get(position).getColgStuOflineFees());
 
     }
 

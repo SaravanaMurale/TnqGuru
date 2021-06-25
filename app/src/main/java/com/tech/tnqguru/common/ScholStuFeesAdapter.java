@@ -52,8 +52,8 @@ public class ScholStuFeesAdapter extends RecyclerView.Adapter<ScholStuFeesAdapte
 
         holder.scholHeadStd.setText(scholStuFeesResponseDTOList.get(position).getScholStuDegree());
         holder.scholHeadHours.setText(scholStuFeesResponseDTOList.get(position).getScholStuHours());
-        holder.scholHeadOnlineFees.setText(scholStuFeesResponseDTOList.get(position).getScholStuOnlineFees());
-        holder.scholHeadOflineFees.setText(scholStuFeesResponseDTOList.get(position).getScholStuOflineFees());
+        holder.scholHeadOnlineFees.setText("₹"+scholStuFeesResponseDTOList.get(position).getScholStuOnlineFees());
+        holder.scholHeadOflineFees.setText("₹"+scholStuFeesResponseDTOList.get(position).getScholStuOflineFees());
 
     }
 
