@@ -85,6 +85,7 @@
                 android:layout_margin="@dimen/five_dp"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/eight_dp"
+                android:fontFamily="@font/ubuntu_regular"
                 android:text="DOB"
 
                 />
@@ -218,6 +219,7 @@
                 android:layout_toRightOf="@id/scholStuUloadImage"
                 android:fontFamily="@font/ubuntu_regular"
                 android:text="Choose Photo..."
+
 
                 />
 
