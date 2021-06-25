@@ -37,6 +37,7 @@ import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.LoaderUtil;
 import com.tech.tnqguru.utils.MathUtil;
+import com.tech.tnqguru.utils.Validation;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -95,7 +96,7 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
 
     private void getAllEnteredScholStuDetails() {
 
-        String scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword,scholStuAbout,scholFacIdProofNumber;
+        String scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword,scholStuAbout;
 
         scholStuName=scholStuNameEdit.getText().toString();
         scholStuMobile=scholStuMobileEdit.getText().toString();
@@ -105,46 +106,59 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
         scholStuPassword=scholStuPasswordEdit.getText().toString();
 
 
-        if (scholStuName.isEmpty() || scholStuName.equals("") || scholStuName.equals(null)) {
+
+
+        scholStuValidation(scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword);
+
+
+
+    }
+
+    private void scholStuValidation(String scholStuName, String scholStuMobile, String scholStuAddress, String scholStuPincode, String scholStuEmail, String scholStuPassword) {
+
+        if(Validation.nullValidation(spnScholStuSelectSchol)){
+            Toast.makeText(getActivity(), "Please Select School", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(scholStuName)){
             Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (scholStuMobile.isEmpty() || scholStuMobile.equals("") || scholStuMobile.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
+        if(Validation.nullValidation(scholStuMobile)){
+            Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (scholStuAddress.isEmpty() || scholStuAddress.equals("") || scholStuAddress.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+
+        if(Validation.nullValidation(scholStuAddress)){
+            Toast.makeText(getActivity(), "Please Enter Addres", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (scholStuPincode.isEmpty() || scholStuPincode.equals("") || scholStuPincode.equals(null)) {
+        if(Validation.nullValidation(scholStuPincode)){
             Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-
-        if (scholStuEmail.isEmpty() || scholStuEmail.equals("") || scholStuEmail.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+        if(Validation.nullValidation(scholStuDOBInString)){
+            Toast.makeText(getActivity(), "Please Select DOB", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-
-        if (scholStuPassword.isEmpty() || scholStuPassword.equals("") || scholStuPassword.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+        if(Validation.nullValidation(spnScholStuSelectModeOfClass)){
+            Toast.makeText(getActivity(), "Please Select Mode Of Class", Toast.LENGTH_LONG).show();
             return;
+        }
 
+        if(Validation.listValidation(maxSubject)){
+            Toast.makeText(getActivity(), "Please Select Subject", Toast.LENGTH_LONG).show();
+            return;
         }
 
 
-        //doRegisterCollegeStudent(scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword);
+        doRegisterCollegeStudent(scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword);
 
     }
 
