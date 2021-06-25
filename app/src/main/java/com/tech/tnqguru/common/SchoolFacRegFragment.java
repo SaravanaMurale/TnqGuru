@@ -32,6 +32,7 @@ import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.spinneradapter.MyAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.LoaderUtil;
+import com.tech.tnqguru.utils.Validation;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -380,82 +381,100 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
 
         System.out.println("EnteredData"+scholFacName+" "+scholFacMobile+" "+scholFacAddress+" "+scholFacPincode+" "+scholFacEmail+" "+scholFacAbout+" "+scholFacIdProofNumber);
 
-        if (scholFacName.isEmpty() || scholFacName.equals("") || scholFacName.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (scholFacMobile.isEmpty() || scholFacMobile.equals("") || scholFacMobile.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (scholFacAddress.isEmpty() || scholFacAddress.equals("") || scholFacAddress.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (scholFacPincode.isEmpty() || scholFacPincode.equals("") || scholFacPincode.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-
-        if (scholFacEmail.isEmpty() || scholFacEmail.equals("") || scholFacEmail.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (scholFacPassword.isEmpty() || scholFacPassword.equals("") || scholFacPassword.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-
-        if (scholFacAbout.isEmpty() || scholFacAbout.equals("") || scholFacAbout.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter About Details", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        if (scholFacIdProofNumber.isEmpty() || scholFacIdProofNumber.equals("") || scholFacIdProofNumber.equals(null)) {
-            Toast.makeText(getActivity(), "Please Enter IdProof Number", Toast.LENGTH_LONG).show();
-            return;
-
-        }
-
-        PretendLikeSaving();
+        scholFacValidation(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
         //doRegisterCollegeFaculty(scholFacName,scholFacMobile,scholFacAddress,scholFacPincode,scholFacEmail,scholFacPassword,scholFacAbout,scholFacIdProofNumber);
 
     }
 
-    private void PretendLikeSaving() {
+    private void scholFacValidation(String scholFacName, String scholFacMobile, String scholFacAddress, String scholFacPincode, String scholFacEmail, String scholFacPassword, String scholFacAbout, String scholFacIdProofNumber) {
 
-        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
+        if(Validation.nullValidation(spnScholFacSelectColg)){
+            Toast.makeText(getActivity(), "Please Select School", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                LoaderUtil.dismisProgressBar(getActivity(),dialog);
-                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
+        if(Validation.nullValidation(scholFacName)){
+            Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
-                getActivity().finishAffinity();
+        if(Validation.nullValidation(scholFacEmail)){
+            Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-            }
-        },10000);
+        if(Validation.nullValidation(scholFacMobile)){
+            Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Photo validation
+
+        if(Validation.nullValidation(spnScholFacSelectCountry)){
+            Toast.makeText(getActivity(), "Please Select Country", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(scholFacAddress)){
+            Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(scholFacPincode)){
+            Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.listValidation(cbList)){
+            Toast.makeText(getActivity(), "Please Select Degree", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnScholFacTechExp)){
+            Toast.makeText(getActivity(), "Please Select Teaching Experience", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnScholFacIndusExp)){
+            Toast.makeText(getActivity(), "Please Select Industrial Experience", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spnScholFacModeOfClass)){
+            Toast.makeText(getActivity(), "Please Select Mode Of Class", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.listValidation(preferredSubject)){
+            Toast.makeText(getActivity(), "Please Select Preferred Subject", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(scholFacAbout)){
+            Toast.makeText(getActivity(), "Please Enter About Yourselft", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Id Proof Document Validation
+
+        if(Validation.nullValidation(scholFacIdProofNumber)){
+            Toast.makeText(getActivity(), "Please Enter About Yourselft", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //Biodata Document
+        //Bank Document
+
+        if(Validation.nullValidation(scholFacPassword)){
+            Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
+            return;
+        }
 
 
 
     }
+
 
     private void doRegisterCollegeFaculty(String scholFacName, String scholFacMobile, String scholFacAddress, String scholFacPincode, String scholFacEmail, String scholFacPassword, String scholFacAbout, String scholFacIdProofNumber) {
 
@@ -465,20 +484,20 @@ public class SchoolFacRegFragment extends Fragment implements AdapterView.OnItem
                 scholFacName,
                 scholFacEmail,
                 scholFacMobile,
-                addImageInString.get(0),
+                "photo",
                 spnScholFacSelectCountry,
                 scholFacAddress,
                 scholFacPincode,
-                preferredSubject,
                 cbList,
                 spnScholFacTechExp,
-                spnScholFacModeOfClass,
-                "BioData",
                 spnScholFacIndusExp,
+                spnScholFacModeOfClass,
+                preferredSubject,
                 scholFacAbout,
-                addImageInString.get(1),
+                "Id Proof Document",
                 scholFacIdProofNumber,
-                addImageInString.get(2),
+                "BioData",
+                "Bank Document",
                 scholFacEmail,
                 scholFacPassword);
 
