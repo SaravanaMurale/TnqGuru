@@ -139,7 +139,33 @@ public interface ApiInterface {
     );
 
 
-    @Multipart
+ @FormUrlEncoded
+ @POST("/")
+ Call<BaseResponseDTO> doCollegeStudentRegistration(
+
+         @Field("school_level")  String colgStuLevel,
+         @Field("school_level")  String colgStuName,
+         @Field("school_level")  String colgStuMobile,
+         @Field("school_level")  String schoolStuDOB,
+         @Field("school_level") String spinColgStuDept,
+
+         @Field("school_level")  String schoolStuAddress,
+         @Field("school_level")  String schoolStuPincode,
+         @Field("school_level")  String schoolStuEmail,
+         @Field("school_level")  String schoolStuModeOfClass,
+
+         @Field("school_level")  List<String> schoolStuMaxSubject,
+         @Field("school_level")  String schoolStuImage,
+         @Field("school_level") String syllabusDocument,
+
+         @Field("school_level")  String userName,
+         @Field("school_level")  String password
+
+
+ );
+
+
+ @Multipart
     @POST("upload")
     Call<RequestBody> uploadImage(@Part MultipartBody.Part part, @Part("somedata") RequestBody requestBody);
 

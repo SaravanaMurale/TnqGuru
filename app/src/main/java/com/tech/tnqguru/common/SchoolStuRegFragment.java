@@ -143,30 +143,11 @@ public class SchoolStuRegFragment  extends Fragment implements AdapterView.OnIte
 
         }
 
-        PretendLikeSaving();
 
         //doRegisterCollegeStudent(scholStuName,scholStuMobile,scholStuAddress,scholStuPincode,scholStuEmail,scholStuPassword);
 
     }
 
-    private void PretendLikeSaving() {
-
-        Dialog dialog= LoaderUtil.showProgressBar(getActivity());
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                LoaderUtil.dismisProgressBar(getActivity(),dialog);
-                Toast.makeText(getActivity(),"Registerd Successfully",Toast.LENGTH_LONG).show();
-
-                Intent intent=new Intent(getActivity(),LoginActivity.class);
-                startActivity(intent);
-                getActivity().finishAffinity();
-
-            }
-        },10000);
-
-    }
 
     private void doRegisterCollegeStudent(String scholStuName, String scholStuMobile, String scholStuAddress, String scholStuPincode, String scholStuEmail, String scholStuPassword) {
 

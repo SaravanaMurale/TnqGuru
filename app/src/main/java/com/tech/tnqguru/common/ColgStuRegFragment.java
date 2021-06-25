@@ -1,7 +1,10 @@
 package com.tech.tnqguru.common;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -10,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,13 +25,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tech.tnqguru.R;
+import com.tech.tnqguru.modelresponse.BaseResponseDTO;
+import com.tech.tnqguru.retrofit.ApiClient;
+import com.tech.tnqguru.retrofit.ApiInterface;
 import com.tech.tnqguru.spinneradapter.SpinAdapter;
 import com.tech.tnqguru.spinneradapter.SpinMaxSubAdapter;
 import com.tech.tnqguru.utils.AppConstant;
 import com.tech.tnqguru.utils.LoaderUtil;
+import com.tech.tnqguru.utils.Validation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import retrofit2.Call;
 
 public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
 
@@ -33,9 +46,14 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
     String spnSelectColgStu,spnColgStuModeOfClass,spinColgStuDept;
     Button colgStuUploadImage,btnColStuReg;
 
-    EditText colgStuNameEdit,colgStuMobileEdit,colgStuAddressEdit,colgStuPincodeEdit,colgStuEmailEdit,colgStuIdProofNumberEdit,colgStuPasswordEdit;
+    EditText colgStuNameEdit,colgStuMobileEdit,colgStuAddressEdit,colgStuPincodeEdit,colgStuEmailEdit,colgStuIdProofNumberEdit,colgStuPasswordEdit,colgStuAboutEdit;
 
     private List<String> CourseName;
+
+    private RelativeLayout colgDOBBlock;
+    private TextView colgStuDOB;
+    DatePickerDialog.OnDateSetListener setListenerDateOfBirth;
+    String colgStuDOBInString;
 
 
 
@@ -86,6 +104,40 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         SpinMaxSubAdapter spinMaxSubAdapter = new SpinMaxSubAdapter(getActivity(), 0, listVOs, ColgStuRegFragment.this);
         spinnerColgCourseName.setAdapter(spinMaxSubAdapter);
 
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int date = calendar.get(Calendar.DATE);
+
+
+        colgDOBBlock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog, setListenerDateOfBirth, year, month, date);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+
+            }
+        });
+
+        setListenerDateOfBirth = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                month = month + 1;
+                String date = dayOfMonth + "/" + month + "/" + year;
+                colgStuDOB.setText(date);
+
+                colgStuDOBInString=date;
+
+                System.out.println("selectedFromDate " + date);
+
+
+            }
+        };
+
+
         btnColStuReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,51 +158,95 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         colgStuPincode=colgStuPincodeEdit.getText().toString();
         colgStuEmail=colgStuEmailEdit.getText().toString();
         colgStuPassword=colgStuPasswordEdit.getText().toString();
+        colgStuAbout=colgStuAboutEdit.getText().toString();
+        colgFacIdProofNumber=colgStuIdProofNumberEdit.getText().toString();
+
+        colgStudentValidation(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword,colgStuAbout,colgFacIdProofNumber);
+        
 
 
-        if (colgStuName.isEmpty() || colgStuName.equals("") || colgStuName.equals(null)) {
+
+    }
+
+    private void colgStudentValidation(String colgStuName, String colgStuMobile, String colgStuAddress, String colgStuPincode, String colgStuEmail, String colgStuPassword, String colgStuAbout, String colgFacIdProofNumber) {
+
+        if(Validation.nullValidation(spnSelectColgStu)){
+            Toast.makeText(getActivity(), "Please Select College", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgStuName)){
             Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
             return;
-
         }
-
-        if (colgStuMobile.isEmpty() || colgStuMobile.equals("") || colgStuMobile.equals(null)) {
+        if(Validation.nullValidation(colgStuMobile)){
             Toast.makeText(getActivity(), "Please Enter Mobile", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (colgStuAddress.isEmpty() || colgStuAddress.equals("") || colgStuAddress.equals(null)) {
+        if(Validation.nullValidation(colgStuDOBInString)){
+            Toast.makeText(getActivity(), "Please Select DOB", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(spinColgStuDept)){
+            Toast.makeText(getActivity(), "Please Department", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(Validation.nullValidation(colgStuAddress)){
             Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (colgStuPincode.isEmpty() || colgStuPincode.equals("") || colgStuPincode.equals(null)) {
+        if(Validation.nullValidation(colgStuPincode)){
             Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (colgStuEmail.isEmpty() || colgStuEmail.equals("") || colgStuEmail.equals(null)) {
+        if(Validation.nullValidation(colgStuEmail)){
             Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
             return;
-
         }
 
-        if (colgStuPassword.isEmpty() || colgStuPassword.equals("") || colgStuPassword.equals(null)) {
+        if(Validation.nullValidation(colgStuPassword)){
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
             return;
-
+        }
+        if(Validation.nullValidation(spnColgStuModeOfClass)){
+            Toast.makeText(getActivity(), "Please Select Mode Of Class", Toast.LENGTH_LONG).show();
+            return;
         }
 
-        
-       // doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
+        //Photo Validation
 
+        doRegisterCollegeStudent(colgStuName,colgStuMobile,colgStuAddress,colgStuPincode,colgStuEmail,colgStuPassword);
     }
 
 
     private void doRegisterCollegeStudent(String colgStuName, String colgStuMobile, String colgStuAddress, String colgStuPincode, String colgStuEmail, String colgStuPassword) {
+
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<BaseResponseDTO> call=apiInterface.doCollegeStudentRegistration(
+                spnSelectColgStu,
+                colgStuName,
+                colgStuMobile,
+                colgStuDOBInString,
+                spinColgStuDept,
+
+                colgStuAddress,
+                colgStuPincode,
+                colgStuEmail,
+                spnColgStuModeOfClass,
+                CourseName,
+                "Photo",
+                "SyllabusDocument",
+                colgStuEmail,
+                colgStuPassword
+        );
+
+
     }
 
     private void setView(View view) {
@@ -160,10 +256,14 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
         spinnerColgStuDept = (Spinner) view.findViewById(R.id.spinnerColgStuDept);
         spinnerColgCourseName=(Spinner)view.findViewById(R.id.colgStuCourseName);
 
+        colgDOBBlock=(RelativeLayout)view.findViewById(R.id.colgStuDOBBlock);
+        colgStuDOB=(TextView)view.findViewById(R.id.colgStuDOB);
+
 
         colgStuNameEdit=(EditText)view.findViewById(R.id.colgStuName);
         colgStuMobileEdit=(EditText)view.findViewById(R.id.colgStuMobile);
         colgStuAddressEdit=(EditText)view.findViewById(R.id.colgStuAddress);
+        colgStuAboutEdit=(EditText)view.findViewById(R.id.colgStuAbout);
         colgStuPincodeEdit=(EditText)view.findViewById(R.id.colgStuPincodeInput);
         colgStuEmailEdit=(EditText)view.findViewById(R.id.colgStuEmail);
         colgStuPasswordEdit= (EditText)view.findViewById(R.id.colgStuPassword);
