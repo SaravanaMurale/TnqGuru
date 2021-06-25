@@ -39,6 +39,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
 
@@ -245,6 +247,18 @@ public class ColgStuRegFragment extends Fragment implements AdapterView.OnItemSe
                 colgStuEmail,
                 colgStuPassword
         );
+
+        call.enqueue(new Callback<BaseResponseDTO>() {
+            @Override
+            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
+
+            }
+        });
 
 
     }

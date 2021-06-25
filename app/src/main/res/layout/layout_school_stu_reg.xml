@@ -1,91 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Student/Parent Registration"
-            android:textSize="@dimen/twenty_five_sp"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_marginTop="@dimen/five_dp"
             android:fontFamily="@font/ubuntu_regular"
             android:gravity="center"
-            android:textColor="@color/dar_blue"
-            android:layout_marginTop="@dimen/ten_dp"/>
+            android:text="Student/Parent Registration"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold" />
 
 
-
-        <Spinner
-            android:id="@+id/spinnerSelectSchool"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="@dimen/fifty_dp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
-
-
-            <EditText
-                android:id="@+id/scholStuName"
+            <Spinner
+                android:id="@+id/spinnerSelectSchool"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:paddingLeft="@dimen/twenty_dp"
-                android:hint="Name"
-                android:fontFamily="@font/ubuntu_regular"
-                android:background="@drawable/rounded_border"
-                android:layout_gravity="center"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:layout_margin="@dimen/five_dp"
-                android:layout_below="@id/spinnerSelectSchool"
-                />
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/fifteen_dp"
+                android:fontFamily="@font/ubuntu_regular" />
+
+        </RelativeLayout>
 
 
+        <EditText
+            android:id="@+id/scholStuName"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@id/spinnerSelectSchool"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Name"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingLeft="@dimen/twenty_dp" />
 
 
-            <EditText
-                android:id="@+id/scholStuMobile"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:paddingLeft="@dimen/twenty_dp"
-                android:hint="Mobile"
-                android:inputType="number"
-                android:maxLength="10"
-                android:imeOptions="actionNext"
-                android:layout_below="@id/scholStuName"
-                android:fontFamily="@font/ubuntu_regular"
-                android:background="@drawable/rounded_border"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/five_dp"
-                />
+        <EditText
+            android:id="@+id/scholStuMobile"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@id/scholStuName"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Mobile"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="10"
+            android:paddingLeft="@dimen/twenty_dp" />
 
         <RelativeLayout
             android:id="@+id/stuDOBBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/scholStuMobile"
-            >
-
-        <TextView
-            android:id="@+id/scholStuDOB"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/forty_dp"
             android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
+            <TextView
+                android:id="@+id/scholStuDOB"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_margin="@dimen/five_dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/eight_dp"
+                android:text="DOB"
 
-            />
+                />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/eight_dp"
-            android:src="@drawable/calender"
-            />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/eight_dp"
+                android:src="@drawable/calender" />
 
         </RelativeLayout>
 
@@ -93,112 +102,122 @@
             android:id="@+id/scholStuAddress"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:paddingLeft="@dimen/twenty_dp"
-            android:paddingBottom="@dimen/twenty_dp"
-            android:hint="Address"
             android:layout_below="@id/stuDOBBlock"
-            android:fontFamily="@font/ubuntu_regular"
+            android:layout_margin="@dimen/five_dp"
             android:background="@drawable/rounded_border"
-            android:inputType="textPostalAddress"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Address"
             android:imeOptions="actionNext"
-            android:layout_margin="@dimen/five_dp"/>
-
+            android:inputType="textPostalAddress"
+            android:paddingLeft="@dimen/twenty_dp"
+            android:paddingBottom="@dimen/twenty_dp" />
 
 
         <EditText
             android:id="@+id/scholStuPincode"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Pincode"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholStuAddress"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Pincode"
+            android:imeOptions="actionNext"
             android:inputType="number"
             android:maxLines="6"
-            android:imeOptions="actionNext"
-            android:layout_margin="@dimen/five_dp"/>
-
+            android:paddingLeft="@dimen/twenty_dp" />
 
 
         <EditText
             android:id="@+id/scholStuEmail"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Email"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholStuPincode"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:layout_margin="@dimen/five_dp"/>
+            android:paddingLeft="@dimen/twenty_dp" />
 
         <EditText
             android:id="@+id/scholStuPassword"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:hint="Password"
-            android:inputType="textWebPassword"
-            android:imeOptions="actionNext"
-            android:paddingLeft="@dimen/twenty_dp"
             android:layout_below="@+id/scholStuEmail"
-            android:fontFamily="@font/ubuntu_regular"
-            android:background="@drawable/rounded_border"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/five_dp"/>
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border"
+            android:fontFamily="@font/ubuntu_regular"
+            android:hint="Password"
+            android:imeOptions="actionNext"
+            android:inputType="textWebPassword"
+            android:paddingLeft="@dimen/twenty_dp" />
 
-        <Spinner
-            android:id="@+id/modeOfScholStuClass"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/forty_dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/scholStuPassword"
-            android:layout_marginTop="@dimen/ten_dp"
-            android:layout_marginLeft="@dimen/five_dp"
-            android:layout_marginRight="@dimen/five_dp"
-            />
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
+            <Spinner
+                android:id="@+id/modeOfScholStuClass"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:fontFamily="@font/ubuntu_regular" />
 
-        <Spinner
-            android:id="@+id/scholStuCoachingSub"
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/forty_dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/modeOfScholStuClass"
-            android:layout_marginTop="@dimen/ten_dp"
-            android:layout_marginLeft="@dimen/five_dp"
-            android:layout_marginRight="@dimen/five_dp"
-            />
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/rounded_border">
 
+            <Spinner
+                android:id="@+id/scholStuCoachingSub"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/forty_dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/ten_dp"
+
+                />
+        </RelativeLayout>
 
 
         <RelativeLayout
             android:id="@+id/stuPhotoUploadBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/scholStuCoachingSub"
-            >
+            android:layout_below="@+id/scholStuCoachingSub">
 
             <Button
                 android:id="@+id/scholStuUloadImage"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
-                android:textColor="@color/white"
                 android:padding="@dimen/five_dp"
-                android:layout_margin="@dimen/five_dp"/>
+                android:text="Choose Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:id="@+id/scholStuText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Photo..."
-                android:layout_toRightOf="@id/scholStuUloadImage"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_toRightOf="@id/scholStuUloadImage"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Choose Photo..."
 
                 />
 
@@ -208,28 +227,28 @@
             android:id="@+id/stuSubSyllabusBlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/stuPhotoUploadBlock"
-            >
+            android:layout_below="@+id/stuPhotoUploadBlock">
 
             <Button
                 android:id="@+id/scholStuSyllabus"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Syllabus"
+                android:layout_margin="@dimen/five_dp"
                 android:background="@drawable/text_bg_btn"
                 android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/fifteen_dp"
-                android:textColor="@color/white"
                 android:padding="@dimen/five_dp"
-                android:layout_margin="@dimen/five_dp"/>
+                android:text="Syllabus"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fifteen_dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upload Syllabus..."
-                android:layout_toRightOf="@id/scholStuSyllabus"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_toRightOf="@id/scholStuSyllabus"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Upload Syllabus..."
 
                 />
 
@@ -240,19 +259,17 @@
             android:id="@+id/btnScholStuReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/ten_dp"
-            android:background="@drawable/text_bg_btn"
-            android:textColor="@color/white"
             android:layout_below="@+id/stuSubSyllabusBlock"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/five_dp"
+            android:background="@drawable/login_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="@string/submit"
+            android:textColor="@color/black"
 
             />
 
 
-
-
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </ScrollView>
