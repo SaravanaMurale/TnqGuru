@@ -44,7 +44,7 @@
 
                 <data
                     android:host="tnqguru.com"
-                    android:scheme="http" />
+                    android:scheme="https" />
             </intent-filter>
         </activity>
 
