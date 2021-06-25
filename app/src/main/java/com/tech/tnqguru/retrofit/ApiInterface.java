@@ -57,35 +57,34 @@ public interface ApiInterface {
     @POST("college_faculty/")
     Call<BaseResponseDTO> doCollegeFacRegistration(
 
-            @Field("")String facColg,
+            @Field("college_level")String facColg,
             @Field("faculty_name") String facName,
             @Field("faculty_email") String facEmail,
             @Field("faculty_phone") String facphone,
-
-
-            @Field("")String facDept,
             @Field("faculty_photo") String facPhoto,
+
             @Field("faculty_country") String facCountry,
             @Field("faculty_address") String facAddress,
-            @Field("about_faculty") String facAbtFac,
-
             @Field("faculty_pincode") String facPinCode,
             @Field("faculty_qualification") List<String> facQualification,
-            @Field("industrial_experience") String facIndusExp,
+
             @Field("teaching_experience") String facTeachExp,
             @Field("mode_of_class") String facModeOfClass,
-
             @Field("bio_data_document") String facBioData,
-            @Field("subject") String facSubject1,
-            @Field("subject") String facSubject2,
-            @Field("subject") String facSubject3,
-            @Field("")List<String> preMaxSubject,
+            @Field("subject")List<String> preMaxSubject,
+
+            @Field("industrial_experience") String facIndusExp,
+            @Field("about_faculty") String facAbtFac,
+
+            @Field("kind_of_degree")String facDept,
+            @Field("course_name") List<String> courseNameList,
+
 
             @Field("id_proof_document") String facIdProofDoucment,
             @Field("id_proof_document_number") String facDocNum,
-
-
             @Field("bank_details") String facBankDetails,
+
+
             @Field("username") String facUserName,
             @Field("password") String facPassword
             );

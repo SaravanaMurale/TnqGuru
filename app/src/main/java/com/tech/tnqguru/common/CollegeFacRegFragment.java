@@ -66,6 +66,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     private List<String> addColgFacImageInString;
 
     private List<String> preferredMaxSubject;
+    private List<String> courseNameList;
 
 
     @Nullable
@@ -430,7 +431,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     }
 
 
-    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
+    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout,  List<String> courseNameList, String colgFacIdProofNumber) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
@@ -439,24 +440,22 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 colgFacName,
                 colgFacEmail,
                 colgFacMobile,
-                spnColgFacSelectDept,
-                addColgFacImageInString.get(0),
+                "photo",
                 spnColgFacSelectCountry,
                 colgFacAddress,
-                colgFacAbout,
                 colgFacPincode,
                 cbList,
-                spnColgFacIndusExp,
                 spnColgFacTechExp,
                 spnColgFacModeOfClass,
                 "BioData",
-                colgFacSub1,
-                colgFacSub2,
-                colgFacSub3,
                 preferredMaxSubject,
-                addColgFacImageInString.get(0),
+                spnColgFacIndusExp,
+                colgFacAbout,
+                spnColgFacSelectDept,
+                courseNameList,
+                "id_proof_document",
                 colgFacIdProofNumber,
-                addColgFacImageInString.get(0),
+"bank_document",
                 colgFacEmail,
                 colgFacPassword);
 
@@ -534,6 +533,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         addColgFacImageInString=new ArrayList<>();
         preferredMaxSubject=new ArrayList<>();
+        courseNameList=new ArrayList<>();
 
         colgFacNameEdit=(EditText)view.findViewById(R.id.ColgFacNameInput);
         colgFacMobileEdit=(EditText)view.findViewById(R.id.colgFacMobile);
@@ -606,6 +606,10 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         colgFacSub3=colgFacSub3Edit.getText().toString();
         colgFacIdProofNumber=colgFacIdProofNumberEdit.getText().toString();
 
+        courseNameList.add(colgFacSub1);
+        courseNameList.add(colgFacSub2);
+        courseNameList.add(colgFacSub3);
+
         if (colgFacName.isEmpty() || colgFacName.equals("") || colgFacName.equals(null)) {
             Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
             return;
@@ -676,9 +680,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
 
 
-        PretendLikeSaving();
+//        PretendLikeSaving();
 
-       // doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
+       doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,courseNameList,colgFacIdProofNumber);
 
 
     }
