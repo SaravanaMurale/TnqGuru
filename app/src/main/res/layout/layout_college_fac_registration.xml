@@ -17,19 +17,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="College Faculty Registration"
-            android:textSize="@dimen/twenty_five_sp"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/five_dp"
             android:fontFamily="@font/ubuntu_regular"
             android:gravity="center"
-            android:background="@color/colorBlue"
-            android:layout_marginTop="@dimen/twenty_five_sp"/>
+            android:layout_marginTop="@dimen/five_dp"
+            android:textAllCaps="true"
+            />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            >
     <Spinner
         android:id="@+id/spinnerSelectColg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="@dimen/fifteen_dp"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/ubuntu_regular"
         />
 
+        </RelativeLayout>
 
 
         <EditText
@@ -61,14 +74,23 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/five_dp"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgFacMobile"
+            >
 
     <Spinner
         android:id="@+id/spinnerColgFacCountry"
         android:layout_width="match_parent"
         android:layout_height="@dimen/forty_dp"
-        android:layout_below="@+id/colgFacMobile"
+
         android:layout_margin="@dimen/five_dp"
         />
+
+        </RelativeLayout>
 
 
 
@@ -102,13 +124,23 @@
             android:layout_margin="@dimen/five_dp"/>
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgFacPincode"
+            >
+
     <Spinner
         android:id="@+id/spinnerColgFacDept"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/colgFacPincode"
+        android:fontFamily="@font/ubuntu_regular"
         android:layout_margin="@dimen/five_dp"
         />
+
+        </RelativeLayout>
 
 
 
@@ -162,6 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose Photo..."
+            android:fontFamily="@font/ubuntu_regular"
             android:layout_toRightOf="@id/ColgUploadImage"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/ten_dp" />
@@ -191,32 +224,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/colgFacAbout"
-        android:layout_marginTop="@dimen/ten_dp">
+        android:layout_marginTop="@dimen/ten_dp"
+        android:background="@drawable/rounded_border"
+        android:layout_marginLeft="@dimen/five_dp"
+        android:layout_marginRight="@dimen/five_dp"
+        >
+
         <include layout="@layout/layout_qualification_checkbox"/>
 
     </RelativeLayout>
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+
+            android:layout_below="@+id/toalExp">
+
         <Spinner
             android:id="@+id/spinnerColgTeachExp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/toalExp"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/ubuntu_regular"
             android:layout_marginTop="@dimen/twenty_dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/spinnerColgTeachExp"
+            >
 
         <Spinner
             android:id="@+id/spinnerColgIndusExp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/spinnerColgTeachExp"
+            android:fontFamily="@font/ubuntu_regular"
+android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/ten_dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/spinnerColgIndusExp"
+            >
 
         <Spinner
             android:id="@+id/modeOfColgClass"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/spinnerColgIndusExp"
+            android:fontFamily="@font/ubuntu_regular"
+android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/ten_dp"/>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/text1"
@@ -224,6 +296,11 @@
             android:layout_height="wrap_content"
             android:text="Preferable 3 Familiar Subject To Handle"
             android:fontFamily="@font/ubuntu_regular"
+            android:layout_marginLeft="@dimen/five_dp"
+            android:textStyle="bold"
+            android:textSize="@dimen/twenty_sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/five_dp"
             android:layout_marginTop="@dimen/ten_dp"/>
 
 
@@ -278,13 +355,24 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/five_dp"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border"
+            android:layout_margin="@dimen/five_dp"
+            android:layout_below="@+id/colgFacSub3"
+            >
+
         <Spinner
             android:id="@+id/spinnerColgMaxSub"
             android:layout_width="match_parent"
             android:layout_height="@dimen/forty_dp"
-            android:layout_below="@+id/colgFacSub3"
+android:layout_centerVertical="true"
+            android:fontFamily="@font/ubuntu_regular"
             android:layout_margin="@dimen/ten_dp"
             />
+
+        </RelativeLayout>
 
 
         <RelativeLayout
@@ -310,6 +398,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ChoosePhoto..."
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_toRightOf="@+id/colgFacIdProof"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/ten_dp"
@@ -326,6 +415,7 @@
                 android:hint="ID Proof Number"
                 android:layout_margin="@dimen/five_dp"
                 android:imeOptions="actionDone"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_below="@id/colgFacIdProof"
                 />
 
@@ -355,6 +445,7 @@
                android:text="Choose Photo..."
                android:layout_toRightOf="@+id/colgFacBioData"
                android:layout_marginLeft="@dimen/ten_dp"
+               android:fontFamily="@font/ubuntu_regular"
                android:layout_centerVertical="true"
                />
 
@@ -385,6 +476,7 @@
                 android:text="Choose Photo..."
                 android:layout_toRightOf="@+id/colgFacBankDetails"
                 android:layout_marginLeft="@dimen/ten_dp"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_centerVertical="true"
                 />
 
@@ -397,7 +489,8 @@
             android:text="@string/submit"
             android:layout_gravity="center_horizontal"
             android:layout_margin="@dimen/ten_dp"
-            android:background="@drawable/text_bg_btn"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/login_btn"
             android:textColor="@color/white"
             />
 

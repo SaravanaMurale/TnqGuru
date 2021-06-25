@@ -269,6 +269,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         ArrayAdapter<CharSequence> selectColg=ArrayAdapter.createFromResource(getActivity(),R.array.colg_type,android.R.layout.simple_spinner_item);
         selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spinnerSelectColgInput.setAdapter(selectColg);
         spinnerSelectColgInput.setOnItemSelectedListener(this);
 
@@ -547,6 +548,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         colgFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);
 
         spinnerSelectColgInput = (Spinner) view.findViewById(R.id.spinnerSelectColg);
+
         spinnerColgFacCountryInput = (Spinner) view.findViewById(R.id.spinnerColgFacCountry);
         spinnerColgFacDeptInput=(Spinner)view.findViewById(R.id.spinnerColgFacDept);
         spinnerColgTeachExpInput=(Spinner)view.findViewById(R.id.spinnerColgTeachExp);
