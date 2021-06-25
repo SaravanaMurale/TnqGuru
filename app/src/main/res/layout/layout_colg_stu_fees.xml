@@ -33,7 +33,7 @@
                 android:layout_toRightOf="@id/colgDegreeLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:text="@string/degree"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/eight_dp"
                 />
 
@@ -44,7 +44,7 @@
                 android:text="B.A"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/eight_dp"
                 />
 
@@ -65,7 +65,7 @@
                 android:layout_toRightOf="@+id/colgTimeLogo"
                 android:layout_below="@+id/colgTextDegree"
                 android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginLeft="@dimen/eight_dp"
                 />
 
@@ -77,7 +77,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_below="@id/colgHeadDegree"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="10dp"
                 />
 
@@ -98,7 +98,7 @@
                 android:layout_below="@+id/colgTextHours"
                 android:layout_toRightOf="@+id/colgOnlineLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
 
@@ -110,7 +110,7 @@
                 android:layout_below="@+id/colgHeadHours"
                 android:text="5000"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
 
@@ -133,7 +133,7 @@
                 android:layout_below="@+id/colgTextOnline"
                 android:layout_toRightOf="@+id/colgOfflineLogo"
                 android:layout_marginLeft="@dimen/eight_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
 
@@ -145,7 +145,7 @@
                 android:layout_below="@+id/colgHeadOnlineFees"
                 android:text="6000"
                 android:layout_marginRight="@dimen/twenty_dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="@font/ubuntu_regular"
                 android:layout_marginTop="@dimen/ten_dp"
                 />
 
