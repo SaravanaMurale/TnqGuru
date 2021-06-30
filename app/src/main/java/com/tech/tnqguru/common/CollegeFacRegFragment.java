@@ -361,31 +361,38 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     }
 
     private void doDummyRegistration() {
+
+        //https://www.youtube.com/watch?v=yKxLgEfY49A
+        //https://stackoverflow.com/questions/40607862/retrofit-throwing-an-exception-java-lang-illegalargumentexception-only-one-en/40608320
+
+
+        RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
         Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
-                "UG",
-                "name",
-                "email",
-                "9999999999",
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
                 image1,
-                "country",
-                "address",
-                "600000",
-                cbList,
-                "1",
-                "Online",
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
                 image1,
-                preferredMaxSubject,
-                "spnColgFacIndusExp",
-                "colgFacAbout",
-                "spnColgFacSelectDept",
-                courseNameList,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
                 image1,
-                "colgFacIdProofNumber",
+                emailRequest,
                 image1,
-                "colgFacEmail",
-                "colgFacPassword");
+                emailRequest,
+                emailRequest);
 
         call.enqueue(new Callback<BaseResponseDTO>() {
             @Override
@@ -433,7 +440,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             Uri path = data.getData();
             System.out.println("ImagePath" + path.getPath());
 
-            image1 = prepareImagePart(path.getPath());
+            image1 = prepareImagePart(path);
 
 
             /*try {
@@ -447,11 +454,11 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         }
     }
 
-    private MultipartBody.Part prepareImagePart(String path) {
+    private MultipartBody.Part prepareImagePart(Uri path) {
 
         String imageName="Img";
-        File file = new File(path);
-        RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(Uri.fromFile(file))), file);
+        File file = new File(path.getPath());
+        RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getApplicationContext().getContentResolver().getType(path)),file);
         return MultipartBody.Part.createFormData(imageName, file.getName(), requestBody);
 
     }
@@ -689,7 +696,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
+        /*Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
                 spnColgFacSelectColg,
                 colgFacName,
                 colgFacEmail,
@@ -734,7 +741,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 System.out.println("Exception" + t.getMessage().toString());
 
             }
-        });
+        });*/
 
 
     }
