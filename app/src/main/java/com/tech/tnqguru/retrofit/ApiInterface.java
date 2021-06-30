@@ -54,6 +54,7 @@ public interface ApiInterface {
     Call<List<ScholStuFeesResponseDTO>> getScholStuFeesDetails(@Path("std") String std, @Path("board") String board);
 
     @FormUrlEncoded
+    @Multipart
     @POST("college_faculty/")
     Call<BaseResponseDTO> doCollegeFacRegistration(
 
@@ -61,7 +62,7 @@ public interface ApiInterface {
             @Field("faculty_name") String facName,
             @Field("faculty_email") String facEmail,
             @Field("faculty_phone") String facphone,
-            @Field("faculty_photo") String facPhoto,
+            @Part("faculty_photo") MultipartBody.Part facPhoto,
 
             @Field("faculty_country") String facCountry,
             @Field("faculty_address") String facAddress,
@@ -70,7 +71,7 @@ public interface ApiInterface {
 
             @Field("teaching_experience") String facTeachExp,
             @Field("mode_of_class") String facModeOfClass,
-            @Field("bio_data_document") String facBioData,
+            @Part("bio_data_document") MultipartBody.Part facBioData,
             @Field("subject")List<String> preMaxSubject,
 
             @Field("industrial_experience") String facIndusExp,
@@ -80,9 +81,9 @@ public interface ApiInterface {
             @Field("course_name") List<String> courseNameList,
 
 
-            @Field("id_proof_document") String facIdProofDoucment,
+            @Part("id_proof_document") MultipartBody.Part facIdProofDoucment,
             @Field("id_proof_document_number") String facDocNum,
-            @Field("bank_details") String facBankDetails,
+            @Part("bank_details") MultipartBody.Part facBankDetails,
 
 
             @Field("username") String facUserName,

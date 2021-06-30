@@ -38,31 +38,37 @@ import com.tech.tnqguru.utils.ToastUtils;
 import com.tech.tnqguru.utils.Validation;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Multipart;
 
 import static android.app.Activity.RESULT_OK;
 import static com.tech.tnqguru.utils.AppConstant.IMG_REQUEST;
 
 public class CollegeFacRegFragment extends Fragment implements AdapterView.OnItemSelectedListener, SpinMaxSubAdapter.SpinnerMaxSubCheckBoxSelectedListener {
 
-    EditText colgFacNameEdit,colgFacMobileEdit,colgFacAddressEdit,colgFacPincodeEdit,colgFacEmailEdit,colgFacAboutEdit,colgFacSub1Edit,colgFacSub2Edit,colgFacSub3Edit,colgFacIdProofNumberEdit,colgFacPasswordEdit;
+    EditText colgFacNameEdit, colgFacMobileEdit, colgFacAddressEdit, colgFacPincodeEdit, colgFacEmailEdit, colgFacAboutEdit, colgFacSub1Edit, colgFacSub2Edit, colgFacSub3Edit, colgFacIdProofNumberEdit, colgFacPasswordEdit;
 
-    Spinner spinnerSelectColgInput,spinnerColgFacCountryInput,spinnerColgFacDeptInput,spinnerColgTeachExpInput,spinnerColgIndusExpInput,modeOfColgClassInput,spinnerColgMaxSub;
+    Spinner spinnerSelectColgInput, spinnerColgFacCountryInput, spinnerColgFacDeptInput, spinnerColgTeachExpInput, spinnerColgIndusExpInput, modeOfColgClassInput, spinnerColgMaxSub;
     Button btnColFacReg;
-    String spnColgFacSelectColg,spnColgFacSelectCountry,spnColgFacSelectDept,spnColgFacTechExp,spnColgFacIndusExp,spnColgFacModeOfClass;
+    String spnColgFacSelectColg, spnColgFacSelectCountry, spnColgFacSelectDept, spnColgFacTechExp, spnColgFacIndusExp, spnColgFacModeOfClass;
 
-    private CheckBox cbBE,cbME,cbMS,cbBtech,cbMtech,cbMphil,cbPhd,cbBA,cbMA,cbBSC,cbMSC,cbMCA,cbBcom,cbMcom,cbOthers;
+    private CheckBox cbBE, cbME, cbMS, cbBtech, cbMtech, cbMphil, cbPhd, cbBA, cbMA, cbBSC, cbMSC, cbMCA, cbBcom, cbMcom, cbOthers;
 
     private ArrayList<String> cbList;
+    MultipartBody.Part image1;
 
-    private Button ColgUploadImage,colgFacIdProof,colgFacBankDetails;
-    private TextView colgFacPhotoText,colgFacIdProofText,colgFactBankDetailText;
+    private Button ColgUploadImage, colgFacIdProof, colgFacBankDetails;
+    private TextView colgFacPhotoText, colgFacIdProofText, colgFactBankDetailText;
     private Bitmap bitmap;
     private List<String> addColgFacImageInString;
 
@@ -74,7 +80,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view=inflater.inflate(R.layout.layout_college_fac_registration,container,false);
+        View view = inflater.inflate(R.layout.layout_college_fac_registration, container, false);
 
         initView(view);
 
@@ -90,10 +96,10 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbBE.isChecked()){
+                if (cbBE.isChecked()) {
                     cbList.add("B.E");
 
-                }else {
+                } else {
                     cbList.remove("B.E");
 
                 }
@@ -104,9 +110,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbME.isChecked()){
+                if (cbME.isChecked()) {
                     cbList.add("M.E");
-                }else {
+                } else {
                     cbList.remove("M.E");
                 }
             }
@@ -116,9 +122,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMS.isChecked()){
+                if (cbMS.isChecked()) {
                     cbList.add("M.S");
-                }else {
+                } else {
                     cbList.remove("M.S");
                 }
             }
@@ -128,9 +134,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbBtech.isChecked()){
+                if (cbBtech.isChecked()) {
                     cbList.add("B.Tech");
-                }else {
+                } else {
                     cbList.remove("B.Tech");
                 }
             }
@@ -140,9 +146,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMtech.isChecked()){
+                if (cbMtech.isChecked()) {
                     cbList.add("M.Tech");
-                }else {
+                } else {
                     cbList.remove("M.Tech");
                 }
             }
@@ -152,9 +158,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMphil.isChecked()){
+                if (cbMphil.isChecked()) {
                     cbList.add("MPhil");
-                }else {
+                } else {
                     cbList.remove("MPhil");
                 }
             }
@@ -164,9 +170,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbPhd.isChecked()){
+                if (cbPhd.isChecked()) {
                     cbList.add("Phd");
-                }else {
+                } else {
                     cbList.remove("Phd");
                 }
             }
@@ -176,9 +182,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbBA.isChecked()){
+                if (cbBA.isChecked()) {
                     cbList.add("BA");
-                }else {
+                } else {
                     cbList.remove("BA");
                 }
             }
@@ -188,9 +194,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMA.isChecked()){
+                if (cbMA.isChecked()) {
                     cbList.add("MA");
-                }else {
+                } else {
                     cbList.remove("BA");
                 }
             }
@@ -200,9 +206,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbBSC.isChecked()){
+                if (cbBSC.isChecked()) {
                     cbList.add("BSC");
-                }else {
+                } else {
                     cbList.remove("BSC");
                 }
             }
@@ -212,9 +218,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMSC.isChecked()){
+                if (cbMSC.isChecked()) {
                     cbList.add("MSC");
-                }else {
+                } else {
                     cbList.remove("MSC");
                 }
             }
@@ -224,9 +230,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMCA.isChecked()){
+                if (cbMCA.isChecked()) {
                     cbList.add("MCA");
-                }else {
+                } else {
                     cbList.remove("MCA");
                 }
             }
@@ -236,9 +242,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbBcom.isChecked()){
+                if (cbBcom.isChecked()) {
                     cbList.add("B.Com");
-                }else {
+                } else {
                     cbList.remove("B.Com");
                 }
             }
@@ -248,9 +254,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbMcom.isChecked()){
+                if (cbMcom.isChecked()) {
                     cbList.add("M.Com");
-                }else {
+                } else {
                     cbList.remove("M.Com");
                 }
             }
@@ -260,51 +266,51 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                if(cbOthers.isChecked()){
+                if (cbOthers.isChecked()) {
                     cbList.add("Others");
-                }else {
+                } else {
                     cbList.remove("Others");
                 }
             }
         });
 
 
-        ArrayAdapter<CharSequence> selectColg=ArrayAdapter.createFromResource(getActivity(),R.array.colg_type,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> selectColg = ArrayAdapter.createFromResource(getActivity(), R.array.colg_type, android.R.layout.simple_spinner_item);
         selectColg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerSelectColgInput.setAdapter(selectColg);
         spinnerSelectColgInput.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> countryAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.country,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> countryAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.country, android.R.layout.simple_spinner_item);
         countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgFacCountryInput.setAdapter(countryAdapter);
         spinnerColgFacCountryInput.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> colgDeptAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.colg_dept,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> colgDeptAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.colg_dept, android.R.layout.simple_spinner_item);
         colgDeptAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgFacDeptInput.setAdapter(colgDeptAdapter);
         spinnerColgFacDeptInput.setOnItemSelectedListener(this);
 
-        ArrayAdapter<CharSequence> teachExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.total_exp,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> teachExpAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.total_exp, android.R.layout.simple_spinner_item);
         teachExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgTeachExpInput.setAdapter(teachExpAdapter);
         spinnerColgTeachExpInput.setOnItemSelectedListener(this);
 
 
-        ArrayAdapter<CharSequence> indusExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.indus_exp,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> indusExpAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.indus_exp, android.R.layout.simple_spinner_item);
         indusExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerColgIndusExpInput.setAdapter(indusExpAdapter);
         spinnerColgIndusExpInput.setOnItemSelectedListener(this);
 
 
-        ArrayAdapter<CharSequence> modeOfClassExpAdapter=ArrayAdapter.createFromResource(getActivity(),R.array.mode_class,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> modeOfClassExpAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mode_class, android.R.layout.simple_spinner_item);
         modeOfClassExpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modeOfColgClassInput.setAdapter(modeOfClassExpAdapter);
         modeOfColgClassInput.setOnItemSelectedListener(this);
 
-        List<SpinAdapter> listVOs=new ArrayList<>();
+        List<SpinAdapter> listVOs = new ArrayList<>();
 
-        List<String> getColgMaxSub= AppConstant.getColgMaxSubject();
+        List<String> getColgMaxSub = AppConstant.getColgMaxSubject();
 
         for (int i = 0; i < getColgMaxSub.size(); i++) {
             SpinAdapter stateVO = new SpinAdapter();
@@ -315,8 +321,6 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         SpinMaxSubAdapter spinMaxSubAdapter = new SpinMaxSubAdapter(getActivity(), 0, listVOs, CollegeFacRegFragment.this);
         spinnerColgMaxSub.setAdapter(spinMaxSubAdapter);
-
-
 
 
         ColgUploadImage.setOnClickListener(new View.OnClickListener() {
@@ -360,7 +364,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         //intent.setType("image/*");
         intent.setType("*/*");  // For all kind of upload
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        IMG_REQUEST=i;
+        IMG_REQUEST = i;
         startActivityForResult(intent, IMG_REQUEST);
 
     }
@@ -369,44 +373,54 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null){
+        if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
 
             Uri path = data.getData();
-            System.out.println("ImagePath"+path.getPath());
+            System.out.println("ImagePath" + path.getPath());
+
+            image1 = prepareImagePart(path.getPath());
 
 
-            try {
+            /*try {
                 bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),path);
                 //imageView.setImageBitmap(bitmap);
                 startUploadToServer(requestCode);
 
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
+    }
+
+    private MultipartBody.Part prepareImagePart(String path) {
+
+        File file = new File(path);
+        RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(Uri.fromFile(file))), file);
+        return MultipartBody.Part.createFormData("Image1", file.getName(), requestBody);
+
     }
 
     private void startUploadToServer(int imgRequest) {
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,75, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream);
         byte[] imageInByte = byteArrayOutputStream.toByteArray();
-        String encodedImage =  Base64.encodeToString(imageInByte, Base64.DEFAULT);
+        String encodedImage = Base64.encodeToString(imageInByte, Base64.DEFAULT);
 
-        System.out.println("ImageInStringFormet"+encodedImage);
+        System.out.println("ImageInStringFormet" + encodedImage);
 
-        if(imgRequest==1){
+        if (imgRequest == 1) {
             //Faculty Photo
             colgFacPhotoText.setText("photo.jpeg");
-            addColgFacImageInString.add(0,encodedImage);
-        }else if(imgRequest==2){
+            addColgFacImageInString.add(0, encodedImage);
+        } else if (imgRequest == 2) {
             //Faculty ID Proof
             colgFacIdProofText.setText("idproof.jpeg");
-            addColgFacImageInString.add(1,encodedImage);
-        } else if(imgRequest==3){
+            addColgFacImageInString.add(1, encodedImage);
+        } else if (imgRequest == 3) {
             //Faculty Bank Details
             colgFactBankDetailText.setText("bankdetails.jpg");
-            addColgFacImageInString.add(2,encodedImage);
+            addColgFacImageInString.add(2, encodedImage);
         }
 
 
@@ -444,20 +458,18 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
             spnColgFacSelectCountry = adapterView.getItemAtPosition(i).toString();
             System.out.println("countrySelected " + spnColgFacSelectCountry);
-        }else if (adapterView.getId() == R.id.spinnerColgFacDept) {
+        } else if (adapterView.getId() == R.id.spinnerColgFacDept) {
 
             spnColgFacSelectDept = adapterView.getItemAtPosition(i).toString();
             System.out.println("ColgFacDe0t " + spnColgFacSelectDept);
-        }else if (adapterView.getId() == R.id.spinnerColgTeachExp) {
+        } else if (adapterView.getId() == R.id.spinnerColgTeachExp) {
 
             spnColgFacTechExp = adapterView.getItemAtPosition(i).toString();
             System.out.println("ColgFacTechExp " + spnColgFacTechExp);
-        }else if(adapterView.getId() == R.id.spinnerColgIndusExp){
+        } else if (adapterView.getId() == R.id.spinnerColgIndusExp) {
             spnColgFacIndusExp = adapterView.getItemAtPosition(i).toString();
             System.out.println("ColgFacIndusExp " + spnColgFacIndusExp);
-        }
-
-        else if (adapterView.getId() == R.id.modeOfColgClass) {
+        } else if (adapterView.getId() == R.id.modeOfColgClass) {
             spnColgFacModeOfClass = adapterView.getItemAtPosition(i).toString();
             System.out.println("ColgFacModeOfClass " + spnColgFacModeOfClass);
         }
@@ -470,85 +482,25 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-    private void setView(View view) {
-
-        addColgFacImageInString=new ArrayList<>();
-        preferredMaxSubject=new ArrayList<>();
-        courseNameList=new ArrayList<>();
-
-        colgFacNameEdit=(EditText)view.findViewById(R.id.ColgFacNameInput);
-        colgFacMobileEdit=(EditText)view.findViewById(R.id.colgFacMobile);
-        colgFacAddressEdit=(EditText)view.findViewById(R.id.colgFacAddress);
-        colgFacPincodeEdit=(EditText)view.findViewById(R.id.colgFacPincode);
-        colgFacEmailEdit=(EditText)view.findViewById(R.id.colgFacEmail);
-        colgFacAboutEdit=(EditText)view.findViewById(R.id.colgFacAbout);
-        colgFacSub1Edit=(EditText)view.findViewById(R.id.colgFacSub1);
-        colgFacSub2Edit=(EditText)view.findViewById(R.id.colgFacSub2);
-        colgFacSub3Edit=(EditText)view.findViewById(R.id.colgFacSub3);
-        colgFacIdProofNumberEdit=(EditText)view.findViewById(R.id.colgFacIdProofNumber);
-        colgFacPasswordEdit=(EditText)view.findViewById(R.id.colgFacPassword);
-
-        spinnerSelectColgInput = (Spinner) view.findViewById(R.id.spinnerSelectColg);
-
-        spinnerColgFacCountryInput = (Spinner) view.findViewById(R.id.spinnerColgFacCountry);
-        spinnerColgFacDeptInput=(Spinner)view.findViewById(R.id.spinnerColgFacDept);
-        spinnerColgTeachExpInput=(Spinner)view.findViewById(R.id.spinnerColgTeachExp);
-        spinnerColgIndusExpInput=(Spinner)view.findViewById(R.id.spinnerColgIndusExp);
-        modeOfColgClassInput=(Spinner)view.findViewById(R.id.modeOfColgClass);
-        spinnerColgMaxSub=(Spinner)view.findViewById(R.id.spinnerColgMaxSub);
-
-        cbBE=(CheckBox)view.findViewById(R.id.be);
-        cbME=(CheckBox)view.findViewById(R.id.me);
-        cbMS=(CheckBox)view.findViewById(R.id.ms);
-        cbBtech=(CheckBox)view.findViewById(R.id.btech);
-        cbMtech=(CheckBox)view.findViewById(R.id.mtech);
-
-        cbMphil=(CheckBox)view.findViewById(R.id.mphil);
-        cbPhd=(CheckBox)view.findViewById(R.id.phd);
-        cbBA=(CheckBox)view.findViewById(R.id.ba);
-        cbMA=(CheckBox)view.findViewById(R.id.ma);
-        cbBSC=(CheckBox)view.findViewById(R.id.bsc);
-
-        cbMSC=(CheckBox)view.findViewById(R.id.msc);
-        cbMCA=(CheckBox)view.findViewById(R.id.mca);
-        cbBcom=(CheckBox)view.findViewById(R.id.bcom);
-        cbMcom=(CheckBox)view.findViewById(R.id.mcom);
-        cbOthers=(CheckBox)view.findViewById(R.id.others);
-
-        cbList=new ArrayList<>();
-
-
-        ColgUploadImage=(Button)view.findViewById(R.id.ColgUploadImage);
-        colgFacIdProof=(Button)view.findViewById(R.id.colgFacIdProof);
-        colgFacBankDetails=(Button)view.findViewById(R.id.colgFacBankDetails);
-
-        colgFacPhotoText=(TextView) view.findViewById(R.id.colgFacPhotoText);
-        colgFacIdProofText=(TextView) view.findViewById(R.id.colgFacIdProofText);
-        colgFactBankDetailText=(TextView) view.findViewById(R.id.colgFactBankDetailText);
-
-
-        btnColFacReg=(Button)view.findViewById(R.id.btnColFacReg);
-
-    }
 
     private void getAllColgFacEnteredDetails() {
 
-        String colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber;
+        String colgFacName, colgFacMobile, colgFacAddress, colgFacPincode, colgFacEmail, colgFacPassword, colgFacAbout, colgFacSub1, colgFacSub2, colgFacSub3, colgFacIdProofNumber;
 
-        colgFacName=colgFacNameEdit.getText().toString();
-        colgFacMobile=colgFacMobileEdit.getText().toString();
-        colgFacAddress=colgFacAddressEdit.getText().toString();
-        colgFacPincode=colgFacPincodeEdit.getText().toString();
-        colgFacEmail=colgFacEmailEdit.getText().toString();
-        colgFacPassword=colgFacPasswordEdit.getText().toString();
-        colgFacAbout=colgFacAboutEdit.getText().toString();
-        colgFacSub1=colgFacSub1Edit.getText().toString();
-        colgFacSub2=colgFacSub2Edit.getText().toString();
-        colgFacSub3=colgFacSub3Edit.getText().toString();
-        colgFacIdProofNumber=colgFacIdProofNumberEdit.getText().toString();
+        colgFacName = colgFacNameEdit.getText().toString();
+        colgFacMobile = colgFacMobileEdit.getText().toString();
+        colgFacAddress = colgFacAddressEdit.getText().toString();
+        colgFacPincode = colgFacPincodeEdit.getText().toString();
+        colgFacEmail = colgFacEmailEdit.getText().toString();
+        colgFacPassword = colgFacPasswordEdit.getText().toString();
+        colgFacAbout = colgFacAboutEdit.getText().toString();
+        colgFacSub1 = colgFacSub1Edit.getText().toString();
+        colgFacSub2 = colgFacSub2Edit.getText().toString();
+        colgFacSub3 = colgFacSub3Edit.getText().toString();
+        colgFacIdProofNumber = colgFacIdProofNumberEdit.getText().toString();
 
 
-        colgFacvalidation(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,colgFacSub1,colgFacSub2,colgFacSub3,colgFacIdProofNumber);
+        colgFacvalidation(colgFacName, colgFacMobile, colgFacAddress, colgFacPincode, colgFacEmail, colgFacPassword, colgFacAbout, colgFacSub1, colgFacSub2, colgFacSub3, colgFacIdProofNumber);
 
 
         //System.out.println("EnteredData"+colgFacName+" "+colgFacMobile+" "+colgFacAddress+" "+colgFacPincode+" "+colgFacEmail+" "+colgFacAbout+" "+colgFacSub1+" "+colgFacSub2+" "+colgFacSub3+" "+colgFacIdProofNumber);
@@ -557,113 +509,113 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     private void colgFacvalidation(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, String colgFacSub1, String colgFacSub2, String colgFacSub3, String colgFacIdProofNumber) {
 
-        if(Validation.nullValidation(spnColgFacSelectColg)){
+        if (Validation.nullValidation(spnColgFacSelectColg)) {
             Toast.makeText(getActivity(), "Please Select College", Toast.LENGTH_LONG).show();
             return;
         }
 
 
-        if(Validation.nullValidation(colgFacName)){
+        if (Validation.nullValidation(colgFacName)) {
             Toast.makeText(getActivity(), "Please Enter Name", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacEmail)){
+        if (Validation.nullValidation(colgFacEmail)) {
             Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacMobile)){
+        if (Validation.nullValidation(colgFacMobile)) {
             Toast.makeText(getActivity(), "Please Enter Mobile Number", Toast.LENGTH_LONG).show();
             return;
         }
 
         //photo validation
 
-        if(Validation.nullValidation(spnColgFacSelectCountry)){
+        if (Validation.nullValidation(spnColgFacSelectCountry)) {
             Toast.makeText(getActivity(), "Please Select Country", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacAddress)){
+        if (Validation.nullValidation(colgFacAddress)) {
             Toast.makeText(getActivity(), "Please Enter Address", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacPincode)){
+        if (Validation.nullValidation(colgFacPincode)) {
             Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
             return;
         }
 
 
-        if(Validation.nullValidation(colgFacPincode)){
+        if (Validation.nullValidation(colgFacPincode)) {
             Toast.makeText(getActivity(), "Please Enter Pincode", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.listValidation(cbList)){
+        if (Validation.listValidation(cbList)) {
             Toast.makeText(getActivity(), "Please Select Qualification", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(spnColgFacTechExp)){
+        if (Validation.nullValidation(spnColgFacTechExp)) {
             Toast.makeText(getActivity(), "Please Select Technical Experience", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(spnColgFacModeOfClass)){
+        if (Validation.nullValidation(spnColgFacModeOfClass)) {
             Toast.makeText(getActivity(), "Please Select Class Mode", Toast.LENGTH_LONG).show();
             return;
         }
 
         //Bio Data Validation
 
-        if(Validation.listValidation(preferredMaxSubject)){
+        if (Validation.listValidation(preferredMaxSubject)) {
             Toast.makeText(getActivity(), "Please Select Subject", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(spnColgFacIndusExp)){
+        if (Validation.nullValidation(spnColgFacIndusExp)) {
             Toast.makeText(getActivity(), "Please Select Industrical Experience", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacAbout)){
+        if (Validation.nullValidation(colgFacAbout)) {
             Toast.makeText(getActivity(), "Please Select About Yourself", Toast.LENGTH_LONG).show();
             return;
         }
 
 
-        if(Validation.nullValidation(spnColgFacSelectDept)){
+        if (Validation.nullValidation(spnColgFacSelectDept)) {
             Toast.makeText(getActivity(), "Please Select Department", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacSub1)){
+        if (Validation.nullValidation(colgFacSub1)) {
             Toast.makeText(getActivity(), "Please Enter Subect1", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacSub2)){
+        if (Validation.nullValidation(colgFacSub2)) {
             Toast.makeText(getActivity(), "Please Enter Subect2", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(Validation.nullValidation(colgFacSub3)){
+        if (Validation.nullValidation(colgFacSub3)) {
             Toast.makeText(getActivity(), "Please Enter Subect3", Toast.LENGTH_LONG).show();
             return;
         }
 
         //ID Proof Document
 
-        if(Validation.nullValidation(colgFacIdProofNumber)){
+        if (Validation.nullValidation(colgFacIdProofNumber)) {
             Toast.makeText(getActivity(), "Please Enter ID Proof Number", Toast.LENGTH_LONG).show();
             return;
         }
 
         //Bank Document
 
-        if(Validation.nullValidation(colgFacPassword)) {
+        if (Validation.nullValidation(colgFacPassword)) {
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_LONG).show();
             return;
         }
@@ -672,36 +624,36 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         courseNameList.add(colgFacSub2);
         courseNameList.add(colgFacSub3);
 
-        doRegisterCollegeFaculty(colgFacName,colgFacMobile,colgFacAddress,colgFacPincode,colgFacEmail,colgFacPassword,colgFacAbout,courseNameList,colgFacIdProofNumber);
+        doRegisterCollegeFaculty(colgFacName, colgFacMobile, colgFacAddress, colgFacPincode, colgFacEmail, colgFacPassword, colgFacAbout, courseNameList, colgFacIdProofNumber);
 
 
     }
 
-    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout,  List<String> courseNameList, String colgFacIdProofNumber) {
+    private void doRegisterCollegeFaculty(String colgFacName, String colgFacMobile, String colgFacAddress, String colgFacPincode, String colgFacEmail, String colgFacPassword, String colgFacAbout, List<String> courseNameList, String colgFacIdProofNumber) {
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        Call<BaseResponseDTO> call=apiInterface.doCollegeFacRegistration(
+        Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
                 spnColgFacSelectColg,
                 colgFacName,
                 colgFacEmail,
                 colgFacMobile,
-                "photo",
+                image1,
                 spnColgFacSelectCountry,
                 colgFacAddress,
                 colgFacPincode,
                 cbList,
                 spnColgFacTechExp,
                 spnColgFacModeOfClass,
-                "BioData",
+                image1,
                 preferredMaxSubject,
                 spnColgFacIndusExp,
                 colgFacAbout,
                 spnColgFacSelectDept,
                 courseNameList,
-                "id_proof_document",
+                image1,
                 colgFacIdProofNumber,
-                "bank_document",
+                image1,
                 colgFacEmail,
                 colgFacPassword);
 
@@ -709,13 +661,13 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
 
-                BaseResponseDTO baseResponseDTO=response.body();
-                System.out.println("RegistrationResponse"+baseResponseDTO.getResponseMessage()+" "+baseResponseDTO.getResponseCode());
+                BaseResponseDTO baseResponseDTO = response.body();
+                System.out.println("RegistrationResponse" + baseResponseDTO.getResponseMessage() + " " + baseResponseDTO.getResponseCode());
 
-                if(baseResponseDTO.getResponseCode()==200){
-                    Toast.makeText(getActivity(),"Registered Successfully",Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getActivity(),"Not Registered",Toast.LENGTH_LONG).show();
+                if (baseResponseDTO.getResponseCode() == 200) {
+                    Toast.makeText(getActivity(), "Registered Successfully", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), "Not Registered", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -723,23 +675,83 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
 
-                System.out.println("Exception"+t.getMessage().toString());
+                System.out.println("Exception" + t.getMessage().toString());
 
             }
         });
 
 
-
     }
 
+
+    private void setView(View view) {
+
+        addColgFacImageInString = new ArrayList<>();
+        preferredMaxSubject = new ArrayList<>();
+        courseNameList = new ArrayList<>();
+
+        colgFacNameEdit = (EditText) view.findViewById(R.id.ColgFacNameInput);
+        colgFacMobileEdit = (EditText) view.findViewById(R.id.colgFacMobile);
+        colgFacAddressEdit = (EditText) view.findViewById(R.id.colgFacAddress);
+        colgFacPincodeEdit = (EditText) view.findViewById(R.id.colgFacPincode);
+        colgFacEmailEdit = (EditText) view.findViewById(R.id.colgFacEmail);
+        colgFacAboutEdit = (EditText) view.findViewById(R.id.colgFacAbout);
+        colgFacSub1Edit = (EditText) view.findViewById(R.id.colgFacSub1);
+        colgFacSub2Edit = (EditText) view.findViewById(R.id.colgFacSub2);
+        colgFacSub3Edit = (EditText) view.findViewById(R.id.colgFacSub3);
+        colgFacIdProofNumberEdit = (EditText) view.findViewById(R.id.colgFacIdProofNumber);
+        colgFacPasswordEdit = (EditText) view.findViewById(R.id.colgFacPassword);
+
+        spinnerSelectColgInput = (Spinner) view.findViewById(R.id.spinnerSelectColg);
+
+        spinnerColgFacCountryInput = (Spinner) view.findViewById(R.id.spinnerColgFacCountry);
+        spinnerColgFacDeptInput = (Spinner) view.findViewById(R.id.spinnerColgFacDept);
+        spinnerColgTeachExpInput = (Spinner) view.findViewById(R.id.spinnerColgTeachExp);
+        spinnerColgIndusExpInput = (Spinner) view.findViewById(R.id.spinnerColgIndusExp);
+        modeOfColgClassInput = (Spinner) view.findViewById(R.id.modeOfColgClass);
+        spinnerColgMaxSub = (Spinner) view.findViewById(R.id.spinnerColgMaxSub);
+
+        cbBE = (CheckBox) view.findViewById(R.id.be);
+        cbME = (CheckBox) view.findViewById(R.id.me);
+        cbMS = (CheckBox) view.findViewById(R.id.ms);
+        cbBtech = (CheckBox) view.findViewById(R.id.btech);
+        cbMtech = (CheckBox) view.findViewById(R.id.mtech);
+
+        cbMphil = (CheckBox) view.findViewById(R.id.mphil);
+        cbPhd = (CheckBox) view.findViewById(R.id.phd);
+        cbBA = (CheckBox) view.findViewById(R.id.ba);
+        cbMA = (CheckBox) view.findViewById(R.id.ma);
+        cbBSC = (CheckBox) view.findViewById(R.id.bsc);
+
+        cbMSC = (CheckBox) view.findViewById(R.id.msc);
+        cbMCA = (CheckBox) view.findViewById(R.id.mca);
+        cbBcom = (CheckBox) view.findViewById(R.id.bcom);
+        cbMcom = (CheckBox) view.findViewById(R.id.mcom);
+        cbOthers = (CheckBox) view.findViewById(R.id.others);
+
+        cbList = new ArrayList<>();
+
+
+        ColgUploadImage = (Button) view.findViewById(R.id.ColgUploadImage);
+        colgFacIdProof = (Button) view.findViewById(R.id.colgFacIdProof);
+        colgFacBankDetails = (Button) view.findViewById(R.id.colgFacBankDetails);
+
+        colgFacPhotoText = (TextView) view.findViewById(R.id.colgFacPhotoText);
+        colgFacIdProofText = (TextView) view.findViewById(R.id.colgFacIdProofText);
+        colgFactBankDetailText = (TextView) view.findViewById(R.id.colgFactBankDetailText);
+
+
+        btnColFacReg = (Button) view.findViewById(R.id.btnColFacReg);
+
+    }
 
 
     @Override
     public void selectMaxSpinnerCheckBox(String item, boolean status) {
 
-        if(status){
+        if (status) {
             preferredMaxSubject.add(item);
-        }else {
+        } else {
             preferredMaxSubject.remove(item);
         }
 
