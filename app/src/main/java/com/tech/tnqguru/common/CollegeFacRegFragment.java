@@ -349,8 +349,63 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                getAllColgFacEnteredDetails();
+                doDummyRegistration();
 
+                //getAllColgFacEnteredDetails();
+
+
+            }
+        });
+
+
+    }
+
+    private void doDummyRegistration() {
+        ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
+
+        Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
+                "UG",
+                "name",
+                "email",
+                "9999999999",
+                image1,
+                "country",
+                "address",
+                "600000",
+                cbList,
+                "1",
+                "Online",
+                image1,
+                preferredMaxSubject,
+                "spnColgFacIndusExp",
+                "colgFacAbout",
+                "spnColgFacSelectDept",
+                courseNameList,
+                image1,
+                "colgFacIdProofNumber",
+                image1,
+                "colgFacEmail",
+                "colgFacPassword");
+
+        call.enqueue(new Callback<BaseResponseDTO>() {
+            @Override
+            public void onResponse(Call<BaseResponseDTO> call, Response<BaseResponseDTO> response) {
+
+                BaseResponseDTO baseResponseDTO = response.body();
+                System.out.println("RegistrationResponse" + baseResponseDTO.getResponseMessage() + " " + baseResponseDTO.getResponseCode());
+
+                if (baseResponseDTO.getResponseCode() == 200) {
+                    Toast.makeText(getActivity(), "Registered Successfully", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), "Not Registered", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
+
+                System.out.println("Exception" + t.getMessage().toString());
 
             }
         });
@@ -394,9 +449,10 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     private MultipartBody.Part prepareImagePart(String path) {
 
+        String imageName="Img";
         File file = new File(path);
         RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(Uri.fromFile(file))), file);
-        return MultipartBody.Part.createFormData("Image1", file.getName(), requestBody);
+        return MultipartBody.Part.createFormData(imageName, file.getName(), requestBody);
 
     }
 
