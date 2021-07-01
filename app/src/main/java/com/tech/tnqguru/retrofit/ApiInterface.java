@@ -102,18 +102,18 @@ public interface ApiInterface {
             @Part("faculty_country") RequestBody facCountry,
             @Part("faculty_address") RequestBody facAddress,
             @Part("faculty_pincode") RequestBody facPinCode,
-            @Part("faculty_qualification") List<MultipartBody.Part> facQualification,
+            @Part List<MultipartBody.Part> facQualification,
 
             @Part("teaching_experience") RequestBody facTeachExp,
             @Part("mode_of_class") RequestBody facModeOfClass,
             @Part ("bio_data_document")  RequestBody facBioData,
-            @Part("subject")List<MultipartBody.Part> preMaxSubject,
+            @Part List<MultipartBody.Part> preMaxSubject,
 
             @Part("industrial_experience") RequestBody facIndusExp,
             @Part("about_faculty") RequestBody facAbtFac,
 
             @Part("kind_of_degree")RequestBody facDept,
-            @Part("course_name")List<MultipartBody.Part> courseNameList,
+            @Part List<MultipartBody.Part> courseNameList,
 
 
             @Part ("id_proof_document")RequestBody facIdProofDoucment,

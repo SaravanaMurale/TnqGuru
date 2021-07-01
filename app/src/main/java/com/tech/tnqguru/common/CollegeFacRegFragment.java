@@ -376,8 +376,8 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         /*RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
         RequestBody list = RequestBody.create(MediaType.parse("text/plain"), cbList);*/
 
-        List<MultipartBody.Part> cbLists=new ArrayList<>();
-        cbLists.add(MultipartBody.Part.createFormData("faculty_qualification", "cbList"));
+       /* List<MultipartBody.Part> cbLists=new ArrayList<>();
+        cbLists.add(MultipartBody.Part.createFormData("faculty_qualification", "cbList"));*/
 
         List<MultipartBody.Part> preferredMaxSubjects=new ArrayList<>();
         preferredMaxSubjects.add(MultipartBody.Part.createFormData("subject", "cbList"));
@@ -385,9 +385,46 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         List<MultipartBody.Part> courseNameLists=new ArrayList<>();
         courseNameLists.add(MultipartBody.Part.createFormData("course_name", "cbList"));
 
-        String text="UG";
 
-        RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), text);
+
+        String college_level="UG";
+        String faculty_name="Srini";
+        String faculty_email="srini3@gmail.com";
+        String faculty_phone="9876543219";
+
+        //String faculty_photo="UG";
+
+        String faculty_country="India";
+        String faculty_address="address";
+        String faculty_pincode="607894";
+
+        //String faculty_qualification="UG";
+
+        String teaching_experience="5";
+        String mode_of_class="Online";
+
+        //String bio_data_document="UG";
+
+       // String subject[]="UG";
+
+        String industrial_experience="1";
+        String about_faculty="About Faculty";
+        String kind_of_degree="Kind Of Degree";
+
+        //String course_name[]="UG";
+
+        //String id_proof_document="UG";
+        String id_proof_document_number="123456789";
+
+        //String bank_details="UG";
+
+        String username="srini";
+        String password="srini@123";
+
+        RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), faculty_name);
+
+        List<MultipartBody.Part> cbLists=new ArrayList<>();
+        cbLists.add(MultipartBody.Part.createFormData("faculty_qualification", "cbList"));
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
