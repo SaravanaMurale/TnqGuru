@@ -57,37 +57,73 @@ public interface ApiInterface {
     @POST("college_faculty/")
     Call<BaseResponseDTO> doCollegeFacRegistration(
 
-            @Field("college_level") String facColg,
-            @Field("faculty_name") String facName,
-            @Field("faculty_email") String facEmail,
-            @Field("faculty_phone") String facphone,
+            @Part("college_level") String facColg,
+            @Part("faculty_name") String facName,
+            @Part("faculty_email") String facEmail,
+            @Part("faculty_phone") String facphone,
             @Part MultipartBody.Part facPhoto,
 
-            @Field("faculty_country") String facCountry,
-            @Field("faculty_address") String facAddress,
-            @Field("faculty_pincode") String facPinCode,
+            @Part("faculty_country") String facCountry,
+            @Part("faculty_address") String facAddress,
+            @Part("faculty_pincode") String facPinCode,
             @Part("faculty_qualification[]") List<String> facQualification,
 
-            @Field("teaching_experience") String facTeachExp,
-            @Field("mode_of_class") String facModeOfClass,
+            @Part("teaching_experience") String facTeachExp,
+            @Part("mode_of_class") String facModeOfClass,
             @Part MultipartBody.Part facBioData,
-            @Field("subject[]")List<String> preMaxSubject,
+            @Part("subject[]")List<String> preMaxSubject,
 
-            @Field("industrial_experience") String facIndusExp,
-            @Field("about_faculty") String facAbtFac,
+            @Part("industrial_experience") String facIndusExp,
+            @Part("about_faculty") String facAbtFac,
 
-            @Field("kind_of_degree")String facDept,
-            @Field("course_name[]")List<String> courseNameList,
+            @Part("kind_of_degree")String facDept,
+            @Part("course_name[]")List<String> courseNameList,
 
 
             @Part MultipartBody.Part facIdProofDoucment,
-            @Field("id_proof_document_number") String facDocNum,
+            @Part("id_proof_document_number") String facDocNum,
             @Part MultipartBody.Part facBankDetails,
 
 
-            @Field("username") String facUserName,
-            @Field("password") String facPassword
+            @Part("username") String facUserName,
+            @Part("password") String facPassword
             );
+
+    @Multipart
+    @POST("college_faculty/")
+    Call<BaseResponseDTO> doDummyCollegeFacRegistration(
+
+            @Part("college_level") RequestBody facColg,
+            @Part("faculty_name") RequestBody facName,
+            @Part("faculty_email") RequestBody facEmail,
+            @Part("faculty_phone") RequestBody facphone,
+            @Part ("faculty_photo") RequestBody facPhoto,
+
+            @Part("faculty_country") RequestBody facCountry,
+            @Part("faculty_address") RequestBody facAddress,
+            @Part("faculty_pincode") RequestBody facPinCode,
+            @Part("faculty_qualification") List<MultipartBody.Part> facQualification,
+
+            @Part("teaching_experience") RequestBody facTeachExp,
+            @Part("mode_of_class") RequestBody facModeOfClass,
+            @Part ("bio_data_document")  RequestBody facBioData,
+            @Part("subject")List<MultipartBody.Part> preMaxSubject,
+
+            @Part("industrial_experience") RequestBody facIndusExp,
+            @Part("about_faculty") RequestBody facAbtFac,
+
+            @Part("kind_of_degree")RequestBody facDept,
+            @Part("course_name")List<MultipartBody.Part> courseNameList,
+
+
+            @Part ("id_proof_document")RequestBody facIdProofDoucment,
+            @Part("id_proof_document_number") RequestBody facDocNum,
+            @Part ("bank_details")RequestBody facBankDetails,
+
+
+            @Part("username") RequestBody facUserName,
+            @Part("password") RequestBody facPassword
+    );
 
 
     @FormUrlEncoded

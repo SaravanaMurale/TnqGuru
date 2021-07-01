@@ -2,6 +2,7 @@ package com.tech.tnqguru.common;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.loader.content.CursorLoader;
 
 import com.tech.tnqguru.R;
 import com.tech.tnqguru.spinneradapter.MyAdapter;
@@ -74,6 +76,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     private List<String> preferredMaxSubject;
     private List<String> courseNameList;
+
+    RequestBody requestFile;
+    RequestBody descBody;;
 
 
     @Nullable
@@ -349,9 +354,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                //doDummyRegistration();
+                doDummyRegistration();
 
-               getAllColgFacEnteredDetails();
+               //getAllColgFacEnteredDetails();
 
 
             }
@@ -360,65 +365,55 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-  /*  private void doDummyRegistration() {
+    private void doDummyRegistration() {
+
+        //https://www.simplifiedcoding.net/retrofit-upload-file-tutorial/
 
         //https://www.youtube.com/watch?v=yKxLgEfY49A
         //https://stackoverflow.com/questions/40607862/retrofit-throwing-an-exception-java-lang-illegalargumentexception-only-one-en/40608320
 
 
-        *//*RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
-        RequestBody list = RequestBody.create(MediaType.parse("text/plain"), cbList);*//*
+        /*RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
+        RequestBody list = RequestBody.create(MediaType.parse("text/plain"), cbList);*/
 
-        //RequestBody.create(MultipartBody..parse("text/plain"), "UG");
+        List<MultipartBody.Part> cbLists=new ArrayList<>();
+        cbLists.add(MultipartBody.Part.createFormData("faculty_qualification", "cbList"));
+
+        List<MultipartBody.Part> preferredMaxSubjects=new ArrayList<>();
+        preferredMaxSubjects.add(MultipartBody.Part.createFormData("subject", "cbList"));
+
+        List<MultipartBody.Part> courseNameLists=new ArrayList<>();
+        courseNameLists.add(MultipartBody.Part.createFormData("course_name", "cbList"));
+
+        String text="UG";
+
+        RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), text);
+
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        *//*Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
+        Call<BaseResponseDTO> call = apiInterface.doDummyCollegeFacRegistration(
                 emailRequest,
                 emailRequest,
                 emailRequest,
                 emailRequest,
-                image1,
+                requestFile,
                 emailRequest,
                 emailRequest,
                 emailRequest,
+                cbLists,
+                emailRequest,
+                emailRequest,
+                requestFile,
+                preferredMaxSubjects,
                 emailRequest,
                 emailRequest,
                 emailRequest,
-                image1,
+                courseNameLists,
+                requestFile,
                 emailRequest,
+                requestFile,
                 emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                image1,
-                emailRequest,
-                image1,
-                emailRequest,
-                emailRequest);*//*
-
-        Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
-                "spnColgFacSelectColg",
-                "colgFacName",
-                "colgFacEmail",
-                "colgFacMobile",
-                image1,
-                "spnColgFacSelectCountry",
-                "colgFacAddress",
-                "colgFacPincode",
-                cbList,
-                "spnColgFacTechExp",
-                "spnColgFacModeOfClass",
-                image1,
-                preferredMaxSubject,
-                "spnColgFacIndusExp",
-                "colgFacAbout",
-                "spnColgFacSelectDept",
-                courseNameList,
-                image1,
-                "colgFacIdProofNumber",
-                image1,
-                "colgFacEmail",
-                "colgFacPassword");
+                emailRequest);
 
         call.enqueue(new Callback<BaseResponseDTO>() {
             @Override
@@ -439,23 +434,26 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
 
 
-                System.out.println("Exception"+t.getMessage());
+                System.out.println("ErrorMessage"+t.getMessage().toString());
 
-                System.out.println("Exception" + t.getMessage().toString());
 
             }
         });
 
 
-    }*/
+    }
 
     private void uploadImageToServer(int i) {
 
-        Intent intent = new Intent();
+        //Intent intent = new Intent();
         //intent.setType("image/*");
-        intent.setType("*/*");  // For all kind of upload
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+       // intent.setType("*/*");  // For all kind of upload
+       // intent.setAction(Intent.ACTION_GET_CONTENT);
+
+
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         IMG_REQUEST = i;
+
         startActivityForResult(intent, IMG_REQUEST);
 
     }
@@ -466,10 +464,12 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
 
-            Uri path = data.getData();
-            System.out.println("ImagePath" + path.getPath());
+            Uri selectedImage = data.getData();
+            System.out.println("ImagePath" + selectedImage.getPath());
 
-            image1 = prepareImagePart(path);
+            uploadFile(selectedImage, "My Image");
+
+           // image1 = prepareImagePart(path);
 
 
             /*try {
@@ -483,14 +483,29 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         }
     }
 
-    private MultipartBody.Part prepareImagePart(Uri path) {
+    private void uploadFile(Uri fileUri, String my_image) {
 
-        String imageName="Img";
-        File file = new File(path.getPath());
-        RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getApplicationContext().getContentResolver().getType(path)),file);
-        return MultipartBody.Part.createFormData(imageName, file.getName(), requestBody);
+        //creating a file
+        File file = new File(getRealPathFromURI(fileUri));
+
+        //creating request body for file
+        requestFile = RequestBody.create(MediaType.parse(getActivity().getContentResolver().getType(fileUri)), file);
+        descBody = RequestBody.create(MediaType.parse("text/plain"), my_image);
 
     }
+
+    private String getRealPathFromURI(Uri contentUri) {
+        String[] proj = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(getActivity(), contentUri, proj, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String result = cursor.getString(column_index);
+        cursor.close();
+        return result;
+    }
+
+
 
     private void startUploadToServer(int imgRequest) {
 
@@ -846,6 +861,15 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
         } else {
             preferredMaxSubject.remove(item);
         }
+
+    }
+
+    private MultipartBody.Part prepareImagePart(Uri path) {
+
+        String imageName="Img";
+        File file = new File(path.getPath());
+        RequestBody requestBody = RequestBody.create(MediaType.parse(getActivity().getApplicationContext().getContentResolver().getType(path)),file);
+        return MultipartBody.Part.createFormData(imageName, file.getName(), requestBody);
 
     }
 }
