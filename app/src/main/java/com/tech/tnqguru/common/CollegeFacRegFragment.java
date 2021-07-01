@@ -349,9 +349,9 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
 
-                doDummyRegistration();
+                //doDummyRegistration();
 
-                //getAllColgFacEnteredDetails();
+               getAllColgFacEnteredDetails();
 
 
             }
@@ -360,39 +360,65 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-    private void doDummyRegistration() {
+  /*  private void doDummyRegistration() {
 
         //https://www.youtube.com/watch?v=yKxLgEfY49A
         //https://stackoverflow.com/questions/40607862/retrofit-throwing-an-exception-java-lang-illegalargumentexception-only-one-en/40608320
 
 
-        RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
+        *//*RequestBody emailRequest = RequestBody.create(MediaType.parse("text/plain"), "UG");
+        RequestBody list = RequestBody.create(MediaType.parse("text/plain"), cbList);*//*
 
+        //RequestBody.create(MultipartBody..parse("text/plain"), "UG");
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
+        *//*Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                image1,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                image1,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                emailRequest,
+                image1,
+                emailRequest,
+                image1,
+                emailRequest,
+                emailRequest);*//*
+
         Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
+                "spnColgFacSelectColg",
+                "colgFacName",
+                "colgFacEmail",
+                "colgFacMobile",
                 image1,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
+                "spnColgFacSelectCountry",
+                "colgFacAddress",
+                "colgFacPincode",
+                cbList,
+                "spnColgFacTechExp",
+                "spnColgFacModeOfClass",
                 image1,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
-                emailRequest,
+                preferredMaxSubject,
+                "spnColgFacIndusExp",
+                "colgFacAbout",
+                "spnColgFacSelectDept",
+                courseNameList,
                 image1,
-                emailRequest,
+                "colgFacIdProofNumber",
                 image1,
-                emailRequest,
-                emailRequest);
+                "colgFacEmail",
+                "colgFacPassword");
 
         call.enqueue(new Callback<BaseResponseDTO>() {
             @Override
@@ -412,13 +438,16 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onFailure(Call<BaseResponseDTO> call, Throwable t) {
 
+
+                System.out.println("Exception"+t.getMessage());
+
                 System.out.println("Exception" + t.getMessage().toString());
 
             }
         });
 
 
-    }
+    }*/
 
     private void uploadImageToServer(int i) {
 
@@ -696,7 +725,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
 
         ApiInterface apiInterface = ApiClient.getAPIClient().create(ApiInterface.class);
 
-        /*Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
+        Call<BaseResponseDTO> call = apiInterface.doCollegeFacRegistration(
                 spnColgFacSelectColg,
                 colgFacName,
                 colgFacEmail,
@@ -741,7 +770,7 @@ public class CollegeFacRegFragment extends Fragment implements AdapterView.OnIte
                 System.out.println("Exception" + t.getMessage().toString());
 
             }
-        });*/
+        });
 
 
     }

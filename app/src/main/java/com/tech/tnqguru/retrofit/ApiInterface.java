@@ -53,41 +53,40 @@ public interface ApiInterface {
     @GET("school_fees/{std}/{board}")
     Call<List<ScholStuFeesResponseDTO>> getScholStuFeesDetails(@Path("std") String std, @Path("board") String board);
 
-    @FormUrlEncoded
     @Multipart
     @POST("college_faculty/")
     Call<BaseResponseDTO> doCollegeFacRegistration(
 
-            @Part("college_level") RequestBody facColg,
-            @Part("faculty_name") RequestBody facName,
-            @Part("faculty_email") RequestBody facEmail,
-            @Part("faculty_phone") RequestBody facphone,
+            @Field("college_level") String facColg,
+            @Field("faculty_name") String facName,
+            @Field("faculty_email") String facEmail,
+            @Field("faculty_phone") String facphone,
             @Part MultipartBody.Part facPhoto,
 
-            @Part("faculty_country") RequestBody facCountry,
-            @Part("faculty_address") RequestBody facAddress,
-            @Part("faculty_pincode") RequestBody facPinCode,
-            @Part("faculty_qualification") RequestBody facQualification,
+            @Field("faculty_country") String facCountry,
+            @Field("faculty_address") String facAddress,
+            @Field("faculty_pincode") String facPinCode,
+            @Part("faculty_qualification[]") List<String> facQualification,
 
-            @Part("teaching_experience") RequestBody facTeachExp,
-            @Part("mode_of_class") RequestBody facModeOfClass,
+            @Field("teaching_experience") String facTeachExp,
+            @Field("mode_of_class") String facModeOfClass,
             @Part MultipartBody.Part facBioData,
-            @Part("subject")RequestBody preMaxSubject,
+            @Field("subject[]")List<String> preMaxSubject,
 
-            @Part("industrial_experience") RequestBody facIndusExp,
-            @Part("about_faculty") RequestBody facAbtFac,
+            @Field("industrial_experience") String facIndusExp,
+            @Field("about_faculty") String facAbtFac,
 
-            @Part("kind_of_degree")RequestBody facDept,
-            @Part("course_name")RequestBody courseNameList,
+            @Field("kind_of_degree")String facDept,
+            @Field("course_name[]")List<String> courseNameList,
 
 
             @Part MultipartBody.Part facIdProofDoucment,
-            @Part("id_proof_document_number") RequestBody facDocNum,
+            @Field("id_proof_document_number") String facDocNum,
             @Part MultipartBody.Part facBankDetails,
 
 
-            @Part("username") RequestBody facUserName,
-            @Part("password") RequestBody facPassword
+            @Field("username") String facUserName,
+            @Field("password") String facPassword
             );
 
 
